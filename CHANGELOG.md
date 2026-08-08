@@ -154,6 +154,20 @@ runs the corrected pipeline end to end and resyncs all three releasables to
 
 ## 0.1.0
 
+First release of the stricttest Go env-hygiene module.
+
+<details>
+<summary>Context</summary>
+
+Go has no plugin mechanism, so the floor ships as explicit helpers: one
+hygiene.Isolate(t) call gives a test a throwaway HOME and XDG directory set, an
+empty git config with a throwaway identity, transports locked to file://, and an
+environment stripped of every ambient credential -- all restored when the test
+ends. There is deliberately no socket guard: Go has no sys.addaudithook
+equivalent, and a partial guard would read as a guarantee.
+
+</details>
+
 ### Features
 
 - [go-stricttest] **New: the `hygiene` package.** One `hygiene.Isolate(t)` call gives a Go test a throwaway `HOME`, an empty git config with a throwaway identity, `GIT_ALLOW_PROTOCOL=file`, and an environment stripped of every ambient credential -- all restored when the test ends. Granular helpers (`ThrowawayHome`, `IsolateGitConfig`, `LockdownTransports`, `StripCredentials`, `Chdir`) and a closed `Preserve` enum for toolchain caches ship alongside it.
