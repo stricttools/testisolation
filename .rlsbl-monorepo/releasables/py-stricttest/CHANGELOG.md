@@ -67,6 +67,22 @@ first publish here.
 
 ## 0.1.0
 
+First release of the stricttest pytest plugin.
+
+<details>
+<summary>Context</summary>
+
+Installing the plugin IS adoption: a pytest11 entry point binds an always-on
+isolation floor before any conftest module is imported -- throwaway HOME/XDG
+directories and git identity, transport lockdown, credential stripping, an
+audit-hook socket guard, a git push guard, per-test cwd isolation, a
+TMPDIR-inside-the-repo refusal, and a bare-run threshold -- plus an ephemeral
+PostgreSQL cluster launcher for suites that need a real database. Five safety
+keys are required in the pytest ini; a missing one aborts the session, because
+a suite that has not declared where it stands should not be allowed to run.
+
+</details>
+
 ### Features
 
 - [stricttest] **New: the `stricttest` pytest plugin.** Installing it is adoption -- a `pytest11` entry point binds an always-on isolation floor before any conftest is imported: throwaway HOME/XDG dirs and git identity, transport lockdown, credential stripping, an audit-hook socket guard with host:port and unix-path allowlists, a `git push` guard, per-test cwd isolation, a TMPDIR-inside-the-repo refusal, and a bare-run threshold. Five safety keys in `[tool.pytest.ini_options]` are required; a missing one aborts the session.
