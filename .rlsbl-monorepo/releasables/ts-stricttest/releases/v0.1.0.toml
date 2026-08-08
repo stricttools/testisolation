@@ -1,0 +1,14 @@
+# Archived by rlsbl at release time. This release had no unreleased.toml
+# (a batch member takes its metadata from the batch release file); the
+# archive is written so later changelog regenerations keep the
+# description and context.
+# Backfilled 2026-08-08: this release predates archive synthesis, so the file
+# never existed. description/context/bump recovered from the GitHub Release
+# notes for ts-stricttest@v0.1.0; include/exclude mirror v0.1.2.toml (not recoverable).
+# strictspec document version gate (do not remove)
+format_version = 1
+bump = "minor"
+include = ["npm"]
+exclude = []
+description = "First release of the stricttest npm package."
+context = "The Node member of the same floor, in the shape node:test allows: isolate(t)\nbinds to a TestContext directly and undoes itself when the test finishes, and\nthe package detects overlapping isolations rather than letting one test's HOME\nleak into another's. Bare-run refusal is a function the consumer calls, because\nnode --test runs each test file in its own child process and an --import setup\nmodule can never learn how large the run is. Like the Go module it ships no\nsocket guard, and no push guard either -- patching node:child_process is equally\nporous, and transport lockdown already closes the outcome."
