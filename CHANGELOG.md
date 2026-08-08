@@ -2,6 +2,10 @@
 
 # py-stricttest
 
+## Unreleased
+
+- No user-facing changes.
+
 ## 0.2.0
 
 Correct the socket guard's documented coverage: a libpq driver is invisible to it
