@@ -2,6 +2,10 @@
 
 # Changelog
 
+## Unreleased
+
+- No user-facing changes.
+
 ## 0.1.2
 
 Infrastructure only: refreshed release scaffolding, no package changes

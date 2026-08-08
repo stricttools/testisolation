@@ -183,6 +183,10 @@ equivalent, and a partial guard would read as a guarantee.
 
 # ts-stricttest
 
+## Unreleased
+
+- No user-facing changes.
+
 ## 0.1.2
 
 Infrastructure only: refreshed release scaffolding, no package changes
