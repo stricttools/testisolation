@@ -99,6 +99,10 @@ a suite that has not declared where it stands should not be allowed to run.
 
 # go-stricttest
 
+## Unreleased
+
+- No user-facing changes.
+
 ## 0.2.0
 
 An ephemeral PostgreSQL cluster launcher for Go suites
