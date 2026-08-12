@@ -2,7 +2,7 @@
   "schema_version": 1,
   "name": "stricttest",
   "slug": "stricttest",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An always-on test-isolation floor: a pytest plugin and a Go env-hygiene module that make a test suite structurally unable to reach real credentials, the real HOME, the network, or the development repository.",
   "language": "python",
   "base_url": "https://docs.smmh.dev/stricttest",
@@ -380,6 +380,28 @@
           "level": 3,
           "text": "Cluster.SQLIn",
           "anchor": "clustersqlin"
+        }
+      ]
+    },
+    {
+      "path": "index.md",
+      "title": "stricttest",
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "stricttest",
+          "anchor": "stricttest"
+        },
+        {
+          "level": 2,
+          "text": "The libpq caveat",
+          "anchor": "the-libpq-caveat"
+        },
+        {
+          "level": 2,
+          "text": "Reference",
+          "anchor": "reference"
         }
       ]
     },
@@ -902,12 +924,12 @@
           "anchor": "typescriptsrchygiene"
         },
         {
-          "level": 1,
+          "level": 2,
           "text": "No socket guard",
           "anchor": "no-socket-guard"
         },
         {
-          "level": 1,
+          "level": 2,
           "text": "No push guard",
           "anchor": "no-push-guard"
         },
@@ -954,12 +976,12 @@
           "anchor": "typescriptsrcindex"
         },
         {
-          "level": 1,
+          "level": 2,
           "text": "Contract",
           "anchor": "contract"
         },
         {
-          "level": 1,
+          "level": 2,
           "text": "Concurrency",
           "anchor": "concurrency"
         },
@@ -1081,7 +1103,7 @@
           "anchor": "typescriptsrcsandbox"
         },
         {
-          "level": 1,
+          "level": 2,
           "text": "Why this is a helper the consumer calls, and not a hook",
           "anchor": "why-this-is-a-helper-the-consumer-calls-and-not-a-hook"
         },
@@ -1171,5 +1193,5 @@
     }
   ],
   "posts": [],
-  "last_gen": "2026-08-12T03:47:56.914707+00:00"
+  "last_gen": "2026-08-12T12:01:56.811590+00:00"
 }

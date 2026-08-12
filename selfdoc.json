@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "source": [
     {
       "path": "python/src/stricttest",
@@ -20,6 +20,7 @@
   ],
   "docs": "docs/",
   "output": "docs/_build/",
+  "changelog": ".rlsbl-monorepo/releasables/py-stricttest/CHANGELOG.md",
   "base_url": "https://docs.smmh.dev/stricttest",
   "search_engine": "pagefind",
   "author": {
