@@ -9,14 +9,14 @@
  * others. {@link chdir} is separate on purpose: it is a per-test tool, not part
  * of the floor.
  *
- * # Contract
+ * ## Contract
  *
  * Every helper takes a per-test cleanup registry -- `node:test`'s `TestContext`
  * satisfies it directly -- and undoes itself when that test finishes. Nothing
  * here is process-wide or permanent: the isolation lives exactly as long as the
  * test (or subtest) whose context was passed in.
  *
- * # Concurrency
+ * ## Concurrency
  *
  * HOME, the working directory and the git identity belong to the process, not
  * to a test. Nested tests are fine (a subtest starts and finishes inside its

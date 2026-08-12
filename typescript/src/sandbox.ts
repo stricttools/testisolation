@@ -2,7 +2,7 @@
  * Bare-run refusal: a suite that is supposed to run inside the sandbox refuses
  * to run outside it.
  *
- * # Why this is a helper the consumer calls, and not a hook
+ * ## Why this is a helper the consumer calls, and not a hook
  *
  * The Python plugin refuses at `pytest_collection_modifyitems`: pytest hands it
  * the whole selected test list before a single test body runs, so the plugin

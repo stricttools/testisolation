@@ -1,7 +1,7 @@
 /**
  * The composite entry point and the closed preserve enum.
  *
- * # No socket guard
+ * ## No socket guard
  *
  * Unlike the Python plugin, this package ships no network guard, for the same
  * reason the Go module ships none: there is no honest in-process interception
@@ -17,7 +17,7 @@
  * bubblewrap wrapper that runs the suite with no network namespace -- and
  * {@link requireSandbox} is what makes sure the suite actually goes through it.
  *
- * # No push guard
+ * ## No push guard
  *
  * The Python plugin intercepts `subprocess.Popen` to refuse a real `git push`
  * to a non-local remote. The equivalent here would be patching
