@@ -10,84 +10,1166 @@
     {
       "path": "gen-index.md",
       "title": "API Reference",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "API Reference",
+          "anchor": "api-reference"
+        }
+      ]
     },
     {
       "path": "go-hygiene.md",
       "title": "go/hygiene",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "go/hygiene",
+          "anchor": "gohygiene"
+        },
+        {
+          "level": 2,
+          "text": "go/hygiene",
+          "anchor": "gohygiene"
+        },
+        {
+          "level": 1,
+          "text": "Usage",
+          "anchor": "usage"
+        },
+        {
+          "level": 1,
+          "text": "Contract",
+          "anchor": "contract"
+        },
+        {
+          "level": 1,
+          "text": "Parallelism",
+          "anchor": "parallelism"
+        },
+        {
+          "level": 1,
+          "text": "No socket guard",
+          "anchor": "no-socket-guard"
+        },
+        {
+          "level": 3,
+          "text": "GoPath",
+          "anchor": "gopath"
+        },
+        {
+          "level": 3,
+          "text": "GoModCache",
+          "anchor": "gomodcache"
+        },
+        {
+          "level": 3,
+          "text": "GoCache",
+          "anchor": "gocache"
+        },
+        {
+          "level": 3,
+          "text": "PythonUserBase",
+          "anchor": "pythonuserbase"
+        },
+        {
+          "level": 3,
+          "text": "CargoHome",
+          "anchor": "cargohome"
+        },
+        {
+          "level": 3,
+          "text": "RustupHome",
+          "anchor": "rustuphome"
+        },
+        {
+          "level": 3,
+          "text": "NpmCache",
+          "anchor": "npmcache"
+        },
+        {
+          "level": 3,
+          "text": "UvCache",
+          "anchor": "uvcache"
+        },
+        {
+          "level": 3,
+          "text": "PipCache",
+          "anchor": "pipcache"
+        },
+        {
+          "level": 3,
+          "text": "GradleUserHome",
+          "anchor": "gradleuserhome"
+        },
+        {
+          "level": 3,
+          "text": "CredentialVars",
+          "anchor": "credentialvars"
+        },
+        {
+          "level": 3,
+          "text": "Option",
+          "anchor": "option"
+        },
+        {
+          "level": 3,
+          "text": "KnownVar",
+          "anchor": "knownvar"
+        },
+        {
+          "level": 3,
+          "text": "Chdir",
+          "anchor": "chdir"
+        },
+        {
+          "level": 3,
+          "text": "ThrowawayHome",
+          "anchor": "throwawayhome"
+        },
+        {
+          "level": 3,
+          "text": "IsolateGitConfig",
+          "anchor": "isolategitconfig"
+        },
+        {
+          "level": 3,
+          "text": "LockdownTransports",
+          "anchor": "lockdowntransports"
+        },
+        {
+          "level": 3,
+          "text": "StripCredentials",
+          "anchor": "stripcredentials"
+        },
+        {
+          "level": 3,
+          "text": "Isolate",
+          "anchor": "isolate"
+        },
+        {
+          "level": 3,
+          "text": "Preserve",
+          "anchor": "preserve"
+        },
+        {
+          "level": 3,
+          "text": "KnownVar.String",
+          "anchor": "knownvarstring"
+        },
+        {
+          "level": 3,
+          "text": "KnownVar.Env",
+          "anchor": "knownvarenv"
+        }
+      ]
     },
     {
       "path": "go-pgcluster.md",
       "title": "go/pgcluster",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "go/pgcluster",
+          "anchor": "gopgcluster"
+        },
+        {
+          "level": 2,
+          "text": "go/pgcluster",
+          "anchor": "gopgcluster"
+        },
+        {
+          "level": 1,
+          "text": "Usage",
+          "anchor": "usage"
+        },
+        {
+          "level": 1,
+          "text": "The DSN variable is mandatory",
+          "anchor": "the-dsn-variable-is-mandatory"
+        },
+        {
+          "level": 1,
+          "text": "Zero dependencies",
+          "anchor": "zero-dependencies"
+        },
+        {
+          "level": 1,
+          "text": "A killed test binary leaks its postmaster",
+          "anchor": "a-killed-test-binary-leaks-its-postmaster"
+        },
+        {
+          "level": 1,
+          "text": "No in-process network guard can see a C driver",
+          "anchor": "no-in-process-network-guard-can-see-a-c-driver"
+        },
+        {
+          "level": 3,
+          "text": "SUNPathMax",
+          "anchor": "sunpathmax"
+        },
+        {
+          "level": 3,
+          "text": "ErrPostgresUnavailable",
+          "anchor": "errpostgresunavailable"
+        },
+        {
+          "level": 3,
+          "text": "ErrSocketPathTooLong",
+          "anchor": "errsocketpathtoolong"
+        },
+        {
+          "level": 3,
+          "text": "ErrInvalidArgument",
+          "anchor": "errinvalidargument"
+        },
+        {
+          "level": 3,
+          "text": "ErrCluster",
+          "anchor": "errcluster"
+        },
+        {
+          "level": 3,
+          "text": "Binaries",
+          "anchor": "binaries"
+        },
+        {
+          "level": 3,
+          "text": "Cluster",
+          "anchor": "cluster"
+        },
+        {
+          "level": 3,
+          "text": "Option",
+          "anchor": "option"
+        },
+        {
+          "level": 3,
+          "text": "FindBinaries",
+          "anchor": "findbinaries"
+        },
+        {
+          "level": 3,
+          "text": "SocketPathFor",
+          "anchor": "socketpathfor"
+        },
+        {
+          "level": 3,
+          "text": "CheckSocketDir",
+          "anchor": "checksocketdir"
+        },
+        {
+          "level": 3,
+          "text": "GenerateName",
+          "anchor": "generatename"
+        },
+        {
+          "level": 3,
+          "text": "Port",
+          "anchor": "port"
+        },
+        {
+          "level": 3,
+          "text": "Superuser",
+          "anchor": "superuser"
+        },
+        {
+          "level": 3,
+          "text": "MaintenanceDB",
+          "anchor": "maintenancedb"
+        },
+        {
+          "level": 3,
+          "text": "DataParent",
+          "anchor": "dataparent"
+        },
+        {
+          "level": 3,
+          "text": "SocketParent",
+          "anchor": "socketparent"
+        },
+        {
+          "level": 3,
+          "text": "UseBinaries",
+          "anchor": "usebinaries"
+        },
+        {
+          "level": 3,
+          "text": "StartTimeout",
+          "anchor": "starttimeout"
+        },
+        {
+          "level": 3,
+          "text": "Start",
+          "anchor": "start"
+        },
+        {
+          "level": 3,
+          "text": "Ephemeral",
+          "anchor": "ephemeral"
+        },
+        {
+          "level": 3,
+          "text": "Binaries.BinDir",
+          "anchor": "binariesbindir"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.Running",
+          "anchor": "clusterrunning"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.SocketDir",
+          "anchor": "clustersocketdir"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.DataDir",
+          "anchor": "clusterdatadir"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.SocketPath",
+          "anchor": "clustersocketpath"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.MaintenanceDB",
+          "anchor": "clustermaintenancedb"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.BaseURL",
+          "anchor": "clusterbaseurl"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.URLFor",
+          "anchor": "clusterurlfor"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.Stop",
+          "anchor": "clusterstop"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.CreateDatabase",
+          "anchor": "clustercreatedatabase"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.DropDatabase",
+          "anchor": "clusterdropdatabase"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.Database",
+          "anchor": "clusterdatabase"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.SQL",
+          "anchor": "clustersql"
+        },
+        {
+          "level": 3,
+          "text": "Cluster.SQLIn",
+          "anchor": "clustersqlin"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-config.md",
       "title": "python.src.stricttest.config",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.config",
+          "anchor": "pythonsrcstricttestconfig"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.config",
+          "anchor": "pythonsrcstricttestconfig"
+        },
+        {
+          "level": 3,
+          "text": "_Missing",
+          "anchor": "_missing"
+        },
+        {
+          "level": 3,
+          "text": "Settings",
+          "anchor": "settings"
+        },
+        {
+          "level": 3,
+          "text": "add_ini_options",
+          "anchor": "add_ini_options"
+        },
+        {
+          "level": 3,
+          "text": "_present",
+          "anchor": "_present"
+        },
+        {
+          "level": 3,
+          "text": "parse_host_port",
+          "anchor": "parse_host_port"
+        },
+        {
+          "level": 3,
+          "text": "missing_required_keys",
+          "anchor": "missing_required_keys"
+        },
+        {
+          "level": 3,
+          "text": "remediation_block",
+          "anchor": "remediation_block"
+        },
+        {
+          "level": 3,
+          "text": "required_keys_error",
+          "anchor": "required_keys_error"
+        },
+        {
+          "level": 3,
+          "text": "resolve",
+          "anchor": "resolve"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-envfloor.md",
       "title": "python.src.stricttest.envfloor",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.envfloor",
+          "anchor": "pythonsrcstricttestenvfloor"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.envfloor",
+          "anchor": "pythonsrcstricttestenvfloor"
+        },
+        {
+          "level": 3,
+          "text": "session_env_dir",
+          "anchor": "session_env_dir"
+        },
+        {
+          "level": 3,
+          "text": "_preserve_toolchain_vars",
+          "anchor": "_preserve_toolchain_vars"
+        },
+        {
+          "level": 3,
+          "text": "install",
+          "anchor": "install"
+        },
+        {
+          "level": 3,
+          "text": "uninstall",
+          "anchor": "uninstall"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-pgcluster.md",
       "title": "python.src.stricttest.pgcluster",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.pgcluster",
+          "anchor": "pythonsrcstricttestpgcluster"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.pgcluster",
+          "anchor": "pythonsrcstricttestpgcluster"
+        },
+        {
+          "level": 3,
+          "text": "PostgresUnavailable",
+          "anchor": "postgresunavailable"
+        },
+        {
+          "level": 3,
+          "text": "SocketPathTooLong",
+          "anchor": "socketpathtoolong"
+        },
+        {
+          "level": 3,
+          "text": "PostgresClusterError",
+          "anchor": "postgresclustererror"
+        },
+        {
+          "level": 3,
+          "text": "Binaries",
+          "anchor": "binaries"
+        },
+        {
+          "level": 4,
+          "text": "bindir",
+          "anchor": "bindir"
+        },
+        {
+          "level": 3,
+          "text": "_search_dirs",
+          "anchor": "_search_dirs"
+        },
+        {
+          "level": 3,
+          "text": "find_binaries",
+          "anchor": "find_binaries"
+        },
+        {
+          "level": 3,
+          "text": "socket_path_for",
+          "anchor": "socket_path_for"
+        },
+        {
+          "level": 3,
+          "text": "check_socket_dir",
+          "anchor": "check_socket_dir"
+        },
+        {
+          "level": 3,
+          "text": "_pick_parent",
+          "anchor": "_pick_parent"
+        },
+        {
+          "level": 3,
+          "text": "EphemeralCluster",
+          "anchor": "ephemeralcluster"
+        },
+        {
+          "level": 4,
+          "text": "running",
+          "anchor": "running"
+        },
+        {
+          "level": 4,
+          "text": "socket_dir",
+          "anchor": "socket_dir"
+        },
+        {
+          "level": 4,
+          "text": "data_dir",
+          "anchor": "data_dir"
+        },
+        {
+          "level": 4,
+          "text": "socket_path",
+          "anchor": "socket_path"
+        },
+        {
+          "level": 4,
+          "text": "base_url",
+          "anchor": "base_url"
+        },
+        {
+          "level": 4,
+          "text": "url_for",
+          "anchor": "url_for"
+        },
+        {
+          "level": 4,
+          "text": "start",
+          "anchor": "start"
+        },
+        {
+          "level": 4,
+          "text": "stop",
+          "anchor": "stop"
+        },
+        {
+          "level": 4,
+          "text": "generate_name",
+          "anchor": "generate_name"
+        },
+        {
+          "level": 4,
+          "text": "create_database",
+          "anchor": "create_database"
+        },
+        {
+          "level": 4,
+          "text": "drop_database",
+          "anchor": "drop_database"
+        },
+        {
+          "level": 4,
+          "text": "database",
+          "anchor": "database"
+        },
+        {
+          "level": 4,
+          "text": "sql",
+          "anchor": "sql"
+        },
+        {
+          "level": 4,
+          "text": "_env",
+          "anchor": "_env"
+        },
+        {
+          "level": 3,
+          "text": "ephemeral_cluster",
+          "anchor": "ephemeral_cluster"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-plugin.md",
       "title": "python.src.stricttest.plugin",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.plugin",
+          "anchor": "pythonsrcstricttestplugin"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.plugin",
+          "anchor": "pythonsrcstricttestplugin"
+        },
+        {
+          "level": 3,
+          "text": "settings",
+          "anchor": "settings"
+        },
+        {
+          "level": 3,
+          "text": "pytest_addoption",
+          "anchor": "pytest_addoption"
+        },
+        {
+          "level": 3,
+          "text": "pytest_load_initial_conftests",
+          "anchor": "pytest_load_initial_conftests"
+        },
+        {
+          "level": 3,
+          "text": "pytest_configure",
+          "anchor": "pytest_configure"
+        },
+        {
+          "level": 3,
+          "text": "pytest_unconfigure",
+          "anchor": "pytest_unconfigure"
+        },
+        {
+          "level": 3,
+          "text": "pytest_collection_modifyitems",
+          "anchor": "pytest_collection_modifyitems"
+        },
+        {
+          "level": 3,
+          "text": "pytest_xdist_node_collection_finished",
+          "anchor": "pytest_xdist_node_collection_finished"
+        },
+        {
+          "level": 3,
+          "text": "_stricttest_chdir_into_tmp",
+          "anchor": "_stricttest_chdir_into_tmp"
+        },
+        {
+          "level": 3,
+          "text": "_stricttest_guard_nonlocal_push",
+          "anchor": "_stricttest_guard_nonlocal_push"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-pushguard.md",
       "title": "python.src.stricttest.pushguard",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.pushguard",
+          "anchor": "pythonsrcstricttestpushguard"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.pushguard",
+          "anchor": "pythonsrcstricttestpushguard"
+        },
+        {
+          "level": 3,
+          "text": "remote_is_local",
+          "anchor": "remote_is_local"
+        },
+        {
+          "level": 3,
+          "text": "extract_push_remote",
+          "anchor": "extract_push_remote"
+        },
+        {
+          "level": 3,
+          "text": "make_guarded_popen",
+          "anchor": "make_guarded_popen"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-sandbox.md",
       "title": "python.src.stricttest.sandbox",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.sandbox",
+          "anchor": "pythonsrcstricttestsandbox"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.sandbox",
+          "anchor": "pythonsrcstricttestsandbox"
+        },
+        {
+          "level": 3,
+          "text": "enforce_threshold",
+          "anchor": "enforce_threshold"
+        },
+        {
+          "level": 3,
+          "text": "enforce_tmp_outside_repo",
+          "anchor": "enforce_tmp_outside_repo"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest-socketguard.md",
       "title": "python.src.stricttest.socketguard",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest.socketguard",
+          "anchor": "pythonsrcstricttestsocketguard"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest.socketguard",
+          "anchor": "pythonsrcstricttestsocketguard"
+        },
+        {
+          "level": 3,
+          "text": "NetworkBlocked",
+          "anchor": "networkblocked"
+        },
+        {
+          "level": 3,
+          "text": "Policy",
+          "anchor": "policy"
+        },
+        {
+          "level": 4,
+          "text": "from_settings",
+          "anchor": "from_settings"
+        },
+        {
+          "level": 4,
+          "text": "allowlist_hosts",
+          "anchor": "allowlist_hosts"
+        },
+        {
+          "level": 4,
+          "text": "describe",
+          "anchor": "describe"
+        },
+        {
+          "level": 3,
+          "text": "is_loopback",
+          "anchor": "is_loopback"
+        },
+        {
+          "level": 3,
+          "text": "_check_resolution",
+          "anchor": "_check_resolution"
+        },
+        {
+          "level": 3,
+          "text": "install",
+          "anchor": "install"
+        },
+        {
+          "level": 3,
+          "text": "current_policy",
+          "anchor": "current_policy"
+        }
+      ]
     },
     {
       "path": "python-src-stricttest.md",
       "title": "python.src.stricttest",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "python.src.stricttest",
+          "anchor": "pythonsrcstricttest"
+        },
+        {
+          "level": 2,
+          "text": "python.src.stricttest",
+          "anchor": "pythonsrcstricttest"
+        }
+      ]
     },
     {
       "path": "typescript-src-env.md",
       "title": "typescript/src/env",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "typescript/src/env",
+          "anchor": "typescriptsrcenv"
+        },
+        {
+          "level": 2,
+          "text": "typescript/src/env",
+          "anchor": "typescriptsrcenv"
+        },
+        {
+          "level": 3,
+          "text": "IDENTITY_NAME",
+          "anchor": "identity_name"
+        },
+        {
+          "level": 3,
+          "text": "IDENTITY_EMAIL",
+          "anchor": "identity_email"
+        },
+        {
+          "level": 3,
+          "text": "CREDENTIAL_VARS",
+          "anchor": "credential_vars"
+        },
+        {
+          "level": 3,
+          "text": "throwawayHome",
+          "anchor": "throwawayhome"
+        },
+        {
+          "level": 3,
+          "text": "isolateGitConfig",
+          "anchor": "isolategitconfig"
+        },
+        {
+          "level": 3,
+          "text": "lockdownTransports",
+          "anchor": "lockdowntransports"
+        },
+        {
+          "level": 3,
+          "text": "stripCredentials",
+          "anchor": "stripcredentials"
+        },
+        {
+          "level": 3,
+          "text": "chdir",
+          "anchor": "chdir"
+        }
+      ]
     },
     {
       "path": "typescript-src-hygiene.md",
       "title": "typescript/src/hygiene",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "typescript/src/hygiene",
+          "anchor": "typescriptsrchygiene"
+        },
+        {
+          "level": 2,
+          "text": "typescript/src/hygiene",
+          "anchor": "typescriptsrchygiene"
+        },
+        {
+          "level": 1,
+          "text": "No socket guard",
+          "anchor": "no-socket-guard"
+        },
+        {
+          "level": 1,
+          "text": "No push guard",
+          "anchor": "no-push-guard"
+        },
+        {
+          "level": 3,
+          "text": "KnownVar",
+          "anchor": "knownvar"
+        },
+        {
+          "level": 3,
+          "text": "KNOWN_VARS",
+          "anchor": "known_vars"
+        },
+        {
+          "level": 3,
+          "text": "IsolateOptions",
+          "anchor": "isolateoptions"
+        },
+        {
+          "level": 3,
+          "text": "isolate",
+          "anchor": "isolate"
+        },
+        {
+          "level": 3,
+          "text": "preserveVars",
+          "anchor": "preservevars"
+        }
+      ]
     },
     {
       "path": "typescript-src-index.md",
       "title": "typescript/src/index",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "typescript/src/index",
+          "anchor": "typescriptsrcindex"
+        },
+        {
+          "level": 2,
+          "text": "typescript/src/index",
+          "anchor": "typescriptsrcindex"
+        },
+        {
+          "level": 1,
+          "text": "Contract",
+          "anchor": "contract"
+        },
+        {
+          "level": 1,
+          "text": "Concurrency",
+          "anchor": "concurrency"
+        },
+        {
+          "level": 3,
+          "text": "chdir",
+          "anchor": "chdir"
+        },
+        {
+          "level": 3,
+          "text": "CREDENTIAL_VARS",
+          "anchor": "credential_vars"
+        },
+        {
+          "level": 3,
+          "text": "IDENTITY_EMAIL",
+          "anchor": "identity_email"
+        },
+        {
+          "level": 3,
+          "text": "IDENTITY_NAME",
+          "anchor": "identity_name"
+        },
+        {
+          "level": 3,
+          "text": "isolateGitConfig",
+          "anchor": "isolategitconfig"
+        },
+        {
+          "level": 3,
+          "text": "lockdownTransports",
+          "anchor": "lockdowntransports"
+        },
+        {
+          "level": 3,
+          "text": "stripCredentials",
+          "anchor": "stripcredentials"
+        },
+        {
+          "level": 3,
+          "text": "throwawayHome",
+          "anchor": "throwawayhome"
+        },
+        {
+          "level": 3,
+          "text": "isolate",
+          "anchor": "isolate"
+        },
+        {
+          "level": 3,
+          "text": "type IsolateOptions",
+          "anchor": "type-isolateoptions"
+        },
+        {
+          "level": 3,
+          "text": "KNOWN_VARS",
+          "anchor": "known_vars"
+        },
+        {
+          "level": 3,
+          "text": "type KnownVar",
+          "anchor": "type-knownvar"
+        },
+        {
+          "level": 3,
+          "text": "preserveVars",
+          "anchor": "preservevars"
+        },
+        {
+          "level": 3,
+          "text": "DEFAULT_RUNNER_COMMAND",
+          "anchor": "default_runner_command"
+        },
+        {
+          "level": 3,
+          "text": "DEFAULT_SANDBOX_ENV",
+          "anchor": "default_sandbox_env"
+        },
+        {
+          "level": 3,
+          "text": "insideSandbox",
+          "anchor": "insidesandbox"
+        },
+        {
+          "level": 3,
+          "text": "requireSandbox",
+          "anchor": "requiresandbox"
+        },
+        {
+          "level": 3,
+          "text": "type RequireSandboxOptions",
+          "anchor": "type-requiresandboxoptions"
+        },
+        {
+          "level": 3,
+          "text": "SandboxRequiredError",
+          "anchor": "sandboxrequirederror"
+        },
+        {
+          "level": 3,
+          "text": "type SandboxPolicy",
+          "anchor": "type-sandboxpolicy"
+        }
+      ]
     },
     {
       "path": "typescript-src-sandbox.md",
       "title": "typescript/src/sandbox",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "typescript/src/sandbox",
+          "anchor": "typescriptsrcsandbox"
+        },
+        {
+          "level": 2,
+          "text": "typescript/src/sandbox",
+          "anchor": "typescriptsrcsandbox"
+        },
+        {
+          "level": 1,
+          "text": "Why this is a helper the consumer calls, and not a hook",
+          "anchor": "why-this-is-a-helper-the-consumer-calls-and-not-a-hook"
+        },
+        {
+          "level": 3,
+          "text": "DEFAULT_SANDBOX_ENV",
+          "anchor": "default_sandbox_env"
+        },
+        {
+          "level": 3,
+          "text": "DEFAULT_RUNNER_COMMAND",
+          "anchor": "default_runner_command"
+        },
+        {
+          "level": 3,
+          "text": "SandboxRequiredError",
+          "anchor": "sandboxrequirederror"
+        },
+        {
+          "level": 3,
+          "text": "SandboxPolicy",
+          "anchor": "sandboxpolicy"
+        },
+        {
+          "level": 3,
+          "text": "RequireSandboxOptions",
+          "anchor": "requiresandboxoptions"
+        },
+        {
+          "level": 3,
+          "text": "insideSandbox",
+          "anchor": "insidesandbox"
+        },
+        {
+          "level": 3,
+          "text": "requireSandbox",
+          "anchor": "requiresandbox"
+        }
+      ]
     },
     {
       "path": "typescript-src-scope.md",
       "title": "typescript/src/scope",
-      "type": "doc"
+      "type": "doc",
+      "headings": [
+        {
+          "level": 1,
+          "text": "typescript/src/scope",
+          "anchor": "typescriptsrcscope"
+        },
+        {
+          "level": 2,
+          "text": "typescript/src/scope",
+          "anchor": "typescriptsrcscope"
+        },
+        {
+          "level": 3,
+          "text": "CleanupRegistry",
+          "anchor": "cleanupregistry"
+        },
+        {
+          "level": 3,
+          "text": "Scope",
+          "anchor": "scope"
+        },
+        {
+          "level": 3,
+          "text": "scopeFor",
+          "anchor": "scopefor"
+        },
+        {
+          "level": 3,
+          "text": "setEnv",
+          "anchor": "setenv"
+        },
+        {
+          "level": 3,
+          "text": "unsetEnv",
+          "anchor": "unsetenv"
+        },
+        {
+          "level": 3,
+          "text": "onRelease",
+          "anchor": "onrelease"
+        }
+      ]
     }
   ],
   "posts": [],
-  "last_gen": "2026-08-06T11:37:51.532990+00:00"
+  "last_gen": "2026-08-12T03:47:56.914707+00:00"
 }
