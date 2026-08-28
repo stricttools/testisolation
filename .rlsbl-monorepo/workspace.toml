@@ -33,33 +33,19 @@ releasable = "py-stricttest"
 # fail when the three floors' variable lists drift. They live in the Python
 # suite, so a Go-only or Node-only change must trigger it -- otherwise the one
 # test that catches drift is exactly the test such a PR never runs.
-watch = [
-    "python/**",
-    "go/**",
-    "typescript/**",
-    "LICENSE",
-    ".rlsbl-monorepo/snapshot.json",
-    ".rlsbl-monorepo/releasables/py-stricttest/**",
-]
 
 [[projects]]
 path = "go/"
 name = "go-stricttest"
 releasable = "go-stricttest"
-watch = [
-    "go/**",
-    "LICENSE",
-    ".rlsbl-monorepo/snapshot.json",
-    ".rlsbl-monorepo/releasables/go-stricttest/**",
-]
 
 [[projects]]
 path = "typescript/"
 name = "ts-stricttest"
 releasable = "ts-stricttest"
-watch = [
-    "typescript/**",
-    "LICENSE",
-    ".rlsbl-monorepo/snapshot.json",
-    ".rlsbl-monorepo/releasables/ts-stricttest/**",
-]
+
+[[projects]]
+path = "."
+name = "root"
+dev_only = true
+releasable = false
