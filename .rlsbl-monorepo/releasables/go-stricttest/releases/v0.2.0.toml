@@ -9,3 +9,7 @@ include = ["go"]
 exclude = []
 description = "An ephemeral PostgreSQL cluster launcher for Go suites"
 context = "The Python floor has carried an ephemeral-cluster launcher since 0.1.0; the Go\nfloor had nothing, so a Go suite needing Postgres either dialed a shared\ndeveloper database or ran a container. This release ports the launcher, keeping\nthe two implementations in lockstep: the same initdb and pg_ctl flags, the same\n107-byte sun_path refusal, the same parent-candidate order, the same closed\ndatabase-name character set, the same PG* environment scrub.\n\nThe API splits along test lifetimes. Start and Stop are TB-free so a TestMain\ncan boot one cluster for a whole package; Ephemeral(t, ...) scopes a cluster to\na single test; Database(t) hands each test its own database. The DSN environment\nvariable name is a mandatory argument -- there is no default -- so a suite can\nnever inherit a connection string it did not ask for.\n\nThe package takes no dependencies: initdb, pg_ctl and psql are driven as\nsubprocesses, never a linked driver. Missing or unusable Postgres surfaces as\nsentinel errors (ErrPostgresUnavailable and friends) rather than a panic. One\ndivergence from Python is documented rather than papered over: Go has no atexit\nequivalent, so a killed test binary can leak a postmaster."
+candidate_sha = "ebdad6966e4374157eeec8e1ca73079fd12f2427"
+
+[tree_hashes]
+go = "acc9dcda49dcb3d14033b669763c4d1ce5edcff4"

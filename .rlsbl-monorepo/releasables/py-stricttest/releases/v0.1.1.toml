@@ -1,3 +1,5 @@
+# strictspec document version gate (do not remove)
+format_version = 1
 bump = "infra"
 description = "Fix the CI router paths filter so a batch release's tagged commit runs every project's test suite"
 context = """The 0.1.0 batch release published only npm and the Go module proxy. PyPI never
@@ -24,3 +26,7 @@ first publish here.
 """
 include = ["pypi"]
 exclude = []
+candidate_sha = "57c74fd6739386b8f61096a0abca88e7958c005b"
+
+[tree_hashes]
+python = "0567dead07feb9f8ffa8f2cb5614c0635f4f1c56"

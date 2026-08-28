@@ -9,3 +9,7 @@ include = ["pypi"]
 exclude = []
 description = "Correct the socket guard's documented coverage: a libpq driver is invisible to it"
 context = "The docs told a suite using psycopg to allowlist the ephemeral cluster's socket\ndirectory. That instruction never did anything. psycopg connects inside libpq, a\nC extension, so Python's socket module never raises an audit event and the guard\nnever sees the connection -- there is nothing to allow and nothing to refuse. A\nconsumer who followed the old text believed a stance was protecting it when no\nstance could.\n\nThe corrected text draws the line explicitly: the allowlist covers asyncpg and\nother clients written in Python, which the guard does see and which do need the\nentry; for a libpq driver the only real protection is pointing the DSN at an\nephemeral cluster. The same caveat now appears in the pgcluster module docstring,\nthe socket guard's scope paragraph, and the README, none of which stated it\nbefore. A repo rule was added so no future doc can mention the guard and a\ndatabase driver without making the distinction."
+candidate_sha = "ebdad6966e4374157eeec8e1ca73079fd12f2427"
+
+[tree_hashes]
+python = "ad1357bdbb7c95131c9ac77b906340ed403d594a"

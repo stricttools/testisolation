@@ -1,3 +1,5 @@
+# strictspec document version gate (do not remove)
+format_version = 1
 bump = "infra"
 description = "Fix the CI router paths filter so a batch release's tagged commit runs every project's test suite"
 context = """The 0.1.0 batch release landed every releasable's tag on the final "snapshot"
@@ -14,3 +16,7 @@ runs the corrected pipeline end to end and resyncs all three releasables to
 """
 include = ["go"]
 exclude = []
+candidate_sha = "57c74fd6739386b8f61096a0abca88e7958c005b"
+
+[tree_hashes]
+go = "906717dea8b3ee4c788de17c99602f08164dbb9b"
