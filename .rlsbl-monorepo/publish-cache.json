@@ -1,6 +1,7 @@
 {
-  "__rlsbl_version__": "0.110.2",
+  "__rlsbl_version__": "0.118.0",
   "stricttest": "bfa60b4f497b67e71b31336e0373a3730aca9b16e6b35d1f7a3e003ee406c01a",
   "go-stricttest": "f060ed1f22f46febc7c145a7341a1d7c9a0d431977571ef02ea2a3fb2b1968b0",
-  "ts-stricttest": "e5e163e6e1b261effbd02cf8d26fdb2d3239094d3694410063d61499323bf7c3"
+  "ts-stricttest": "e5e163e6e1b261effbd02cf8d26fdb2d3239094d3694410063d61499323bf7c3",
+  "root": "ba4773eb67b887359bdc4bbc85ad2a5ea29c6e78de05dfa4214ec49821811859"
 }

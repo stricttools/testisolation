@@ -6,8 +6,16 @@ on:
     - main
   pull_request:
   workflow_dispatch:
+    inputs:
+      run_all:
+        description: Run every project's CI jobs, ignoring the paths filter. Use
+          this to make a release candidate's members run their own CI on a 
+          commit whose push window does not touch their paths.
+        type: boolean
+        required: false
+        default: false
 concurrency:
-  group: ${{ github.workflow_ref }}-${{ github.sha }}
+  group: ${{ github.workflow_ref }}-${{ github.sha }}-${{ inputs.run_all }}
   cancel-in-progress: true
 jobs:
   detect:
@@ -24,27 +32,17 @@ jobs:
         filters: |
           stricttest:
             - 'python/**'
-            - 'python/**'
-            - 'go/**'
-            - 'typescript/**'
-            - 'LICENSE'
-            - '.rlsbl-monorepo/snapshot.json'
-            - '.rlsbl-monorepo/releasables/py-stricttest/**'
+            - '.github/workflows/ci-router.yml'
             - '.rlsbl-monorepo/releasables/py-stricttest/CHANGELOG.md'
           go-stricttest:
             - 'go/**'
-            - 'go/**'
-            - 'LICENSE'
-            - '.rlsbl-monorepo/snapshot.json'
-            - '.rlsbl-monorepo/releasables/go-stricttest/**'
+            - '.github/workflows/ci-router.yml'
             - '.rlsbl-monorepo/releasables/go-stricttest/CHANGELOG.md'
           ts-stricttest:
             - 'typescript/**'
-            - 'typescript/**'
-            - 'LICENSE'
-            - '.rlsbl-monorepo/snapshot.json'
-            - '.rlsbl-monorepo/releasables/ts-stricttest/**'
+            - '.github/workflows/ci-router.yml'
             - '.rlsbl-monorepo/releasables/ts-stricttest/CHANGELOG.md'
+        predicate-quantifier: some-with-excludes
   stricttest-ci-test:
     runs-on: ubuntu-latest
     strategy:
@@ -68,7 +66,7 @@ jobs:
     name: stricttest-ci / test
     needs:
     - detect
-    if: needs.detect.outputs.stricttest == 'true'
+    if: (needs.detect.outputs.stricttest == 'true' || inputs.run_all)
   go-stricttest-ci-test:
     runs-on: ubuntu-latest
     steps:
@@ -85,7 +83,7 @@ jobs:
     name: go-stricttest-ci / test
     needs:
     - detect
-    if: needs.detect.outputs.go-stricttest == 'true'
+    if: (needs.detect.outputs.go-stricttest == 'true' || inputs.run_all)
   ts-stricttest-ci-test:
     runs-on: ubuntu-latest
     strategy:
@@ -114,4 +112,4 @@ jobs:
     name: ts-stricttest-ci / test
     needs:
     - detect
-    if: needs.detect.outputs.ts-stricttest == 'true'
+    if: (needs.detect.outputs.ts-stricttest == 'true' || inputs.run_all)
