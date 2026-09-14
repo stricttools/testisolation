@@ -1,8 +1,8 @@
 [releasables.py-stricttest]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "patch"
 # Short description of this release (required)
-description = ""
+description = "The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site."
 # Optional context explaining why these changes were made
 context = ""
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
@@ -15,9 +15,9 @@ exclude = []
 
 [releasables.go-stricttest]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "patch"
 # Short description of this release (required)
-description = ""
+description = "The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site."
 # Optional context explaining why these changes were made
 context = ""
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
@@ -30,9 +30,9 @@ exclude = []
 
 [releasables.ts-stricttest]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "patch"
 # Short description of this release (required)
-description = ""
+description = "The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site."
 # Optional context explaining why these changes were made
 context = ""
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
