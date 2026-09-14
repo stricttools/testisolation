@@ -42,7 +42,8 @@
       "default": true
     }
   ],
-  "description": "An always-on test-isolation floor: a pytest plugin and a Go env-hygiene module that make a test suite structurally unable to reach real credentials, the real HOME, the network, or the development repository.",
+  "description": "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport",
+  "repo": "https://github.com/smm-h/stricttest",
   "root_files": [
     "docs/_README.md",
     "docs/_CLAUDE.md"

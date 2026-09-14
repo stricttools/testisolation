@@ -3,7 +3,7 @@
   "name": "stricttest",
   "slug": "stricttest",
   "version": "0.2.0",
-  "description": "An always-on test-isolation floor: a pytest plugin and a Go env-hygiene module that make a test suite structurally unable to reach real credentials, the real HOME, the network, or the development repository.",
+  "description": "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport",
   "language": "python",
   "base_url": "https://docs.smmh.dev/stricttest",
   "pages": [
@@ -31,137 +31,137 @@
         },
         {
           "level": 2,
-          "text": "go/hygiene",
+          "text": "`go/hygiene`",
           "anchor": "gohygiene"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "Usage",
           "anchor": "usage"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "Contract",
           "anchor": "contract"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "Parallelism",
           "anchor": "parallelism"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "No socket guard",
           "anchor": "no-socket-guard"
         },
         {
           "level": 3,
-          "text": "GoPath",
+          "text": "`GoPath`",
           "anchor": "gopath"
         },
         {
           "level": 3,
-          "text": "GoModCache",
+          "text": "`GoModCache`",
           "anchor": "gomodcache"
         },
         {
           "level": 3,
-          "text": "GoCache",
+          "text": "`GoCache`",
           "anchor": "gocache"
         },
         {
           "level": 3,
-          "text": "PythonUserBase",
+          "text": "`PythonUserBase`",
           "anchor": "pythonuserbase"
         },
         {
           "level": 3,
-          "text": "CargoHome",
+          "text": "`CargoHome`",
           "anchor": "cargohome"
         },
         {
           "level": 3,
-          "text": "RustupHome",
+          "text": "`RustupHome`",
           "anchor": "rustuphome"
         },
         {
           "level": 3,
-          "text": "NpmCache",
+          "text": "`NpmCache`",
           "anchor": "npmcache"
         },
         {
           "level": 3,
-          "text": "UvCache",
+          "text": "`UvCache`",
           "anchor": "uvcache"
         },
         {
           "level": 3,
-          "text": "PipCache",
+          "text": "`PipCache`",
           "anchor": "pipcache"
         },
         {
           "level": 3,
-          "text": "GradleUserHome",
+          "text": "`GradleUserHome`",
           "anchor": "gradleuserhome"
         },
         {
           "level": 3,
-          "text": "CredentialVars",
+          "text": "`CredentialVars`",
           "anchor": "credentialvars"
         },
         {
           "level": 3,
-          "text": "Option",
+          "text": "`Option`",
           "anchor": "option"
         },
         {
           "level": 3,
-          "text": "KnownVar",
+          "text": "`KnownVar`",
           "anchor": "knownvar"
         },
         {
           "level": 3,
-          "text": "Chdir",
+          "text": "`Chdir`",
           "anchor": "chdir"
         },
         {
           "level": 3,
-          "text": "ThrowawayHome",
+          "text": "`ThrowawayHome`",
           "anchor": "throwawayhome"
         },
         {
           "level": 3,
-          "text": "IsolateGitConfig",
+          "text": "`IsolateGitConfig`",
           "anchor": "isolategitconfig"
         },
         {
           "level": 3,
-          "text": "LockdownTransports",
+          "text": "`LockdownTransports`",
           "anchor": "lockdowntransports"
         },
         {
           "level": 3,
-          "text": "StripCredentials",
+          "text": "`StripCredentials`",
           "anchor": "stripcredentials"
         },
         {
           "level": 3,
-          "text": "Isolate",
+          "text": "`Isolate`",
           "anchor": "isolate"
         },
         {
           "level": 3,
-          "text": "Preserve",
+          "text": "`Preserve`",
           "anchor": "preserve"
         },
         {
           "level": 3,
-          "text": "KnownVar.String",
+          "text": "`KnownVar.String`",
           "anchor": "knownvarstring"
         },
         {
           "level": 3,
-          "text": "KnownVar.Env",
+          "text": "`KnownVar.Env`",
           "anchor": "knownvarenv"
         }
       ]
@@ -178,207 +178,207 @@
         },
         {
           "level": 2,
-          "text": "go/pgcluster",
+          "text": "`go/pgcluster`",
           "anchor": "gopgcluster"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "Usage",
           "anchor": "usage"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "The DSN variable is mandatory",
           "anchor": "the-dsn-variable-is-mandatory"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "Zero dependencies",
           "anchor": "zero-dependencies"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "A killed test binary leaks its postmaster",
           "anchor": "a-killed-test-binary-leaks-its-postmaster"
         },
         {
-          "level": 1,
+          "level": 3,
           "text": "No in-process network guard can see a C driver",
           "anchor": "no-in-process-network-guard-can-see-a-c-driver"
         },
         {
           "level": 3,
-          "text": "SUNPathMax",
+          "text": "`SUNPathMax`",
           "anchor": "sunpathmax"
         },
         {
           "level": 3,
-          "text": "ErrPostgresUnavailable",
+          "text": "`ErrPostgresUnavailable`",
           "anchor": "errpostgresunavailable"
         },
         {
           "level": 3,
-          "text": "ErrSocketPathTooLong",
+          "text": "`ErrSocketPathTooLong`",
           "anchor": "errsocketpathtoolong"
         },
         {
           "level": 3,
-          "text": "ErrInvalidArgument",
+          "text": "`ErrInvalidArgument`",
           "anchor": "errinvalidargument"
         },
         {
           "level": 3,
-          "text": "ErrCluster",
+          "text": "`ErrCluster`",
           "anchor": "errcluster"
         },
         {
           "level": 3,
-          "text": "Binaries",
+          "text": "`Binaries`",
           "anchor": "binaries"
         },
         {
           "level": 3,
-          "text": "Cluster",
+          "text": "`Cluster`",
           "anchor": "cluster"
         },
         {
           "level": 3,
-          "text": "Option",
+          "text": "`Option`",
           "anchor": "option"
         },
         {
           "level": 3,
-          "text": "FindBinaries",
+          "text": "`FindBinaries`",
           "anchor": "findbinaries"
         },
         {
           "level": 3,
-          "text": "SocketPathFor",
+          "text": "`SocketPathFor`",
           "anchor": "socketpathfor"
         },
         {
           "level": 3,
-          "text": "CheckSocketDir",
+          "text": "`CheckSocketDir`",
           "anchor": "checksocketdir"
         },
         {
           "level": 3,
-          "text": "GenerateName",
+          "text": "`GenerateName`",
           "anchor": "generatename"
         },
         {
           "level": 3,
-          "text": "Port",
+          "text": "`Port`",
           "anchor": "port"
         },
         {
           "level": 3,
-          "text": "Superuser",
+          "text": "`Superuser`",
           "anchor": "superuser"
         },
         {
           "level": 3,
-          "text": "MaintenanceDB",
+          "text": "`MaintenanceDB`",
           "anchor": "maintenancedb"
         },
         {
           "level": 3,
-          "text": "DataParent",
+          "text": "`DataParent`",
           "anchor": "dataparent"
         },
         {
           "level": 3,
-          "text": "SocketParent",
+          "text": "`SocketParent`",
           "anchor": "socketparent"
         },
         {
           "level": 3,
-          "text": "UseBinaries",
+          "text": "`UseBinaries`",
           "anchor": "usebinaries"
         },
         {
           "level": 3,
-          "text": "StartTimeout",
+          "text": "`StartTimeout`",
           "anchor": "starttimeout"
         },
         {
           "level": 3,
-          "text": "Start",
+          "text": "`Start`",
           "anchor": "start"
         },
         {
           "level": 3,
-          "text": "Ephemeral",
+          "text": "`Ephemeral`",
           "anchor": "ephemeral"
         },
         {
           "level": 3,
-          "text": "Binaries.BinDir",
+          "text": "`Binaries.BinDir`",
           "anchor": "binariesbindir"
         },
         {
           "level": 3,
-          "text": "Cluster.Running",
+          "text": "`Cluster.Running`",
           "anchor": "clusterrunning"
         },
         {
           "level": 3,
-          "text": "Cluster.SocketDir",
+          "text": "`Cluster.SocketDir`",
           "anchor": "clustersocketdir"
         },
         {
           "level": 3,
-          "text": "Cluster.DataDir",
+          "text": "`Cluster.DataDir`",
           "anchor": "clusterdatadir"
         },
         {
           "level": 3,
-          "text": "Cluster.SocketPath",
+          "text": "`Cluster.SocketPath`",
           "anchor": "clustersocketpath"
         },
         {
           "level": 3,
-          "text": "Cluster.MaintenanceDB",
+          "text": "`Cluster.MaintenanceDB`",
           "anchor": "clustermaintenancedb"
         },
         {
           "level": 3,
-          "text": "Cluster.BaseURL",
+          "text": "`Cluster.BaseURL`",
           "anchor": "clusterbaseurl"
         },
         {
           "level": 3,
-          "text": "Cluster.URLFor",
+          "text": "`Cluster.URLFor`",
           "anchor": "clusterurlfor"
         },
         {
           "level": 3,
-          "text": "Cluster.Stop",
+          "text": "`Cluster.Stop`",
           "anchor": "clusterstop"
         },
         {
           "level": 3,
-          "text": "Cluster.CreateDatabase",
+          "text": "`Cluster.CreateDatabase`",
           "anchor": "clustercreatedatabase"
         },
         {
           "level": 3,
-          "text": "Cluster.DropDatabase",
+          "text": "`Cluster.DropDatabase`",
           "anchor": "clusterdropdatabase"
         },
         {
           "level": 3,
-          "text": "Cluster.Database",
+          "text": "`Cluster.Database`",
           "anchor": "clusterdatabase"
         },
         {
           "level": 3,
-          "text": "Cluster.SQL",
+          "text": "`Cluster.SQL`",
           "anchor": "clustersql"
         },
         {
           "level": 3,
-          "text": "Cluster.SQLIn",
+          "text": "`Cluster.SQLIn`",
           "anchor": "clustersqlin"
         }
       ]
@@ -417,52 +417,52 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.config",
+          "text": "`python.src.stricttest.config`",
           "anchor": "pythonsrcstricttestconfig"
         },
         {
           "level": 3,
-          "text": "_Missing",
+          "text": "`_Missing`",
           "anchor": "_missing"
         },
         {
           "level": 3,
-          "text": "Settings",
+          "text": "`Settings`",
           "anchor": "settings"
         },
         {
           "level": 3,
-          "text": "add_ini_options",
+          "text": "`add_ini_options`",
           "anchor": "add_ini_options"
         },
         {
           "level": 3,
-          "text": "_present",
+          "text": "`_present`",
           "anchor": "_present"
         },
         {
           "level": 3,
-          "text": "parse_host_port",
+          "text": "`parse_host_port`",
           "anchor": "parse_host_port"
         },
         {
           "level": 3,
-          "text": "missing_required_keys",
+          "text": "`missing_required_keys`",
           "anchor": "missing_required_keys"
         },
         {
           "level": 3,
-          "text": "remediation_block",
+          "text": "`remediation_block`",
           "anchor": "remediation_block"
         },
         {
           "level": 3,
-          "text": "required_keys_error",
+          "text": "`required_keys_error`",
           "anchor": "required_keys_error"
         },
         {
           "level": 3,
-          "text": "resolve",
+          "text": "`resolve`",
           "anchor": "resolve"
         }
       ]
@@ -479,27 +479,27 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.envfloor",
+          "text": "`python.src.stricttest.envfloor`",
           "anchor": "pythonsrcstricttestenvfloor"
         },
         {
           "level": 3,
-          "text": "session_env_dir",
+          "text": "`session_env_dir`",
           "anchor": "session_env_dir"
         },
         {
           "level": 3,
-          "text": "_preserve_toolchain_vars",
+          "text": "`_preserve_toolchain_vars`",
           "anchor": "_preserve_toolchain_vars"
         },
         {
           "level": 3,
-          "text": "install",
+          "text": "`install`",
           "anchor": "install"
         },
         {
           "level": 3,
-          "text": "uninstall",
+          "text": "`uninstall`",
           "anchor": "uninstall"
         }
       ]
@@ -516,137 +516,137 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.pgcluster",
+          "text": "`python.src.stricttest.pgcluster`",
           "anchor": "pythonsrcstricttestpgcluster"
         },
         {
           "level": 3,
-          "text": "PostgresUnavailable",
+          "text": "`PostgresUnavailable`",
           "anchor": "postgresunavailable"
         },
         {
           "level": 3,
-          "text": "SocketPathTooLong",
+          "text": "`SocketPathTooLong`",
           "anchor": "socketpathtoolong"
         },
         {
           "level": 3,
-          "text": "PostgresClusterError",
+          "text": "`PostgresClusterError`",
           "anchor": "postgresclustererror"
         },
         {
           "level": 3,
-          "text": "Binaries",
+          "text": "`Binaries`",
           "anchor": "binaries"
         },
         {
           "level": 4,
-          "text": "bindir",
+          "text": "`bindir`",
           "anchor": "bindir"
         },
         {
           "level": 3,
-          "text": "_search_dirs",
+          "text": "`_search_dirs`",
           "anchor": "_search_dirs"
         },
         {
           "level": 3,
-          "text": "find_binaries",
+          "text": "`find_binaries`",
           "anchor": "find_binaries"
         },
         {
           "level": 3,
-          "text": "socket_path_for",
+          "text": "`socket_path_for`",
           "anchor": "socket_path_for"
         },
         {
           "level": 3,
-          "text": "check_socket_dir",
+          "text": "`check_socket_dir`",
           "anchor": "check_socket_dir"
         },
         {
           "level": 3,
-          "text": "_pick_parent",
+          "text": "`_pick_parent`",
           "anchor": "_pick_parent"
         },
         {
           "level": 3,
-          "text": "EphemeralCluster",
+          "text": "`EphemeralCluster`",
           "anchor": "ephemeralcluster"
         },
         {
           "level": 4,
-          "text": "running",
+          "text": "`running`",
           "anchor": "running"
         },
         {
           "level": 4,
-          "text": "socket_dir",
+          "text": "`socket_dir`",
           "anchor": "socket_dir"
         },
         {
           "level": 4,
-          "text": "data_dir",
+          "text": "`data_dir`",
           "anchor": "data_dir"
         },
         {
           "level": 4,
-          "text": "socket_path",
+          "text": "`socket_path`",
           "anchor": "socket_path"
         },
         {
           "level": 4,
-          "text": "base_url",
+          "text": "`base_url`",
           "anchor": "base_url"
         },
         {
           "level": 4,
-          "text": "url_for",
+          "text": "`url_for`",
           "anchor": "url_for"
         },
         {
           "level": 4,
-          "text": "start",
+          "text": "`start`",
           "anchor": "start"
         },
         {
           "level": 4,
-          "text": "stop",
+          "text": "`stop`",
           "anchor": "stop"
         },
         {
           "level": 4,
-          "text": "generate_name",
+          "text": "`generate_name`",
           "anchor": "generate_name"
         },
         {
           "level": 4,
-          "text": "create_database",
+          "text": "`create_database`",
           "anchor": "create_database"
         },
         {
           "level": 4,
-          "text": "drop_database",
+          "text": "`drop_database`",
           "anchor": "drop_database"
         },
         {
           "level": 4,
-          "text": "database",
+          "text": "`database`",
           "anchor": "database"
         },
         {
           "level": 4,
-          "text": "sql",
+          "text": "`sql`",
           "anchor": "sql"
         },
         {
           "level": 4,
-          "text": "_env",
+          "text": "`_env`",
           "anchor": "_env"
         },
         {
           "level": 3,
-          "text": "ephemeral_cluster",
+          "text": "`ephemeral_cluster`",
           "anchor": "ephemeral_cluster"
         }
       ]
@@ -663,52 +663,52 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.plugin",
+          "text": "`python.src.stricttest.plugin`",
           "anchor": "pythonsrcstricttestplugin"
         },
         {
           "level": 3,
-          "text": "settings",
+          "text": "`settings`",
           "anchor": "settings"
         },
         {
           "level": 3,
-          "text": "pytest_addoption",
+          "text": "`pytest_addoption`",
           "anchor": "pytest_addoption"
         },
         {
           "level": 3,
-          "text": "pytest_load_initial_conftests",
+          "text": "`pytest_load_initial_conftests`",
           "anchor": "pytest_load_initial_conftests"
         },
         {
           "level": 3,
-          "text": "pytest_configure",
+          "text": "`pytest_configure`",
           "anchor": "pytest_configure"
         },
         {
           "level": 3,
-          "text": "pytest_unconfigure",
+          "text": "`pytest_unconfigure`",
           "anchor": "pytest_unconfigure"
         },
         {
           "level": 3,
-          "text": "pytest_collection_modifyitems",
+          "text": "`pytest_collection_modifyitems`",
           "anchor": "pytest_collection_modifyitems"
         },
         {
           "level": 3,
-          "text": "pytest_xdist_node_collection_finished",
+          "text": "`pytest_xdist_node_collection_finished`",
           "anchor": "pytest_xdist_node_collection_finished"
         },
         {
           "level": 3,
-          "text": "_stricttest_chdir_into_tmp",
+          "text": "`_stricttest_chdir_into_tmp`",
           "anchor": "_stricttest_chdir_into_tmp"
         },
         {
           "level": 3,
-          "text": "_stricttest_guard_nonlocal_push",
+          "text": "`_stricttest_guard_nonlocal_push`",
           "anchor": "_stricttest_guard_nonlocal_push"
         }
       ]
@@ -725,22 +725,22 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.pushguard",
+          "text": "`python.src.stricttest.pushguard`",
           "anchor": "pythonsrcstricttestpushguard"
         },
         {
           "level": 3,
-          "text": "remote_is_local",
+          "text": "`remote_is_local`",
           "anchor": "remote_is_local"
         },
         {
           "level": 3,
-          "text": "extract_push_remote",
+          "text": "`extract_push_remote`",
           "anchor": "extract_push_remote"
         },
         {
           "level": 3,
-          "text": "make_guarded_popen",
+          "text": "`make_guarded_popen`",
           "anchor": "make_guarded_popen"
         }
       ]
@@ -757,17 +757,17 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.sandbox",
+          "text": "`python.src.stricttest.sandbox`",
           "anchor": "pythonsrcstricttestsandbox"
         },
         {
           "level": 3,
-          "text": "enforce_threshold",
+          "text": "`enforce_threshold`",
           "anchor": "enforce_threshold"
         },
         {
           "level": 3,
-          "text": "enforce_tmp_outside_repo",
+          "text": "`enforce_tmp_outside_repo`",
           "anchor": "enforce_tmp_outside_repo"
         }
       ]
@@ -784,52 +784,52 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest.socketguard",
+          "text": "`python.src.stricttest.socketguard`",
           "anchor": "pythonsrcstricttestsocketguard"
         },
         {
           "level": 3,
-          "text": "NetworkBlocked",
+          "text": "`NetworkBlocked`",
           "anchor": "networkblocked"
         },
         {
           "level": 3,
-          "text": "Policy",
+          "text": "`Policy`",
           "anchor": "policy"
         },
         {
           "level": 4,
-          "text": "from_settings",
+          "text": "`from_settings`",
           "anchor": "from_settings"
         },
         {
           "level": 4,
-          "text": "allowlist_hosts",
+          "text": "`allowlist_hosts`",
           "anchor": "allowlist_hosts"
         },
         {
           "level": 4,
-          "text": "describe",
+          "text": "`describe`",
           "anchor": "describe"
         },
         {
           "level": 3,
-          "text": "is_loopback",
+          "text": "`is_loopback`",
           "anchor": "is_loopback"
         },
         {
           "level": 3,
-          "text": "_check_resolution",
+          "text": "`_check_resolution`",
           "anchor": "_check_resolution"
         },
         {
           "level": 3,
-          "text": "install",
+          "text": "`install`",
           "anchor": "install"
         },
         {
           "level": 3,
-          "text": "current_policy",
+          "text": "`current_policy`",
           "anchor": "current_policy"
         }
       ]
@@ -846,7 +846,7 @@
         },
         {
           "level": 2,
-          "text": "python.src.stricttest",
+          "text": "`python.src.stricttest`",
           "anchor": "pythonsrcstricttest"
         }
       ]
@@ -863,47 +863,47 @@
         },
         {
           "level": 2,
-          "text": "typescript/src/env",
+          "text": "`typescript/src/env`",
           "anchor": "typescriptsrcenv"
         },
         {
           "level": 3,
-          "text": "IDENTITY_NAME",
+          "text": "`IDENTITY_NAME`",
           "anchor": "identity_name"
         },
         {
           "level": 3,
-          "text": "IDENTITY_EMAIL",
+          "text": "`IDENTITY_EMAIL`",
           "anchor": "identity_email"
         },
         {
           "level": 3,
-          "text": "CREDENTIAL_VARS",
+          "text": "`CREDENTIAL_VARS`",
           "anchor": "credential_vars"
         },
         {
           "level": 3,
-          "text": "throwawayHome",
+          "text": "`throwawayHome`",
           "anchor": "throwawayhome"
         },
         {
           "level": 3,
-          "text": "isolateGitConfig",
+          "text": "`isolateGitConfig`",
           "anchor": "isolategitconfig"
         },
         {
           "level": 3,
-          "text": "lockdownTransports",
+          "text": "`lockdownTransports`",
           "anchor": "lockdowntransports"
         },
         {
           "level": 3,
-          "text": "stripCredentials",
+          "text": "`stripCredentials`",
           "anchor": "stripcredentials"
         },
         {
           "level": 3,
-          "text": "chdir",
+          "text": "`chdir`",
           "anchor": "chdir"
         }
       ]
@@ -920,42 +920,42 @@
         },
         {
           "level": 2,
-          "text": "typescript/src/hygiene",
+          "text": "`typescript/src/hygiene`",
           "anchor": "typescriptsrchygiene"
         },
         {
-          "level": 2,
+          "level": 3,
           "text": "No socket guard",
           "anchor": "no-socket-guard"
         },
         {
-          "level": 2,
+          "level": 3,
           "text": "No push guard",
           "anchor": "no-push-guard"
         },
         {
           "level": 3,
-          "text": "KnownVar",
+          "text": "`KnownVar`",
           "anchor": "knownvar"
         },
         {
           "level": 3,
-          "text": "KNOWN_VARS",
+          "text": "`KNOWN_VARS`",
           "anchor": "known_vars"
         },
         {
           "level": 3,
-          "text": "IsolateOptions",
+          "text": "`IsolateOptions`",
           "anchor": "isolateoptions"
         },
         {
           "level": 3,
-          "text": "isolate",
+          "text": "`isolate`",
           "anchor": "isolate"
         },
         {
           "level": 3,
-          "text": "preserveVars",
+          "text": "`preserveVars`",
           "anchor": "preservevars"
         }
       ]
@@ -972,117 +972,117 @@
         },
         {
           "level": 2,
-          "text": "typescript/src/index",
+          "text": "`typescript/src/index`",
           "anchor": "typescriptsrcindex"
         },
         {
-          "level": 2,
+          "level": 3,
           "text": "Contract",
           "anchor": "contract"
         },
         {
-          "level": 2,
+          "level": 3,
           "text": "Concurrency",
           "anchor": "concurrency"
         },
         {
           "level": 3,
-          "text": "chdir",
+          "text": "`chdir`",
           "anchor": "chdir"
         },
         {
           "level": 3,
-          "text": "CREDENTIAL_VARS",
+          "text": "`CREDENTIAL_VARS`",
           "anchor": "credential_vars"
         },
         {
           "level": 3,
-          "text": "IDENTITY_EMAIL",
+          "text": "`IDENTITY_EMAIL`",
           "anchor": "identity_email"
         },
         {
           "level": 3,
-          "text": "IDENTITY_NAME",
+          "text": "`IDENTITY_NAME`",
           "anchor": "identity_name"
         },
         {
           "level": 3,
-          "text": "isolateGitConfig",
+          "text": "`isolateGitConfig`",
           "anchor": "isolategitconfig"
         },
         {
           "level": 3,
-          "text": "lockdownTransports",
+          "text": "`lockdownTransports`",
           "anchor": "lockdowntransports"
         },
         {
           "level": 3,
-          "text": "stripCredentials",
+          "text": "`stripCredentials`",
           "anchor": "stripcredentials"
         },
         {
           "level": 3,
-          "text": "throwawayHome",
+          "text": "`throwawayHome`",
           "anchor": "throwawayhome"
         },
         {
           "level": 3,
-          "text": "isolate",
+          "text": "`isolate`",
           "anchor": "isolate"
         },
         {
           "level": 3,
-          "text": "type IsolateOptions",
+          "text": "`type IsolateOptions`",
           "anchor": "type-isolateoptions"
         },
         {
           "level": 3,
-          "text": "KNOWN_VARS",
+          "text": "`KNOWN_VARS`",
           "anchor": "known_vars"
         },
         {
           "level": 3,
-          "text": "type KnownVar",
+          "text": "`type KnownVar`",
           "anchor": "type-knownvar"
         },
         {
           "level": 3,
-          "text": "preserveVars",
+          "text": "`preserveVars`",
           "anchor": "preservevars"
         },
         {
           "level": 3,
-          "text": "DEFAULT_RUNNER_COMMAND",
+          "text": "`DEFAULT_RUNNER_COMMAND`",
           "anchor": "default_runner_command"
         },
         {
           "level": 3,
-          "text": "DEFAULT_SANDBOX_ENV",
+          "text": "`DEFAULT_SANDBOX_ENV`",
           "anchor": "default_sandbox_env"
         },
         {
           "level": 3,
-          "text": "insideSandbox",
+          "text": "`insideSandbox`",
           "anchor": "insidesandbox"
         },
         {
           "level": 3,
-          "text": "requireSandbox",
+          "text": "`requireSandbox`",
           "anchor": "requiresandbox"
         },
         {
           "level": 3,
-          "text": "type RequireSandboxOptions",
+          "text": "`type RequireSandboxOptions`",
           "anchor": "type-requiresandboxoptions"
         },
         {
           "level": 3,
-          "text": "SandboxRequiredError",
+          "text": "`SandboxRequiredError`",
           "anchor": "sandboxrequirederror"
         },
         {
           "level": 3,
-          "text": "type SandboxPolicy",
+          "text": "`type SandboxPolicy`",
           "anchor": "type-sandboxpolicy"
         }
       ]
@@ -1099,47 +1099,47 @@
         },
         {
           "level": 2,
-          "text": "typescript/src/sandbox",
+          "text": "`typescript/src/sandbox`",
           "anchor": "typescriptsrcsandbox"
         },
         {
-          "level": 2,
+          "level": 3,
           "text": "Why this is a helper the consumer calls, and not a hook",
           "anchor": "why-this-is-a-helper-the-consumer-calls-and-not-a-hook"
         },
         {
           "level": 3,
-          "text": "DEFAULT_SANDBOX_ENV",
+          "text": "`DEFAULT_SANDBOX_ENV`",
           "anchor": "default_sandbox_env"
         },
         {
           "level": 3,
-          "text": "DEFAULT_RUNNER_COMMAND",
+          "text": "`DEFAULT_RUNNER_COMMAND`",
           "anchor": "default_runner_command"
         },
         {
           "level": 3,
-          "text": "SandboxRequiredError",
+          "text": "`SandboxRequiredError`",
           "anchor": "sandboxrequirederror"
         },
         {
           "level": 3,
-          "text": "SandboxPolicy",
+          "text": "`SandboxPolicy`",
           "anchor": "sandboxpolicy"
         },
         {
           "level": 3,
-          "text": "RequireSandboxOptions",
+          "text": "`RequireSandboxOptions`",
           "anchor": "requiresandboxoptions"
         },
         {
           "level": 3,
-          "text": "insideSandbox",
+          "text": "`insideSandbox`",
           "anchor": "insidesandbox"
         },
         {
           "level": 3,
-          "text": "requireSandbox",
+          "text": "`requireSandbox`",
           "anchor": "requiresandbox"
         }
       ]
@@ -1156,42 +1156,43 @@
         },
         {
           "level": 2,
-          "text": "typescript/src/scope",
+          "text": "`typescript/src/scope`",
           "anchor": "typescriptsrcscope"
         },
         {
           "level": 3,
-          "text": "CleanupRegistry",
+          "text": "`CleanupRegistry`",
           "anchor": "cleanupregistry"
         },
         {
           "level": 3,
-          "text": "Scope",
+          "text": "`Scope`",
           "anchor": "scope"
         },
         {
           "level": 3,
-          "text": "scopeFor",
+          "text": "`scopeFor`",
           "anchor": "scopefor"
         },
         {
           "level": 3,
-          "text": "setEnv",
+          "text": "`setEnv`",
           "anchor": "setenv"
         },
         {
           "level": 3,
-          "text": "unsetEnv",
+          "text": "`unsetEnv`",
           "anchor": "unsetenv"
         },
         {
           "level": 3,
-          "text": "onRelease",
+          "text": "`onRelease`",
           "anchor": "onrelease"
         }
       ]
     }
   ],
   "posts": [],
-  "last_gen": "2026-08-12T12:01:56.811590+00:00"
+  "last_gen": "2026-09-14T14:42:00.514847+00:00",
+  "theme": "minimal"
 }
