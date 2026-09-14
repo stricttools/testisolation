@@ -1,0 +1,25 @@
+
+
+# py-stricttest: no unreleased commits since 0.2.1
+# [releasables.py-stricttest]
+# bump = ""
+# description = ""
+# context = ""
+# include = ["pypi"]
+# exclude = []
+
+# go-stricttest: no unreleased commits since 0.2.1
+# [releasables.go-stricttest]
+# bump = ""
+# description = ""
+# context = ""
+# include = ["go"]
+# exclude = []
+
+# ts-stricttest: no unreleased commits since 0.1.3
+# [releasables.ts-stricttest]
+# bump = ""
+# description = ""
+# context = ""
+# include = ["npm"]
+# exclude = []
