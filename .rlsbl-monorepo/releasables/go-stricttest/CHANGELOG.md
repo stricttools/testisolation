@@ -2,9 +2,13 @@
 
 # Changelog
 
-## Unreleased
+## 0.2.1
 
-- No user-facing changes.
+The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site.
+
+### Fixes
+
+- [go-stricttest] **The project describes itself consistently on PyPI, npm and in its README.** The package doc and the module README each opened with their own wording instead of the project's one-line description.
 
 ## 0.2.0
 
