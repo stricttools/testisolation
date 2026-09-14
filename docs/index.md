@@ -1,8 +1,8 @@
----
-title: stricttest
-description: "stricttest is an always-on test-isolation floor: a pytest plugin, a Go env-hygiene module, and a Node package that cut a suite off from real credentials."
-order: 0
----
++++
+title = "stricttest"
+description = "stricttest is an always-on test-isolation floor: a pytest plugin, a Go env-hygiene module, and a Node package that cut a suite off from real credentials."
+nav_order = 0
++++
 
 # stricttest
 

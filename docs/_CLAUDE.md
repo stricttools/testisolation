@@ -1,6 +1,6 @@
----
-title: CLAUDE.md
----
++++
+title = "CLAUDE.md"
++++
 # stricttest
 
 An always-on test-isolation floor: a pytest plugin (`python/`), a Go module

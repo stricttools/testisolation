@@ -1,6 +1,6 @@
----
-title: README.md
----
++++
+title = "README.md"
++++
 # stricttest
 
 stricttest is an always-on test-isolation floor that makes a test suite
