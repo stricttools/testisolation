@@ -1,6 +1,10 @@
-// Package hygiene provides an always-on test-environment isolation floor for Go
-// suites: a throwaway HOME, an isolated git config and identity, transport
-// lockdown, credential stripping, and cleanup-restoring chdir.
+// Package hygiene is an always-on test-isolation floor that makes a test suite
+// structurally unable to reach the real HOME, an ambient credential, the
+// developer's git identity, or a remote git transport.
+//
+// The pieces of the floor are a throwaway HOME, an isolated git config and
+// identity, transport lockdown, credential stripping, and cleanup-restoring
+// chdir.
 //
 // # Usage
 //
