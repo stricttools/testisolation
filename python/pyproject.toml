@@ -5,13 +5,23 @@ build-backend = "hatchling.build"
 [project]
 name = "stricttest"
 version = "0.2.0"
-description = "Pytest plugin providing an always-on test-isolation floor: env poisoning, transport lockdown, credential stripping, socket guard, push guard, and sandbox enforcement"
+description = "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport (pytest plugin)"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "S. M. Hosseini", email = "m.hosseini@veliu.com" }]
-keywords = ["pytest", "plugin", "testing", "isolation", "sandbox", "security", "rlsbl"]
+keywords = [
+    "testing",
+    "test-isolation",
+    "isolation",
+    "sandbox",
+    "security",
+    "credentials",
+    "pytest",
+    "node-test",
+    "rlsbl",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Framework :: Pytest",
@@ -43,5 +53,8 @@ stricttest_loopback = "deny"
 stricttest_sandbox_required = "false"
 
 [project.urls]
-Homepage = "https://github.com/smm-h/stricttest"
+Homepage = "https://smmh.dev/stricttest/"
+Documentation = "https://smmh.dev/stricttest/"
 Repository = "https://github.com/smm-h/stricttest"
+Issues = "https://github.com/smm-h/stricttest/issues"
+Changelog = "https://github.com/smm-h/stricttest/blob/main/CHANGELOG.md"
