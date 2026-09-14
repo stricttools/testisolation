@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "base_version": "0.2.0",
+      "bump": "patch",
+      "name": "py-stricttest",
+      "registry": "pypi",
+      "tag": "py-stricttest@v0.2.1",
+      "target_version": "0.2.1"
+    },
+    {
+      "base_version": "0.2.0",
+      "bump": "patch",
+      "name": "go-stricttest",
+      "registry": "go",
+      "tag": "go-stricttest@v0.2.1",
+      "target_version": "0.2.1"
+    },
+    {
+      "base_version": "0.1.2",
+      "bump": "patch",
+      "name": "ts-stricttest",
+      "registry": "npm",
+      "tag": "ts-stricttest@v0.1.3",
+      "target_version": "0.1.3"
+    }
+  ]
+}
