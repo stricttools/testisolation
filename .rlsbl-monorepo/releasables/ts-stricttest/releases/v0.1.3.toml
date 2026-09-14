@@ -1,0 +1,14 @@
+# Archived by rlsbl at release time. This release had no unreleased.toml
+# (a batch member takes its metadata from the batch release file); the
+# archive is written so later changelog regenerations keep the
+# description and context.
+# strictspec document version gate (do not remove)
+format_version = 1
+bump = "patch"
+include = ["npm"]
+exclude = []
+description = "The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site."
+candidate_sha = "dc5f0535ea5df4b2e73d1a068580f63da5ebdd7e"
+
+[tree_hashes]
+typescript = "69be0f387f32218df96a7174a8ed46fcd7d1ec83"
