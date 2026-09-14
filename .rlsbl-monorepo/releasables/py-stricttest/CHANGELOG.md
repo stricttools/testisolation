@@ -2,9 +2,13 @@
 
 # Changelog
 
-## Unreleased
+## 0.2.1
 
-- No user-facing changes.
+The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site.
+
+### Fixes
+
+- [stricttest] **The project describes itself consistently on PyPI, npm and in its README.** The PyPI summary described only the pytest half of the project, and the package carried no documentation, issues or changelog URLs.
 
 ## 0.2.0
 
