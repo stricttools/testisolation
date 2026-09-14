@@ -191,9 +191,13 @@ equivalent, and a partial guard would read as a guarantee.
 
 # ts-stricttest
 
-## Unreleased
+## 0.1.3
 
-- No user-facing changes.
+The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site.
+
+### Fixes
+
+- [ts-stricttest] **The project describes itself consistently on PyPI, npm and in its README.** The npm summary described only the Node half of the project, and the package carried no homepage or bug-tracker link.
 
 ## 0.1.2
 

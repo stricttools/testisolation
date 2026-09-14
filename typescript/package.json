@@ -1,6 +1,6 @@
 {
 	"name": "stricttest",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"type": "module",
 	"description": "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport (Node package)",
 	"engines": {
