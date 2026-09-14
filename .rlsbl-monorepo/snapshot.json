@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-07T12:00:54Z",
-  "package_count": 3,
+  "generated_at": "2026-09-14T16:26:46Z",
+  "package_count": 4,
   "packages": {
     "stricttest": {
       "path": "python",
@@ -21,7 +21,7 @@
       "targets": [
         "go"
       ],
-      "version": "0.2.0",
+      "version": "0.2.1",
       "description": null,
       "deps": [],
       "rdeps": [],
@@ -43,22 +43,37 @@
       "dev_only": false,
       "releasable_flag": true,
       "test_only": false
+    },
+    "root": {
+      "path": ".",
+      "targets": [],
+      "version": null,
+      "description": null,
+      "deps": [],
+      "rdeps": [],
+      "library": false,
+      "dev_only": true,
+      "releasable_flag": false,
+      "test_only": false
     }
   },
   "graph": {
     "leaf_nodes": [
       "go-stricttest",
+      "root",
       "stricttest",
       "ts-stricttest"
     ],
     "root_nodes": [
       "go-stricttest",
+      "root",
       "stricttest",
       "ts-stricttest"
     ],
     "max_depth": 0,
     "topological_order": [
       "go-stricttest",
+      "root",
       "stricttest",
       "ts-stricttest"
     ]
