@@ -2,7 +2,7 @@
 	"name": "stricttest",
 	"version": "0.1.2",
 	"type": "module",
-	"description": "An always-on test-isolation floor for Node suites: throwaway HOME and XDG directories, an isolated git config and identity, transport lockdown, credential stripping, and sandbox enforcement",
+	"description": "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport (Node package)",
 	"engines": {
 		"node": ">=22"
 	},
@@ -11,6 +11,10 @@
 		"type": "git",
 		"url": "git+https://github.com/smm-h/stricttest.git",
 		"directory": "typescript"
+	},
+	"homepage": "https://smmh.dev/stricttest/",
+	"bugs": {
+		"url": "https://github.com/smm-h/stricttest/issues"
 	},
 	"exports": {
 		".": {
@@ -33,9 +37,12 @@
 	},
 	"keywords": [
 		"testing",
+		"test-isolation",
 		"isolation",
 		"sandbox",
 		"security",
+		"credentials",
+		"pytest",
 		"node-test",
 		"rlsbl"
 	]

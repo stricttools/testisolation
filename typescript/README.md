@@ -1,10 +1,12 @@
 # stricttest (npm)
 
-An always-on test-isolation floor for Node suites: a throwaway `HOME` and XDG
-directories, an isolated git configuration and identity, transport lockdown,
-credential stripping, and bare-run refusal.
+This is the Node package: an always-on test-isolation floor that makes a test
+suite structurally unable to reach the real HOME, an ambient credential, the
+developer's git identity, or a remote git transport. For Node suites the floor
+is a throwaway `HOME` and XDG directories, an isolated git configuration and
+identity, transport lockdown, credential stripping, and bare-run refusal.
 
-This is the Node member of a three-language floor. The
+It is the Node member of a three-language floor. The
 [pytest plugin](https://pypi.org/project/stricttest/) and the
 [Go module](https://pkg.go.dev/github.com/smm-h/stricttest/go/hygiene) ship from
 the same repository, and a cross-language test holds their credential lists and
