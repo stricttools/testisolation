@@ -3,13 +3,7 @@ title = "README.md"
 +++
 # stricttest
 
-stricttest is an always-on test-isolation floor that makes a test suite
-structurally unable to reach the real HOME, an ambient credential, the
-developer's git identity, or a remote git transport. It is for suites that run
-on a developer machine or in CI beside real credentials and a real repository,
-where being disciplined about avoiding them is not the same as being unable to
-touch them. Installing it IS adoption: there is no opt-in switch and no way to
-turn the floor off, so a suite is either isolated or refuses to run.
+Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
 | Component | Install | Location |
 |-----------|---------|----------|

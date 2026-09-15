@@ -1,12 +1,12 @@
 +++
 title = "stricttest"
-description = "stricttest is an always-on test-isolation floor: a pytest plugin, a Go env-hygiene module, and a Node package that cut a suite off from real credentials."
+description = "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node"
 nav_order = 0
 +++
 
 # stricttest
 
-An always-on test-isolation floor. A test suite must be *structurally unable* to reach the real developer identity, an ambient credential, the network, or the development repository -- not merely disciplined about avoiding them.
+Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
 Three floors ship the same guarantees for three languages:
 
