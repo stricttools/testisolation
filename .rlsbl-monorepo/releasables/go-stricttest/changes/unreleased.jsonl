@@ -1,0 +1,1 @@
+{"format_version":1,"id":"18d5995888db3b1feb7e4cdbb184400c844d5c6ddf1fa7fa","commits":["91bc16f514b1b3cee271ef2c2913ef2258498e6f"],"user_facing":true,"description":"**The tool describes itself with one sentence everywhere.** The README now carries the same line as the project's other surfaces.","type":"fix","packages":["go-stricttest"]}
