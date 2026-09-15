@@ -1,0 +1,1 @@
+{"format_version":1,"id":"18d5995878c3575ca615dc7a77a14a549226f10ada5c731b","commits":["67644675a54b3e2e6c91b5004e2fa9005f207811"],"user_facing":true,"description":"**The tool describes itself with one sentence everywhere.** The README and PyPI metadata now carry the same line as the project's other surfaces.","type":"fix","packages":["stricttest"]}
