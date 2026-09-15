@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "stricttest"
 version = "0.2.1"
-description = "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport (pytest plugin)"
+description = "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"

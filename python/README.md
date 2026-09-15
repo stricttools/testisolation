@@ -1,8 +1,8 @@
 # stricttest (Python)
 
-This is the pytest plugin: an always-on test-isolation floor that makes a test
-suite structurally unable to reach the real HOME, an ambient credential, the
-developer's git identity, or a remote git transport.
+Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
+
+This is the pytest plugin.
 
 ```bash
 pip install stricttest
