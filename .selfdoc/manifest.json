@@ -3,7 +3,7 @@
   "name": "stricttest",
   "slug": "stricttest",
   "version": "0.2.0",
-  "description": "An always-on test-isolation floor that makes a test suite structurally unable to reach the real HOME, an ambient credential, the developer's git identity, or a remote git transport",
+  "description": "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node",
   "language": "python",
   "base_url": "https://docs.smmh.dev/stricttest",
   "pages": [
@@ -1193,6 +1193,6 @@
     }
   ],
   "posts": [],
-  "last_gen": "2026-09-14T14:42:00.514847+00:00",
+  "last_gen": "2026-09-15T20:43:01.496934+00:00",
   "theme": "minimal"
 }
