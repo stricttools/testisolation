@@ -1,12 +1,11 @@
 # stricttest (Go)
 
-This is the Go module: an always-on test-isolation floor that makes a test suite
-structurally unable to reach the real HOME, an ambient credential, the
-developer's git identity, or a remote git transport. The floor is the `hygiene`
-package -- a throwaway HOME, an isolated git config and identity, transport
-lockdown, credential stripping, and cleanup-restoring chdir. A second package in
-the same module, `pgcluster`, boots a throwaway PostgreSQL cluster for suites
-that need a real database.
+Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
+
+This is the Go module. The floor is the `hygiene` package -- a throwaway HOME,
+an isolated git config and identity, transport lockdown, credential stripping,
+and cleanup-restoring chdir. A second package in the same module, `pgcluster`,
+boots a throwaway PostgreSQL cluster for suites that need a real database.
 
 ```bash
 go get github.com/smm-h/stricttest/go
