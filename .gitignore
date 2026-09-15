@@ -1,9 +1,8 @@
 dist/
-docs/_build/
 # .selfdoc/ is NOT ignored: it holds the staleness baselines and the manifest.
 # Ignoring them makes every checkout its own baseline, so STALE001/DRIFT001 fire
 # differently for every person and every CI run. Only the build cache is local.
-.selfdoc/cache/
+.stricttools/docs-cache/versions/
 __pycache__/
 *.pyc
 *.egg-info/

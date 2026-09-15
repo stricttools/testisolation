@@ -18,8 +18,8 @@
       "language": "typescript"
     }
   ],
-  "docs": "docs/",
-  "output": "docs/_build/",
+  "docs": ".stricttools/docs/",
+  "output": ".stricttools/docs-cache/build/",
   "changelog": ".rlsbl-monorepo/releasables/py-stricttest/CHANGELOG.md",
   "base_url": "https://docs.smmh.dev/stricttest",
   "search_engine": "pagefind",
@@ -45,8 +45,8 @@
   "description": "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node",
   "repo": "https://github.com/smm-h/stricttest",
   "root_files": [
-    "docs/_README.md",
-    "docs/_CLAUDE.md"
+    ".stricttools/docs/_README.md",
+    ".stricttools/docs/_CLAUDE.md"
   ],
   "topology": {
     "slug": "stricttest",
