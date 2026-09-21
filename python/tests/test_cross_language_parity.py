@@ -18,7 +18,7 @@ from pathlib import Path
 import pytest
 
 from stricttest.config import PRESERVE_VARS
-from stricttest.envpoison import CREDENTIAL_VARS
+from stricttest.env_overrides import CREDENTIAL_VARS
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GO_ROOT = REPO_ROOT / "go" / "hygiene"

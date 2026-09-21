@@ -20,7 +20,7 @@ same guarantee in every language it tests in.
 Installing the pytest plugin IS adoption -- there is no opt-in switch. Once
 installed, every session binds:
 
-- **Env poisoning.** A throwaway `HOME`, `USERPROFILE` and XDG directory set,
+- **Environment overrides.** A throwaway `HOME`, `USERPROFILE` and XDG directory set,
   created before any conftest module is imported.
 - **Throwaway git identity and config.** `GIT_CONFIG_GLOBAL` / `GIT_CONFIG_SYSTEM`
   point at a session-local file carrying `protocol.ssh.allow=never` and a

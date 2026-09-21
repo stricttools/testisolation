@@ -8,7 +8,7 @@ the session aborts.
 Ordering matters and is deliberate:
 
 1. ``pytest_load_initial_conftests`` -- the earliest hook that already has a
-   parsed ini file. Validation, the TMPDIR refusal, env poisoning and
+   parsed ini file. Validation, the TMPDIR refusal, environment overrides and
    the socket guard all bind HERE, before any conftest module is imported. A
    conftest that reads ``HOME`` at import time therefore sees the throwaway one.
 2. ``pytest_configure`` -- marker registration and a second TMPDIR check now
@@ -27,7 +27,7 @@ from unittest.mock import patch
 import pytest
 
 from . import config as _config
-from . import envpoison, sandbox, socketguard
+from . import env_overrides, sandbox, socketguard
 from .config import Settings
 from .pushguard import make_guarded_popen
 
@@ -66,7 +66,7 @@ def pytest_load_initial_conftests(early_config, parser, args):
 
     # The isolation allocates its throwaway directory with ``tempfile``, so it only
     # runs once TMPDIR has been proven to live outside the repository.
-    envpoison.install(resolved)
+    env_overrides.install(resolved)
     socketguard.install(resolved)
 
 
@@ -80,7 +80,7 @@ def pytest_configure(config):
     global _settings
     if _settings is None:  # pragma: no cover - defensive, ordering is fixed
         _settings = _config.resolve(config)
-        envpoison.install(_settings)
+        env_overrides.install(_settings)
         socketguard.install(_settings)
     sandbox.enforce_tmp_outside_repo(
         Path(config.rootpath).resolve(), _basetemp_of(config)
@@ -89,7 +89,7 @@ def pytest_configure(config):
 
 def pytest_unconfigure(config):
     """Tear down the throwaway env directory for this process."""
-    envpoison.uninstall()
+    env_overrides.uninstall()
 
 
 @pytest.hookimpl(trylast=True)

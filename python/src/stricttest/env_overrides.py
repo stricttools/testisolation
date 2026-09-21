@@ -1,4 +1,4 @@
-"""Always-on env poisoning.
+"""Always-on environment overrides.
 
 Installed once per process before any conftest module is imported, so it binds
 before a test body, a fixture, or even a module-level constant can read the
@@ -74,7 +74,7 @@ def _preserve_toolchain_vars(settings: Settings, real_home: str) -> None:
 
 
 def install(settings: Settings) -> None:
-    """Install env poisoning for this process (idempotent)."""
+    """Install the environment overrides for this process (idempotent)."""
     global _SESSION_ENV_DIR
     if _SESSION_ENV_DIR is not None:
         return
