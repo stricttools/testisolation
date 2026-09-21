@@ -1,8 +1,7 @@
 +++
 title = "python.src.stricttest.env_overrides"
-description = "Always-on environment overrides."
+description = "The environment overrides installed once per process: a throwaway HOME, USERPROFILE, and XDG directories, a pinned git identity, and credential stripping."
 generated = true
-seeded = true
 nav_group = "API Reference"
 nav_order = 3
 +++
