@@ -2,13 +2,13 @@
 
 Installing stricttest IS adoption. Every hook below binds unconditionally once
 the project's safety keys validate; there is no opt-in switch and no runtime
-degradation path -- a project either declares its stance and gets the floor, or
+degradation path -- a project either declares its stance and gets the isolation, or
 the session aborts.
 
 Ordering matters and is deliberate:
 
 1. ``pytest_load_initial_conftests`` -- the earliest hook that already has a
-   parsed ini file. Validation, the TMPDIR refusal, the env-poisoning floor and
+   parsed ini file. Validation, the TMPDIR refusal, env poisoning and
    the socket guard all bind HERE, before any conftest module is imported. A
    conftest that reads ``HOME`` at import time therefore sees the throwaway one.
 2. ``pytest_configure`` -- marker registration and a second TMPDIR check now
@@ -27,7 +27,7 @@ from unittest.mock import patch
 import pytest
 
 from . import config as _config
-from . import envfloor, sandbox, socketguard
+from . import envpoison, sandbox, socketguard
 from .config import Settings
 from .pushguard import make_guarded_popen
 
@@ -56,7 +56,7 @@ def _basetemp_of(cfg):
 
 @pytest.hookimpl(tryfirst=True)
 def pytest_load_initial_conftests(early_config, parser, args):
-    """Bind the whole floor before any conftest module is imported."""
+    """Bind every isolation piece before any conftest module is imported."""
     global _settings
     resolved = _config.resolve(early_config)
     _settings = resolved
@@ -64,9 +64,9 @@ def pytest_load_initial_conftests(early_config, parser, args):
     repo_root = Path(early_config.rootpath).resolve()
     sandbox.enforce_tmp_outside_repo(repo_root, _basetemp_of(early_config))
 
-    # The floor allocates its throwaway directory with ``tempfile``, so it only
+    # The isolation allocates its throwaway directory with ``tempfile``, so it only
     # runs once TMPDIR has been proven to live outside the repository.
-    envfloor.install(resolved)
+    envpoison.install(resolved)
     socketguard.install(resolved)
 
 
@@ -80,7 +80,7 @@ def pytest_configure(config):
     global _settings
     if _settings is None:  # pragma: no cover - defensive, ordering is fixed
         _settings = _config.resolve(config)
-        envfloor.install(_settings)
+        envpoison.install(_settings)
         socketguard.install(_settings)
     sandbox.enforce_tmp_outside_repo(
         Path(config.rootpath).resolve(), _basetemp_of(config)
@@ -89,7 +89,7 @@ def pytest_configure(config):
 
 def pytest_unconfigure(config):
     """Tear down the throwaway env directory for this process."""
-    envfloor.uninstall()
+    envpoison.uninstall()
 
 
 @pytest.hookimpl(trylast=True)

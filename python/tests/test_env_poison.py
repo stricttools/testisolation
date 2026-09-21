@@ -1,4 +1,4 @@
-"""The env-poisoning floor, proved from inside a session it governs."""
+"""Env poisoning, proved from inside a session it governs."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-from stricttest import envfloor
+from stricttest import envpoison
 from stricttest.config import PRESERVE_VARS
 
 OK_TEST = "def test_ok():\n    assert True\n"
@@ -18,7 +18,7 @@ OK_TEST = "def test_ok():\n    assert True\n"
 def _real_home() -> str:
     """The OS-level home, read from the passwd database rather than $HOME.
 
-    This is the whole point of the meta-test: the floor rewrote $HOME, so the
+    This is the whole point of the meta-test: the isolation rewrote $HOME, so the
     only way to know what it rewrote is to ask the kernel's user database.
     """
     return pwd.getpwuid(os.getuid()).pw_dir
@@ -35,7 +35,7 @@ def test_home_is_not_the_real_home():
 
 
 def test_home_lives_inside_this_session_throwaway_dir():
-    session_dir = envfloor.session_env_dir()
+    session_dir = envpoison.session_env_dir()
     assert session_dir is not None
     assert session_dir in Path(os.environ["HOME"]).resolve().parents
 
@@ -61,7 +61,7 @@ def test_userprofile_is_repointed_too():
     "var", ["XDG_CONFIG_HOME", "XDG_DATA_HOME", "XDG_CACHE_HOME", "XDG_STATE_HOME"]
 )
 def test_xdg_dirs_are_throwaway(var):
-    session_dir = envfloor.session_env_dir()
+    session_dir = envpoison.session_env_dir()
     assert session_dir is not None
     assert Path(os.environ[var]).resolve().parent == session_dir.resolve()
 
@@ -72,7 +72,7 @@ def test_xdg_dirs_are_throwaway(var):
 
 
 def test_git_config_points_at_the_throwaway_file():
-    session_dir = envfloor.session_env_dir()
+    session_dir = envpoison.session_env_dir()
     for var in ("GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM"):
         path = Path(os.environ[var]).resolve()
         assert path.parent == session_dir.resolve()
@@ -142,22 +142,22 @@ def test_https_clone_is_refused_by_the_transport_lockdown(tmp_path):
 # ---------------------------------------------------------------------------
 
 
-@pytest.mark.parametrize("var", envfloor.CREDENTIAL_VARS)
+@pytest.mark.parametrize("var", envpoison.CREDENTIAL_VARS)
 def test_credential_vars_are_stripped(var):
     assert var not in os.environ
 
 
 def test_credential_list_covers_the_forge_and_registry_vectors():
     for expected in ("GH_TOKEN", "GITHUB_TOKEN", "SSH_AUTH_SOCK", "NPM_TOKEN"):
-        assert expected in envfloor.CREDENTIAL_VARS
+        assert expected in envpoison.CREDENTIAL_VARS
 
 
 # ---------------------------------------------------------------------------
-# The floor binds before conftest import, not merely before the first test.
+# The isolation binds before conftest import, not merely before the first test.
 # ---------------------------------------------------------------------------
 
 
-def test_floor_binds_before_the_consumer_conftest_is_imported(inner):
+def test_isolation_binds_before_the_consumer_conftest_is_imported(inner):
     inner.write(
         {
             "conftest.py": (
@@ -270,4 +270,4 @@ def test_unpreserved_caches_are_not_pinned(inner):
 def test_preserve_enum_maps_only_to_toolchain_vars():
     """A credential-bearing variable must never be representable here."""
     env_vars = {var for var, _ in PRESERVE_VARS.values()}
-    assert not (env_vars & set(envfloor.CREDENTIAL_VARS))
+    assert not (env_vars & set(envpoison.CREDENTIAL_VARS))

@@ -1,9 +1,9 @@
-"""The always-on env-poisoning floor.
+"""Always-on env poisoning.
 
 Installed once per process before any conftest module is imported, so it binds
 before a test body, a fixture, or even a module-level constant can read the
 real environment. ``os.environ`` is mutated directly rather than through
-``monkeypatch`` because the floor is session-wide and must outlive every
+``monkeypatch`` because the isolation is session-wide and must outlive every
 individual test.
 
 Extracted verbatim-in-behavior from rlsbl's test suite, with the
@@ -74,7 +74,7 @@ def _preserve_toolchain_vars(settings: Settings, real_home: str) -> None:
 
 
 def install(settings: Settings) -> None:
-    """Install the env-poisoning floor for this process (idempotent)."""
+    """Install env poisoning for this process (idempotent)."""
     global _SESSION_ENV_DIR
     if _SESSION_ENV_DIR is not None:
         return

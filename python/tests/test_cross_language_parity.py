@@ -1,4 +1,4 @@
-"""The three floors must strip and preserve the same variables.
+"""The three implementations must strip and preserve the same variables.
 
 The pytest plugin, the Go ``hygiene`` package and the npm package ship in one
 repository and are adopted side by side in polyglot repos. If their lists drift,
@@ -18,13 +18,13 @@ from pathlib import Path
 import pytest
 
 from stricttest.config import PRESERVE_VARS
-from stricttest.envfloor import CREDENTIAL_VARS
+from stricttest.envpoison import CREDENTIAL_VARS
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 GO_ROOT = REPO_ROOT / "go" / "hygiene"
 TS_ROOT = REPO_ROOT / "typescript" / "src"
 
-# GIT_ASKPASS is stripped by the Go and Node floors and pinned to /bin/false by
+# GIT_ASKPASS is stripped by the Go and Node implementations and pinned to /bin/false by
 # the Python one. All three otherwise lock transports down identically
 # (GIT_ALLOW_PROTOCOL plus a pinned GIT_SSH_COMMAND and GIT_PROXY_COMMAND), and
 # either treatment leaves git unable to obtain a credential, so this is the one
@@ -94,7 +94,7 @@ def test_the_node_credential_list_matches_python():
 def test_the_go_and_node_credential_lists_match_each_other():
     # Asserted directly as well as transitively: if the Python list and one of
     # the other two changed together, the pairwise checks above would both pass
-    # while the two non-Python floors had drifted apart.
+    # while the two non-Python implementations had drifted apart.
     assert _go_credential_vars() == _ts_credential_vars()
 
 
