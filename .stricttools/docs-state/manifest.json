@@ -468,19 +468,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-envfloor.md",
-      "title": "python.src.stricttest.envfloor",
+      "path": "python-src-stricttest-env_overrides.md",
+      "title": "python.src.stricttest.env_overrides",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.envfloor",
-          "anchor": "pythonsrcstricttestenvfloor"
+          "text": "python.src.stricttest.env_overrides",
+          "anchor": "pythonsrcstricttestenv_overrides"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.envfloor`",
-          "anchor": "pythonsrcstricttestenvfloor"
+          "text": "`python.src.stricttest.env_overrides`",
+          "anchor": "pythonsrcstricttestenv_overrides"
         },
         {
           "level": 3,
@@ -1193,6 +1193,6 @@
     }
   ],
   "posts": [],
-  "last_gen": "2026-09-15T20:43:01.496934+00:00",
+  "last_gen": "2026-09-21T10:51:40.597937+00:00",
   "theme": "minimal"
 }

@@ -23,10 +23,10 @@
     "description": "2cc55022b3db1f24e7dff5d5e467cc0749e073c350c0a6c053f6786f624c2137",
     "source_docstring": "c81197d854022a835c66d8d11af7494b8cc319e58b50a0bb403a0662872a576c"
   },
-  "en/python-src-stricttest-envfloor.md": {
-    "content": "72e96b0daa0a2b5e2c7b253f370ffe47cf99c415770b120f71b9b0af932ccb74",
-    "description": "708565f4cb3594d20c9968f13bc2d534c0eb8402d83fca04da01cc90c779535a",
-    "source_docstring": "ab4ae15b6ca9c03cf52e0a1bfe64a734c0c2a9f98e5152ca6b8a16b01bae87ed"
+  "en/python-src-stricttest-env_overrides.md": {
+    "content": "74d00d8336ae5f4972c6ab196ce28dbf1d554799b96076b518d9e6d7df297374",
+    "description": "105bbcafd34398ddd9d405f91c018fe568705fc3659d06db5eb2511714a26004",
+    "seed_hash": "105bbcafd34398ddd9d405f91c018fe568705fc3659d06db5eb2511714a26004"
   },
   "en/python-src-stricttest-pgcluster.md": {
     "content": "b3c2c29301be1a065e69b2dce5ff0b34e9d3a5c28f0e7066038d674cc2e0dc80",

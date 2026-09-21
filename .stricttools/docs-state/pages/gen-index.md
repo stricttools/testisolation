@@ -13,7 +13,7 @@ nav_order = 90
 - [go/pgcluster](../go-pgcluster/)
 - [python.src.stricttest](../python-src-stricttest/)
 - [python.src.stricttest.config](../python-src-stricttest-config/)
-- [python.src.stricttest.envfloor](../python-src-stricttest-envfloor/)
+- [python.src.stricttest.env_overrides](../python-src-stricttest-env_overrides/)
 - [python.src.stricttest.pgcluster](../python-src-stricttest-pgcluster/)
 - [python.src.stricttest.plugin](../python-src-stricttest-plugin/)
 - [python.src.stricttest.pushguard](../python-src-stricttest-pushguard/)
