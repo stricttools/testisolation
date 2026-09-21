@@ -30,9 +30,9 @@ name = "stricttest"
 releasable = "py-stricttest"
 # "go/**" and "typescript/**" are deliberate: the cross-language parity tests
 # (tests/test_cross_language_parity.py) read the Go and TypeScript sources and
-# fail when the three floors' variable lists drift. They live in the Python
-# suite, so a Go-only or Node-only change must trigger it -- otherwise the one
-# test that catches drift is exactly the test such a PR never runs.
+# fail when the three implementations' variable lists drift. They live in the
+# Python suite, so a Go-only or Node-only change must trigger it -- otherwise
+# the one test that catches drift is exactly the test such a PR never runs.
 
 [[projects]]
 path = "go/"
