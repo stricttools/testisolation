@@ -1,6 +1,6 @@
 +++
 title = "stricttest"
-description = "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node"
+description = "Always-on test isolation for Python, Go, and Node suites: what each of the three implementations carries, the required pytest ini keys, and the libpq caveat."
 nav_order = 0
 +++
 
