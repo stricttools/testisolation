@@ -8,13 +8,13 @@ nav_order = 0
 
 Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
-Three floors ship the same guarantees for three languages:
+Three implementations ship the same guarantees for three languages:
 
 | Package | Registry | What it carries |
 |---------|----------|-----------------|
 | `stricttest` (Python) | PyPI | The pytest plugin: env poisoning, git identity pinning, credential stripping, the socket audit hook, the push guard, a per-test `chdir` into `tmp_path`, and the ephemeral PostgreSQL launcher |
-| `github.com/smm-h/stricttest/go` | Go module proxy | The env-hygiene floor and the ephemeral PostgreSQL launcher |
-| `stricttest` (npm) | npm | The env-hygiene floor for Node test runners |
+| `github.com/smm-h/stricttest/go` | Go module proxy | The env-hygiene package and the ephemeral PostgreSQL launcher |
+| `stricttest` (npm) | npm | The env-hygiene package for Node test runners |
 
 Installing the pytest plugin *is* adoption -- there is no opt-in switch. Five keys under `[tool.pytest.ini_options]` are required and have no defaults, so every repo chooses its socket, allowlist, loopback, and sandbox stances deliberately: `stricttest_sockets`, `stricttest_socket_allowlist`, `stricttest_unix_socket_allowlist`, `stricttest_loopback`, `stricttest_sandbox_required`.
 

@@ -1,4 +1,4 @@
-"""stricttest -- an always-on test-isolation floor for pytest suites.
+"""stricttest -- always-on test isolation for pytest suites.
 
 The package ships a ``pytest11`` plugin. Installing it is adoption: the plugin
 loads automatically and refuses to run a suite that has not declared its safety

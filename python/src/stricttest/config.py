@@ -1,4 +1,4 @@
-"""Ini-file configuration for the stricttest floor.
+"""Ini-file configuration for stricttest's isolation.
 
 Every knob lives in ``[tool.pytest.ini_options]`` (or ``pytest.ini`` /
 ``tox.ini`` / ``setup.cfg`` -- anything pytest reads as ini).

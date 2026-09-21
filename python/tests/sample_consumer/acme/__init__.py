@@ -1,4 +1,4 @@
-"""A miniature library that touches everything the floor governs."""
+"""A miniature library that touches everything the isolation governs."""
 
 from __future__ import annotations
 

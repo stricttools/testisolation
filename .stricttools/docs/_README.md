@@ -15,7 +15,7 @@ The three ship from one repository and a cross-language test holds their
 credential lists and preserve enums in lockstep, so a polyglot repo gets the
 same guarantee in every language it tests in.
 
-## What the floor does
+## What the isolation does
 
 Installing the pytest plugin IS adoption -- there is no opt-in switch. Once
 installed, every session binds:
@@ -128,7 +128,7 @@ its postmaster running where the Python launcher would have reaped it.
 
 ## The Go module
 
-Go suites get the same environment floor as a package of explicit helpers, since
+Go suites get the same environment isolation as a package of explicit helpers, since
 Go has no plugin mechanism to bind one automatically:
 
 ```go
@@ -150,7 +150,7 @@ parallel test cannot own a process-wide variable like `HOME`. See
 
 ## The npm package
 
-Node suites get the same environment floor, in the shape Node's runner allows:
+Node suites get the same environment isolation, in the shape Node's runner allows:
 
 ```ts
 import { test } from "node:test";
@@ -187,7 +187,7 @@ a forbidden host has already left the machine by the time a connect could be
 refused. Network performed by a spawned subprocess (git, gh, psql) is invisible
 to it;
 whole-process network isolation is the sandbox runner's job. The guard is the
-in-process floor beneath it, not a replacement for it.
+in-process guard beneath it, not a replacement for it.
 
 A C extension that calls `connect()` itself is invisible to the guard too. The
 audit events are raised by Python's `socket` module, so a libpq-backed driver

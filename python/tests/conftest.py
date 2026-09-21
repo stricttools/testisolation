@@ -1,6 +1,6 @@
 """Test harness for the stricttest plugin's own suite.
 
-Most floor pieces can only be proved end-to-end, from a real pytest session
+Most isolation pieces can only be proved end-to-end, from a real pytest session
 that adopts the plugin. Those tests run an INNER pytest session in a
 subprocess (``pytester.runpytest_subprocess``) against a generated consumer
 project. A subprocess is mandatory, not a stylistic choice: the socket guard's

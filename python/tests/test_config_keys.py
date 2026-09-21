@@ -189,7 +189,7 @@ def test_parse_host_port_rejects_garbage(entry):
 
 
 def test_default_threshold_is_fifty():
-    """The rlsbl floor's threshold is the shipped default."""
+    """rlsbl's threshold is the shipped default."""
     assert config.DEFAULT_THRESHOLD == 50
 
 

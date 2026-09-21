@@ -3,8 +3,8 @@ title = "CLAUDE.md"
 +++
 # stricttest
 
-An always-on test-isolation floor: a pytest plugin (`python/`), a Go module
-carrying the same env floor plus an ephemeral PostgreSQL launcher (`go/`), and
+Always-on test isolation: a pytest plugin (`python/`), a Go module
+carrying the same environment isolation plus an ephemeral PostgreSQL launcher (`go/`), and
 a Node env-hygiene package (`typescript/`).
 
 ## Layout
@@ -25,11 +25,11 @@ a Node env-hygiene package (`typescript/`).
   sandbox stance are required ini keys. Never add a default for one to make
   adoption smoother -- the configure-time abort is the feature.
 - **No escape hatches.** No `--disable-stricttest`, no env var that turns the
-  floor off, no "warn instead of fail" mode. If a guard is wrong, fix the guard.
+  isolation off, no "warn instead of fail" mode. If a guard is wrong, fix the guard.
 - **Closed enums stay closed.** `stricttest_preserve` accepts only names in
   `PRESERVE_VARS`. Never accept a raw environment variable name.
-- **The three floors stay in lockstep.** The credential list and the preserve
-  enum are duplicated in Python, Go and TypeScript on purpose (each floor must
+- **The three implementations stay in lockstep.** The credential list and the preserve
+  enum are duplicated in Python, Go and TypeScript on purpose (each implementation must
   be readable on its own), and `python/tests/test_cross_language_parity.py`
   reads the Go and TypeScript sources to prove they have not drifted. Changing
   one list means changing all three in the same commit.
@@ -54,7 +54,7 @@ a Node env-hygiene package (`typescript/`).
 - **Guards raise `BaseException` subclasses on purpose.** `NetworkBlocked` and
   `pytest.fail`'s `Failed` slip past production `except Exception` handlers so a
   swallowed refusal cannot become a silent pass. Do not "fix" this.
-- **Every floor piece has a meta-test.** A guard with no test proving it fires is
+- **Every isolation piece has a meta-test.** A guard with no test proving it fires is
   not shipped.
 
 ## Development

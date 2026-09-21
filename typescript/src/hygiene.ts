@@ -67,15 +67,15 @@ export const KNOWN_VARS = {
 	gradleUserHome: { env: "GRADLE_USER_HOME", default: "{home}/.gradle" },
 } as const satisfies Record<string, { env: string; default: string }>;
 
-/** Options for {@link isolate}. There is deliberately no option that turns a
- * floor piece off. */
+/** Options for {@link isolate}. There is deliberately no option that turns an
+ * isolation piece off. */
 export interface IsolateOptions {
 	/** Toolchain caches that survive the HOME repoint. */
 	preserve?: readonly KnownVar[];
 }
 
 /**
- * Bind the full environment floor for the duration of this test: the preserved
+ * Bind the full environment isolation for the duration of this test: the preserved
  * toolchain caches (if any) are pinned first, then HOME and the four XDG base
  * directories are repointed at a throwaway directory, git's global and system
  * config are emptied, the git identity is replaced, transports are locked down

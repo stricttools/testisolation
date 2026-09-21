@@ -1,6 +1,6 @@
 """Audit-hook socket guard.
 
-Net-new to stricttest (rlsbl's floor had no in-process network guard). Built on
+Net-new to stricttest (rlsbl's isolation layer had no in-process network guard). Built on
 ``sys.addaudithook`` rather than by monkeypatching ``socket``, so it cannot be
 un-patched by a test, a library, or a ``reload``. Audit hooks are permanent for
 the life of the process by design: the hook is installed at most once and reads
@@ -16,7 +16,7 @@ resolutions made through Python's ``socket`` module -- resolution included,
 because a DNS query for a forbidden host has already left the machine by the
 time a connect could be refused. Network performed by a spawned subprocess
 (git, gh, psql) is invisible to it. Whole-process network isolation is the
-sandbox runner's job (``--unshare-net``); this guard is the in-process floor
+sandbox runner's job (``--unshare-net``); this guard is the in-process guard
 beneath it.
 
 A C extension that calls ``connect()`` itself is equally invisible, and this is

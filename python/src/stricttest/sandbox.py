@@ -5,7 +5,7 @@ Two independent startup guards:
 * **Bare-run threshold.** A run collecting MORE than the threshold is treated
   as a full-ish run and must go through the sandbox runner (which exports the
   sandbox env var). Small targeted runs stay bare-runnable so the inner
-  development loop is fast -- the always-on env floor plus the push/chdir/socket
+  development loop is fast -- the always-on environment isolation plus the push/chdir/socket
   guards still protect those.
 * **TMPDIR-inside-repo refusal.** Fixture temp directories inside the repo let
   unanchored git commands walk UP into the real repo and commit junk. Both the

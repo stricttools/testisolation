@@ -1,7 +1,7 @@
 /**
  * A synthetic cleanup registry.
  *
- * The floor helpers are tested by binding them and then asserting on
+ * The isolation helpers are tested by binding them and then asserting on
  * `process.env` both while they are bound and after they are released. A real
  * `node:test` `TestContext` releases when the test itself finishes, which is
  * after the assertions -- so these tests drive a registry whose release they
@@ -33,7 +33,7 @@ export function fakeRegistry(): Fake {
 			for (let i = callbacks.length - 1; i >= 0; i--) {
 				const result = callbacks[i]?.();
 				if (result instanceof Promise) {
-					throw new Error("the floor's cleanups are synchronous by design");
+					throw new Error("the isolation's cleanups are synchronous by design");
 				}
 			}
 		},

@@ -1,4 +1,4 @@
-"""The sample consumer project runs green under the floor.
+"""The sample consumer project runs green under the isolation.
 
 Blocking things is only half of the contract; the other half is that an
 ordinary suite -- one that writes user config, drives git, and has a

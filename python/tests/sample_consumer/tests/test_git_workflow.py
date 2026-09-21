@@ -1,4 +1,4 @@
-"""An ordinary git-using suite runs green under the floor."""
+"""An ordinary git-using suite runs green under the isolation."""
 
 from __future__ import annotations
 

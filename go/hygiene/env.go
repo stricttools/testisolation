@@ -25,7 +25,7 @@ const blockedCommand = "/bin/false"
 // one sets a FAKE value itself with TB.Setenv.
 //
 // The list mirrors the Python plugin's CREDENTIAL_VARS, plus GIT_ASKPASS. That
-// one variable is the two floors' single deliberate divergence: the Python floor
+// one variable is the two implementations' single deliberate divergence: the Python implementation
 // pins it to /bin/false, while this package removes it here. Both close the same
 // door -- git cannot obtain a credential either way -- and a cross-language test
 // holds the rest of the two lists identical.

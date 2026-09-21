@@ -1,15 +1,15 @@
-// Package hygiene is an always-on test-isolation floor that makes a test suite
+// Package hygiene is always-on test isolation that makes a test suite
 // structurally unable to reach the real HOME, an ambient credential, the
 // developer's git identity, or a remote git transport.
 //
-// The pieces of the floor are a throwaway HOME, an isolated git config and
+// The pieces of the isolation are a throwaway HOME, an isolated git config and
 // identity, transport lockdown, credential stripping, and cleanup-restoring
 // chdir.
 //
 // # Usage
 //
 // The composite entry point is [Isolate]. One call at the top of a test (or of
-// a helper every test in the package funnels through) binds the whole floor:
+// a helper every test in the package funnels through) binds every isolation piece:
 //
 //	func TestSomething(t *testing.T) {
 //		hygiene.Isolate(t)
@@ -21,7 +21,7 @@
 // Each piece is also exported on its own -- [ThrowawayHome],
 // [IsolateGitConfig], [LockdownTransports], [StripCredentials] -- for suites
 // that need one guarantee without the others. [Chdir] is separate on purpose:
-// it is a per-test tool, not part of the floor.
+// it is a per-test tool, not part of the isolation.
 //
 // # Contract
 //
@@ -35,7 +35,7 @@
 // Every environment mutation goes through TB.Setenv, which panics when the test
 // has called T.Parallel. That is intended and is not worked around: a parallel
 // test cannot own a process-wide variable like HOME, so a suite that wants this
-// floor cannot run its tests in parallel with each other. The panic makes the
+// isolation cannot run its tests in parallel with each other. The panic makes the
 // conflict immediate and obvious instead of letting one test's HOME leak into
 // another's.
 //
@@ -58,14 +58,14 @@ import (
 )
 
 // Option customizes [Isolate]. The only option is [Preserve]; there is
-// deliberately no option that turns a floor piece off.
+// deliberately no option that turns an isolation piece off.
 type Option func(*options)
 
 type options struct {
 	preserve []KnownVar
 }
 
-// Isolate binds the full environment floor for the duration of t: the
+// Isolate binds the full environment isolation for the duration of t: the
 // preserved toolchain caches (if any) are pinned first, then HOME and the four
 // XDG base directories are repointed at a throwaway directory, git's global and
 // system config are emptied, the git identity is replaced, transports are

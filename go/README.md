@@ -2,7 +2,7 @@
 
 Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
-This is the Go module. The floor is the `hygiene` package -- a throwaway HOME,
+This is the Go module. The isolation is the `hygiene` package -- a throwaway HOME,
 an isolated git config and identity, transport lockdown, credential stripping,
 and cleanup-restoring chdir. A second package in the same module, `pgcluster`,
 boots a throwaway PostgreSQL cluster for suites that need a real database.

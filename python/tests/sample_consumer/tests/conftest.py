@@ -10,7 +10,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-# Read at IMPORT time. Under the floor this is already the throwaway home, which
+# Read at IMPORT time. Under the isolation this is already the throwaway home, which
 # is the property test_home_isolation.py asserts.
 HOME_SEEN_BY_CONFTEST = os.environ["HOME"]
 

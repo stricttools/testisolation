@@ -12,7 +12,7 @@ import (
 
 // gitOrSkip returns the path to a real git binary, or skips the test with a
 // precise reason. The meta-tests below are the only proof that a real tool
-// honors the floor; asserting on environment variables alone would only prove
+// honors the isolation; asserting on environment variables alone would only prove
 // the package talks to itself.
 func gitOrSkip(t *testing.T) string {
 	t.Helper()
@@ -106,7 +106,7 @@ func TestThrowawayHomeRepointsTheXdgDirectoriesAndRestoresThem(t *testing.T) {
 			}
 		}
 		// The four must not collapse onto one directory -- a tool that writes
-		// state where cache belongs is a real bug this floor should not hide.
+		// state where cache belongs is a real bug this isolation should not hide.
 		distinct := map[string]bool{}
 		for name := range poisoned {
 			distinct[os.Getenv(name)] = true

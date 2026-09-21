@@ -1,5 +1,5 @@
 /**
- * The env floor: what it repoints, what it strips, and that every one of those
+ * The environment isolation: what it repoints, what it strips, and that every one of those
  * mutations is undone when the test that made it finishes.
  *
  * These tests deliberately do NOT call `isolate` on themselves at the top --
@@ -207,7 +207,7 @@ test("the credential list is a closed, deduplicated set of plain names", () => {
 	}
 });
 
-test("isolate binds every floor piece at once", () => {
+test("isolate binds every isolation piece at once", () => {
 	const originalToken = Object.hasOwn(process.env, "GH_TOKEN")
 		? process.env["GH_TOKEN"]
 		: undefined;
@@ -233,7 +233,7 @@ test("isolate binds every floor piece at once", () => {
 });
 
 test("a poisoned home hides the developer's real dotfiles", () => {
-	// The meta-test: with the floor bound, a path built from HOME cannot reach
+	// The meta-test: with the isolation bound, a path built from HOME cannot reach
 	// anything the developer actually owns.
 	const realHome = process.env["HOME"];
 	assert.ok(realHome);

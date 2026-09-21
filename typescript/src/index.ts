@@ -1,13 +1,13 @@
 /**
- * stricttest -- an always-on test-isolation floor for Node suites.
+ * stricttest -- always-on test isolation for Node suites.
  *
  * The composite entry point is {@link isolate}: one call at the top of a test
- * (or of a helper every test in the file funnels through) binds the whole
- * floor. Each piece is exported on its own too -- {@link throwawayHome},
+ * (or of a helper every test in the file funnels through) binds every
+ * isolation piece. Each piece is exported on its own too -- {@link throwawayHome},
  * {@link isolateGitConfig}, {@link lockdownTransports},
  * {@link stripCredentials} -- for suites that need one guarantee without the
  * others. {@link chdir} is separate on purpose: it is a per-test tool, not part
- * of the floor.
+ * of the isolation.
  *
  * ## Contract
  *

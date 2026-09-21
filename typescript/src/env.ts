@@ -1,5 +1,5 @@
 /**
- * The environment floor: a throwaway home, an isolated git configuration and
+ * The environment isolation: a throwaway home, an isolated git configuration and
  * identity, transport lockdown, and credential stripping.
  */
 
@@ -40,7 +40,7 @@ const TEMP_PREFIX = "stricttest-env-";
  *
  * The list is identical to the Go module's `CredentialVars`, and identical to
  * the Python plugin's `CREDENTIAL_VARS` plus `GIT_ASKPASS`. That one variable
- * is the floors' single deliberate divergence: the Python floor pins it to
+ * is the implementations' single deliberate divergence: the Python implementation pins it to
  * /bin/false, while this package and the Go module remove it. Both close the
  * same door -- git cannot obtain a credential either way -- and a cross-language
  * test in the Python suite holds the three lists in lockstep.

@@ -60,7 +60,7 @@
 //
 // The package depends only on the standard library and the PostgreSQL binaries
 // it launches -- initdb, pg_ctl and psql. It drives them as subprocesses and
-// never links a driver, so adopting the test floor cannot drag a database
+// never links a driver, so adopting the test isolation cannot drag a database
 // driver into a consumer's module graph.
 //
 // # A killed test binary leaks its postmaster

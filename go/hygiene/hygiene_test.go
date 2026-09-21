@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestIsolateBindsEveryFloorPieceAndRestoresEverything(t *testing.T) {
+func TestIsolateBindsEveryIsolationPieceAndRestoresEverything(t *testing.T) {
 	poisoned := map[string]string{
 		"HOME":               "/poisoned/home",
 		"USERPROFILE":        "/poisoned/home",

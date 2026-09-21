@@ -2,11 +2,11 @@
 
 Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
-This is the Node package. For Node suites the floor is a throwaway `HOME` and
+This is the Node package. For Node suites the isolation is a throwaway `HOME` and
 XDG directories, an isolated git configuration and identity, transport lockdown,
 credential stripping, and bare-run refusal.
 
-It is the Node member of a three-language floor. The
+It is the Node member of a three-language package. The
 [pytest plugin](https://pypi.org/project/stricttest/) and the
 [Go module](https://pkg.go.dev/github.com/smm-h/stricttest/go/hygiene) ship from
 the same repository, and a cross-language test holds their credential lists and
@@ -45,7 +45,7 @@ isolate({ after: onTestFinished });
 
 | Export | What it does |
 |--------|--------------|
-| `isolate(t, options?)` | Binds the whole floor: preserved caches, throwaway home, git config, transports, credentials. |
+| `isolate(t, options?)` | Binds every isolation piece: preserved caches, throwaway home, git config, transports, credentials. |
 | `throwawayHome(t)` | Repoints `HOME`, `USERPROFILE` and the four XDG base directories at a fresh temp dir; returns it. Memoized per test. |
 | `isolateGitConfig(t)` | Empty `GIT_CONFIG_GLOBAL`/`GIT_CONFIG_SYSTEM` inside the throwaway home, throwaway `GIT_AUTHOR_*`/`GIT_COMMITTER_*`, `GIT_TERMINAL_PROMPT=0`. |
 | `lockdownTransports(t)` | `GIT_ALLOW_PROTOCOL=file`, plus `GIT_SSH_COMMAND` and `GIT_PROXY_COMMAND` pinned to `/bin/false`. |
@@ -126,7 +126,7 @@ a push over `ssh://` or `https://` dies at the protocol check with the ssh and
 proxy helpers pinned to a command that only fails.
 
 **No ephemeral-Postgres helper.** That one lives in the pytest plugin only; it
-is a cluster launcher, not part of the environment floor.
+is a cluster launcher, not part of the environment isolation.
 
 ## Concurrency
 
