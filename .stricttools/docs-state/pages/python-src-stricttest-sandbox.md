@@ -1,6 +1,6 @@
 +++
 title = "python.src.stricttest.sandbox"
-description = "Two startup guards: the bare-run threshold that pushes full-suite runs through the sandbox runner, and refusal of a temp root inside the project root."
+description = "Two startup refusals: a bare run collecting more than the threshold must go through the sandbox runner, and a temp root inside the repository is rejected."
 generated = true
 nav_group = "API Reference"
 nav_order = 7

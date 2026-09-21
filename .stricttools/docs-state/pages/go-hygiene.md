@@ -1,6 +1,6 @@
 +++
 title = "go/hygiene"
-description = "The Go env-hygiene package: a throwaway HOME and XDG dirs, an isolated git config and identity, transport lockdown, credential stripping, restoring chdir."
+description = "Go test isolation bound to a testing.TB: a throwaway HOME and XDG directories, an isolated git identity, transport lockdown, and credential stripping."
 generated = true
 nav_group = "API Reference"
 nav_order = 1

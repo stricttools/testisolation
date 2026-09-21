@@ -1,6 +1,6 @@
 +++
 title = "go/pgcluster"
-description = "The Go ephemeral PostgreSQL launcher: initdb onto tmpfs, a postmaster on a private unix socket, a throwaway database per test, and no linked driver."
+description = "The Go ephemeral PostgreSQL launcher: one postmaster per test binary on a private unix socket, an ephemeral database per test, and no driver linked in."
 generated = true
 nav_group = "API Reference"
 nav_order = 2

@@ -1,6 +1,6 @@
 +++
 title = "python.src.stricttest"
-description = "The stricttest package root, re-exporting what a consumer asserts against: resolved settings, the preserve enum, required keys and the refusal type."
+description = "The stricttest package root: the import path re-exporting the resolved settings, the preserve enum, the required ini keys, and the guard's refusal type."
 generated = true
 nav_group = "API Reference"
 nav_order = 1
