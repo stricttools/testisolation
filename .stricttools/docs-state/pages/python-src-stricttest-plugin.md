@@ -1,6 +1,6 @@
 +++
 title = "python.src.stricttest.plugin"
-description = "The pytest11 entry point: hook ordering that binds the floor before conftest import, marker registration, and the autouse cwd and push-guard fixtures."
+description = "The pytest11 entry point: hook ordering that binds the isolation before conftest import, marker registration, and the autouse cwd and push-guard fixtures."
 generated = true
 nav_group = "API Reference"
 nav_order = 5

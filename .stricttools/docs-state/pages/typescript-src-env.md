@@ -1,6 +1,6 @@
 +++
 title = "typescript/src/env"
-description = "The Node env floor: a throwaway HOME and the four XDG dirs, an emptied git config with a throwaway identity, transport lockdown, credential stripping."
+description = "The Node environment isolation: a throwaway HOME and XDG set, an emptied git config with a throwaway identity, transport lockdown, and credential stripping."
 generated = true
 nav_group = "API Reference"
 nav_order = 1

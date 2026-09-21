@@ -1,6 +1,6 @@
 +++
 title = "python.src.stricttest.config"
-description = "Ini-key registration, validation and resolution: the five required safety keys, the closed preservation enum, and the parameterized floor constants."
+description = "Ini-key registration, validation, and resolution: the five required safety keys, the closed preservation enum, and the parameterized isolation constants."
 generated = true
 nav_group = "API Reference"
 nav_order = 2

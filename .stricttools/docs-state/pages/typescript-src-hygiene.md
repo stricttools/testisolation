@@ -1,6 +1,6 @@
 +++
 title = "typescript/src/hygiene"
-description = "The composite isolate() entry point and the closed preserve enum of toolchain caches, plus why the Node floor ships no socket guard and no push guard."
+description = "The composite isolate() entry point and the closed preserve enum of toolchain caches, plus why the Node package ships no socket guard and no push guard."
 generated = true
 nav_group = "API Reference"
 nav_order = 2
