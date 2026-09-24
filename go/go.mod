@@ -1,3 +1,3 @@
-module github.com/smm-h/stricttest/go
+module github.com/stricttools/testisolation/go
 
 go 1.25.0
