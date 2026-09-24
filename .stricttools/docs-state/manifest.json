@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "name": "stricttest",
-  "slug": "stricttest",
+  "name": "testisolation",
+  "slug": "testisolation",
   "version": "0.2.0",
   "description": "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node",
   "language": "python",
-  "base_url": "https://docs.smmh.dev/stricttest",
+  "base_url": "https://docs.smmh.dev/testisolation",
   "pages": [
     {
       "path": "gen-index.md",
@@ -385,13 +385,13 @@
     },
     {
       "path": "index.md",
-      "title": "stricttest",
+      "title": "testisolation",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "stricttest",
-          "anchor": "stricttest"
+          "text": "testisolation",
+          "anchor": "testisolation"
         },
         {
           "level": 2,
@@ -406,19 +406,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-config.md",
-      "title": "python.src.stricttest.config",
+      "path": "python-src-testisolation-config.md",
+      "title": "python.src.testisolation.config",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.config",
-          "anchor": "pythonsrcstricttestconfig"
+          "text": "python.src.testisolation.config",
+          "anchor": "pythonsrctestisolationconfig"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.config`",
-          "anchor": "pythonsrcstricttestconfig"
+          "text": "`python.src.testisolation.config`",
+          "anchor": "pythonsrctestisolationconfig"
         },
         {
           "level": 3,
@@ -468,19 +468,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-env_overrides.md",
-      "title": "python.src.stricttest.env_overrides",
+      "path": "python-src-testisolation-env_overrides.md",
+      "title": "python.src.testisolation.env_overrides",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.env_overrides",
-          "anchor": "pythonsrcstricttestenv_overrides"
+          "text": "python.src.testisolation.env_overrides",
+          "anchor": "pythonsrctestisolationenv_overrides"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.env_overrides`",
-          "anchor": "pythonsrcstricttestenv_overrides"
+          "text": "`python.src.testisolation.env_overrides`",
+          "anchor": "pythonsrctestisolationenv_overrides"
         },
         {
           "level": 3,
@@ -505,19 +505,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-pgcluster.md",
-      "title": "python.src.stricttest.pgcluster",
+      "path": "python-src-testisolation-pgcluster.md",
+      "title": "python.src.testisolation.pgcluster",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.pgcluster",
-          "anchor": "pythonsrcstricttestpgcluster"
+          "text": "python.src.testisolation.pgcluster",
+          "anchor": "pythonsrctestisolationpgcluster"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.pgcluster`",
-          "anchor": "pythonsrcstricttestpgcluster"
+          "text": "`python.src.testisolation.pgcluster`",
+          "anchor": "pythonsrctestisolationpgcluster"
         },
         {
           "level": 3,
@@ -652,19 +652,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-plugin.md",
-      "title": "python.src.stricttest.plugin",
+      "path": "python-src-testisolation-plugin.md",
+      "title": "python.src.testisolation.plugin",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.plugin",
-          "anchor": "pythonsrcstricttestplugin"
+          "text": "python.src.testisolation.plugin",
+          "anchor": "pythonsrctestisolationplugin"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.plugin`",
-          "anchor": "pythonsrcstricttestplugin"
+          "text": "`python.src.testisolation.plugin`",
+          "anchor": "pythonsrctestisolationplugin"
         },
         {
           "level": 3,
@@ -703,30 +703,30 @@
         },
         {
           "level": 3,
-          "text": "`_stricttest_chdir_into_tmp`",
-          "anchor": "_stricttest_chdir_into_tmp"
+          "text": "`_testisolation_chdir_into_tmp`",
+          "anchor": "_testisolation_chdir_into_tmp"
         },
         {
           "level": 3,
-          "text": "`_stricttest_guard_nonlocal_push`",
-          "anchor": "_stricttest_guard_nonlocal_push"
+          "text": "`_testisolation_guard_nonlocal_push`",
+          "anchor": "_testisolation_guard_nonlocal_push"
         }
       ]
     },
     {
-      "path": "python-src-stricttest-pushguard.md",
-      "title": "python.src.stricttest.pushguard",
+      "path": "python-src-testisolation-pushguard.md",
+      "title": "python.src.testisolation.pushguard",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.pushguard",
-          "anchor": "pythonsrcstricttestpushguard"
+          "text": "python.src.testisolation.pushguard",
+          "anchor": "pythonsrctestisolationpushguard"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.pushguard`",
-          "anchor": "pythonsrcstricttestpushguard"
+          "text": "`python.src.testisolation.pushguard`",
+          "anchor": "pythonsrctestisolationpushguard"
         },
         {
           "level": 3,
@@ -746,19 +746,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-sandbox.md",
-      "title": "python.src.stricttest.sandbox",
+      "path": "python-src-testisolation-sandbox.md",
+      "title": "python.src.testisolation.sandbox",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.sandbox",
-          "anchor": "pythonsrcstricttestsandbox"
+          "text": "python.src.testisolation.sandbox",
+          "anchor": "pythonsrctestisolationsandbox"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.sandbox`",
-          "anchor": "pythonsrcstricttestsandbox"
+          "text": "`python.src.testisolation.sandbox`",
+          "anchor": "pythonsrctestisolationsandbox"
         },
         {
           "level": 3,
@@ -773,19 +773,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest-socketguard.md",
-      "title": "python.src.stricttest.socketguard",
+      "path": "python-src-testisolation-socketguard.md",
+      "title": "python.src.testisolation.socketguard",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest.socketguard",
-          "anchor": "pythonsrcstricttestsocketguard"
+          "text": "python.src.testisolation.socketguard",
+          "anchor": "pythonsrctestisolationsocketguard"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest.socketguard`",
-          "anchor": "pythonsrcstricttestsocketguard"
+          "text": "`python.src.testisolation.socketguard`",
+          "anchor": "pythonsrctestisolationsocketguard"
         },
         {
           "level": 3,
@@ -835,19 +835,19 @@
       ]
     },
     {
-      "path": "python-src-stricttest.md",
-      "title": "python.src.stricttest",
+      "path": "python-src-testisolation.md",
+      "title": "python.src.testisolation",
       "type": "doc",
       "headings": [
         {
           "level": 1,
-          "text": "python.src.stricttest",
-          "anchor": "pythonsrcstricttest"
+          "text": "python.src.testisolation",
+          "anchor": "pythonsrctestisolation"
         },
         {
           "level": 2,
-          "text": "`python.src.stricttest`",
-          "anchor": "pythonsrcstricttest"
+          "text": "`python.src.testisolation`",
+          "anchor": "pythonsrctestisolation"
         }
       ]
     },
@@ -1193,6 +1193,6 @@
     }
   ],
   "posts": [],
-  "last_gen": "2026-09-21T10:51:40.597937+00:00",
+  "last_gen": "2026-09-24T15:26:51.028098+00:00",
   "theme": "minimal"
 }
