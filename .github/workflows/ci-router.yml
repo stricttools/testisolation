@@ -37,7 +37,7 @@ jobs:
           go-stricttest:
             - 'go/**'
             - '.github/workflows/ci-router.yml'
-            - '.rlsbl-monorepo/releasables/go-stricttest/CHANGELOG.md'
+            - '.rlsbl-monorepo/releasables/go-testisolation/CHANGELOG.md'
           ts-stricttest:
             - 'typescript/**'
             - '.github/workflows/ci-router.yml'

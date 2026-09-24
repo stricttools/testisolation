@@ -2,7 +2,7 @@
 name = "py-testisolation"
 
 [[releasables]]
-name = "go-stricttest"
+name = "go-testisolation"
 
 [[releasables]]
 name = "ts-stricttest"
@@ -37,7 +37,7 @@ releasable = "py-testisolation"
 [[projects]]
 path = "go/"
 name = "go-stricttest"
-releasable = "go-stricttest"
+releasable = "go-testisolation"
 
 [[projects]]
 path = "typescript/"
