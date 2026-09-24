@@ -1,6 +1,6 @@
 +++
 title = "python.src.testisolation"
-description = "The stricttest package root: the import path re-exporting the resolved settings, the preserve enum, the required ini keys, and the guard's refusal type."
+description = "The testisolation package root: the import path re-exporting the resolved settings, the preserve enum, the required ini keys, and the guard's refusal type."
 generated = true
 nav_group = "API Reference"
 nav_order = 1

@@ -1,6 +1,6 @@
 +++
 title = "typescript/src/index"
-description = "The stricttest npm package's public surface: always-on test isolation for Node suites, bound per test through node:test's TestContext."
+description = "The testisolation npm package's public surface: always-on test isolation for Node suites, bound per test through node:test's TestContext."
 generated = true
 nav_group = "API Reference"
 nav_order = 3

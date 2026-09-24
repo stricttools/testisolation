@@ -1,6 +1,6 @@
 +++
 title = "API Reference"
-description = "API reference for stricttest: the pytest plugin's config, environment overrides, guards, and Postgres cluster, plus the Go hygiene, pgcluster, and npm packages."
+description = "API reference for testisolation: the pytest plugin's config, env overrides, guards, and Postgres cluster, plus the Go hygiene, pgcluster, and npm packages."
 generated = true
 nav_group = "API Reference"
 nav_order = 90
