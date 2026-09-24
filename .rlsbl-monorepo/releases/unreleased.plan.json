@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "base_version": "0.2.1",
+      "bump": "minor",
+      "name": "py-testisolation",
+      "registry": "pypi",
+      "tag": "py-testisolation@v0.3.0",
+      "target_version": "0.3.0"
+    },
+    {
+      "base_version": "0.2.1",
+      "bump": "minor",
+      "name": "go-testisolation",
+      "registry": "go",
+      "tag": "go-testisolation@v0.3.0",
+      "target_version": "0.3.0"
+    },
+    {
+      "base_version": "0.1.3",
+      "bump": "minor",
+      "name": "ts-testisolation",
+      "registry": "npm",
+      "tag": "ts-testisolation@v0.2.0",
+      "target_version": "0.2.0"
+    }
+  ]
+}
