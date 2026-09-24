@@ -2,6 +2,26 @@
 
 # Changelog
 
+## 0.3.0
+
+First release under the name testisolation: the package, import name, plugin, ini keys, and sandbox variable are renamed from stricttest.
+
+<details>
+<summary>Context</summary>
+
+The project stricttest is renamed to testisolation, on every surface at once: the repository (github.com/stricttools/testisolation), the PyPI and npm packages, the Python import name and pytest plugin, the pytest ini key prefix, the sandbox environment variable, and the Go module path, which also moves from the smm-h path to the stricttools organization. The stricttest packages already published on PyPI and npm stay where they are and receive no further releases.
+
+</details>
+
+### Breaking
+
+- [testisolation] The Python module that rewrites HOME, USERPROFILE, the XDG directories, and the git identity variables for a session is now testisolation.env_overrides; it was named envfloor. A consumer importing that module by name, for example for CREDENTIAL_VARS, changes the import.
+- [testisolation] **stricttest is renamed to testisolation.** The PyPI package, the import name, and the pytest plugin are now `testisolation`, and the repository is github.com/stricttools/testisolation. Every pytest ini key moved from the `stricttest_` prefix to `testisolation_` (for example `stricttest_sockets` is now `testisolation_sockets`), and the sandbox runner variable the plugin reads by default is now `TESTISOLATION_SANDBOX`. Replace the `stricttest` dependency with `testisolation` and rename the ini keys; the old package receives no further releases.
+
+### Fixes
+
+- [testisolation] **The tool describes itself with one sentence everywhere.** The README and PyPI metadata now carry the same line as the project's other surfaces.
+
 ## 0.2.1
 
 The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site.

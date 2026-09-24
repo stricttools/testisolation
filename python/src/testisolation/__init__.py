@@ -8,7 +8,7 @@ stance. See :mod:`testisolation.config` for the ini keys.
 from .config import PRESERVE_VARS, REQUIRED_KEYS, Settings
 from .socketguard import NetworkBlocked, Policy
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 
 # No ``__all__`` here on purpose. Every name above is defined -- and documented
 # -- on its own module's API-reference page; re-listing them here would make the
