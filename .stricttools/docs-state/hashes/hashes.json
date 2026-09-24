@@ -1,8 +1,8 @@
 {
   "_hash_version": 3,
   "en/gen-index.md": {
-    "content": "f88de04906a22518392c150483d1e624c90d5c81415123ebae1fb80f78dbd061",
-    "description": "2ff4deb2299166a9e4b3225afe3389e344c41e8ce55ae904514fdbac56666bc5"
+    "content": "e772770ea38baeda699bdc8b1a29d6c1d79bd9e91e4083f2f3a326490be412b6",
+    "description": "e2643a1351c7ac3d2fd8958881f4ddbc2af356a8ab651450caeaa213cc6bb6b2"
   },
   "en/go-hygiene.md": {
     "content": "5e3803e518940cecd8071876a257787abf940d242708341961142d830cad48e8",
@@ -96,7 +96,7 @@
   },
   "en/python-src-testisolation.md": {
     "content": "ca99d3e6296bc92e65995f1864934a4c0b68e31be862c15ab6742e0e5ee7cbb7",
-    "description": "b564c6a150ec8cb71ada48160a5d12c544003611571bcfa2cde5daffc13db074",
+    "description": "c5049ab05cb8d127335b79d357ad331710e8c71e12d71947e0b5f52a7315e524",
     "source_docstring": "4e55bdc5ae5a0aeb461cd0c65743f3996efe5f7b16dd0c42eb6d4cbbfad54787"
   },
   "en/typescript-src-env.md": {
@@ -111,8 +111,8 @@
   },
   "en/typescript-src-index.md": {
     "content": "4354af8de8f0ca341a89d2197f52534f7d1a5f1dfe0080a63b769cbc55409849",
-    "description": "fb0fc63b35699a07c853ea0464888b36f8f0ba74c64befe8fd55946be35f78e0",
-    "source_docstring": "dcc9983ce314dbc9b45993c5fd725b8bdff28be4db84e8ce8f0ef5ee80a2af11"
+    "description": "d5547513a69a2661b131d5a23279085bf6a139f1c463823befa2e517ba65e43b",
+    "source_docstring": "15688957f3b2f070ec836e1b7f07e6fea1da9bc980df8786c50bf1fba36eda97"
   },
   "en/typescript-src-sandbox.md": {
     "content": "a56539002526294e7cdefce26fdcd09cd0c587a165475108f6940c6fddca1568",
