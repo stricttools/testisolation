@@ -1,10 +1,10 @@
 [releasables.py-testisolation]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "minor"
 # Short description of this release (required)
-description = ""
+description = "First release under the name testisolation: the package, import name, plugin, ini keys, and sandbox variable are renamed from stricttest."
 # Optional context explaining why these changes were made
-context = ""
+context = "The project stricttest is renamed to testisolation, on every surface at once: the repository (github.com/stricttools/testisolation), the PyPI and npm packages, the Python import name and pytest plugin, the pytest ini key prefix, the sandbox environment variable, and the Go module path, which also moves from the smm-h path to the stricttools organization. The stricttest packages already published on PyPI and npm stay where they are and receive no further releases."
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
 # demotion is an error). Per package, so one workspace release
 # can ship some packages stable and others as alphas. See
@@ -15,11 +15,11 @@ exclude = []
 
 [releasables.go-testisolation]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "minor"
 # Short description of this release (required)
-description = ""
+description = "First release under the name testisolation, with the module path github.com/stricttools/testisolation/go."
 # Optional context explaining why these changes were made
-context = ""
+context = "The project stricttest is renamed to testisolation, on every surface at once: the repository (github.com/stricttools/testisolation), the PyPI and npm packages, the Python import name and pytest plugin, the pytest ini key prefix, the sandbox environment variable, and the Go module path, which also moves from the smm-h path to the stricttools organization. The stricttest packages already published on PyPI and npm stay where they are and receive no further releases."
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
 # demotion is an error). Per package, so one workspace release
 # can ship some packages stable and others as alphas. See
@@ -30,11 +30,11 @@ exclude = []
 
 [releasables.ts-testisolation]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "minor"
 # Short description of this release (required)
-description = ""
+description = "First release under the name testisolation: the npm package and sandbox variable are renamed from stricttest."
 # Optional context explaining why these changes were made
-context = ""
+context = "The project stricttest is renamed to testisolation, on every surface at once: the repository (github.com/stricttools/testisolation), the PyPI and npm packages, the Python import name and pytest plugin, the pytest ini key prefix, the sandbox environment variable, and the Go module path, which also moves from the smm-h path to the stricttools organization. The stricttest packages already published on PyPI and npm stay where they are and receive no further releases."
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
 # demotion is an error). Per package, so one workspace release
 # can ship some packages stable and others as alphas. See
