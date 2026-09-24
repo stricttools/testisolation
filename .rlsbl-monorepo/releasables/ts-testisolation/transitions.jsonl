@@ -1,0 +1,1 @@
+{"format_version":1,"kind":"boundary-alias","id":"18d84b27eea75f087dd5b2ce7ab744b98124b050719e2a48","recorded_at":"2026-09-24T17:24:46+02:00","aliases":[{"alias_tag":"ts-testisolation@v0.1.3","aliased_tag":"ts-stricttest@v0.1.3","commit":"dc5f0535ea5df4b2e73d1a068580f63da5ebdd7e"}]}
