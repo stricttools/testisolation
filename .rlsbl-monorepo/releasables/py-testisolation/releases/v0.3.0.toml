@@ -1,0 +1,15 @@
+# Archived by rlsbl at release time. This release had no unreleased.toml
+# (a batch member takes its metadata from the batch release file); the
+# archive is written so later changelog regenerations keep the
+# description and context.
+# strictspec document version gate (do not remove)
+format_version = 1
+bump = "minor"
+include = ["pypi"]
+exclude = []
+description = "First release under the name testisolation: the package, import name, plugin, ini keys, and sandbox variable are renamed from stricttest."
+context = "The project stricttest is renamed to testisolation, on every surface at once: the repository (github.com/stricttools/testisolation), the PyPI and npm packages, the Python import name and pytest plugin, the pytest ini key prefix, the sandbox environment variable, and the Go module path, which also moves from the smm-h path to the stricttools organization. The stricttest packages already published on PyPI and npm stay where they are and receive no further releases."
+candidate_sha = "5a9ff290628a69c0c944057dad749bf7fab0f2df"
+
+[tree_hashes]
+python = "037da475d5a67bfff34b10c558bf1deb08e751a3"
