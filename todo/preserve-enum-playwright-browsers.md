@@ -1,4 +1,4 @@
-# `stricttest_preserve` has no entry for the Playwright browser cache
+# `testisolation_preserve` has no entry for the Playwright browser cache
 
 Filed while adopting the pytest plugin in a consumer repo whose suite drives a
 headless Chromium through `playwright`.
@@ -13,13 +13,13 @@ fails with:
 
 ```
 BrowserType.launch: Executable doesn't exist at
-/tmp/stricttest-env-XXXXXXXX/xdg-cache/ms-playwright/chromium_headless_shell-.../chrome-headless-shell
+/tmp/testisolation-env-XXXXXXXX/xdg-cache/ms-playwright/chromium_headless_shell-.../chrome-headless-shell
 ```
 
 This also bites CI, where the usual `playwright install chromium` step runs
 before pytest and therefore installs into the pre-floor cache location.
 
-`stricttest_preserve` exists for exactly this class of problem: read-only
+`testisolation_preserve` exists for exactly this class of problem: read-only
 toolchain caches that live under the real home and are not credentials. Its
 closed enum currently covers Go, Rust, npm, uv, pip, Python user base and
 Gradle, but not Playwright.
@@ -55,7 +55,7 @@ suites driving Playwright through `node:test`) needs the same name in its
 
 ## Affected files
 
-- `python/src/stricttest/config.py` (`PRESERVE_VARS`)
+- `python/src/testisolation/config.py` (`PRESERVE_VARS`)
 - the cross-language parity test that pins the preserve enums
 - the preserve-key documentation in the READMEs
 

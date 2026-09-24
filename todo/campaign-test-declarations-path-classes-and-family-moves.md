@@ -1,7 +1,7 @@
-# Campaign: test declarations in stricttest, repository path classes in rlsbl, rule registries, and the family moves
+# Campaign: test declarations in testuniverse, repository path classes in rlsbl, rule registries, and the family moves
 
-This is a fleet campaign plan filed in stricttest because its largest piece,
-the test-declaration half of stricttest, lives here. It names other family
+This is a fleet campaign plan filed in testisolation because its largest piece,
+the test-declaration half of testuniverse, lives here. It names other family
 projects by their real paths under the family exemption of the todo
 confidentiality rule. strictgo, strictdraw, and linguini are named although
 they sit outside `~/Projects/stricttools/tools/` today, because this plan
@@ -43,9 +43,9 @@ family moves and strictdraw, which those pieces unblock.
 
 Product and homes:
 
-- The test-declaration half lives in stricttest, not in a new project: a
+- The test-declaration half lives in testuniverse, not in a new project: a
   Go `corpus` package plus a strictcli-based command binary, a Python
-  `stricttest.corpus` subpackage, and a TypeScript `corpus` export. Three
+  `testuniverse.corpus` subpackage, and a TypeScript `corpus` export. Three
   minor bumps, no fourth releasable.
 - The source of truth for a corpus is TOML, validated by a strictspec
   schema, with generated readers in the three languages. Go-only projects
@@ -143,7 +143,7 @@ Vocabulary and suffixes:
 
 - In strictdraw and linguini: "reference" replaces "golden", "check"
   replaces "gate", and the scene format's text alignment key becomes
-  `align` with `migrate` mapping predraw's key to it. In stricttest's tests,
+  `align` with `migrate` mapping predraw's key to it. In testisolation's tests,
   "sentinel" names a planted value and "throwaway home" the installed one.
 - Every Go file of a strict module is named `*.strict.go` (tests
   `*.strict_test.go`) and strictgo refuses a strict module with any other
@@ -218,7 +218,7 @@ runs.
 in its design that license and family membership are pending. Verify: the
 repository exists with two committed files and a clean tree.
 
-## Phase 1: repository hygiene for strictdraw, linguini, and stricttest
+## Phase 1: repository hygiene for strictdraw, linguini, and testisolation
 
 1.1 **strictdraw joins the family.** Move the checkout to
 `~/Projects/stricttools/tools/strictdraw`, create the repository under the
@@ -259,7 +259,7 @@ collide with the existing ones, and record "check" and the alignment
 wording. Verify: the banned-term grep is clean and the open-item numbers
 are unique.
 
-1.7 **stricttest test words.** Rename the planted values to sentinel and
+1.7 **testisolation test words.** Rename the planted values to sentinel and
 the two prose uses to throwaway home in the four test files. Verify: the
 three suites pass and the word "poisoned" is gone.
 
@@ -360,7 +360,7 @@ same walk: any tracked file under `testdata` or `fixtures`, and any fixture
 file containing the repository's own module path, each remedy naming the
 migration. rlsbl's scanners that treat `testdata` as legitimate test
 context are reworked to read the paths declaration instead. Verify: rlsbl
-and stricttest pass, and the ten family projects with fixtures fail with
+and testisolation pass, and the ten family projects with fixtures fail with
 the expected sentence.
 
 4.4 **The derived attributes block.** Render the Linguist mappings into a
@@ -404,9 +404,9 @@ every sentence tests currently paste, so a test can name the message.
 Verify: the pasted-sentence count from the census falls to zero in both
 suites.
 
-## Phase 6: the test-declaration half of stricttest
+## Phase 6: the test-declaration half of testuniverse
 
-6.1 **The format and schema.** Author the corpus schema in stricttest's
+6.1 **The format and schema.** Author the corpus schema in testuniverse's
 schemas directory using the `sourcecode` type for action bodies, with
 contexts, placements, actions, support modules, cells, per-rule axis
 declarations, exemptions with reasons, applicability, and the byte-output
@@ -421,7 +421,7 @@ languages, and a vocabulary drift fails the lockstep test.
 
 6.3 **Generic renderers.** File tree and git repository renderers over the
 closed operation vocabulary from the census, writing under scratch inside
-stricttest's own isolation. Verify: each operation has a red-green test,
+testisolation's own isolation. Verify: each operation has a red-green test,
 and a rendered git repository matches a recorded expected state.
 
 6.4 **The command binary.** A strictcli Go program with `check`
@@ -500,7 +500,7 @@ reposummary and strictdraw build against the published version with no
 replace directive.
 
 8.2 **The nine family modules.** Rewrite and release in dependency order:
-go-toml-edit, stricttest, and tinymoon; then strictcli and strictspec
+go-toml-edit, testisolation, and tinymoon; then strictcli and strictspec
 re-released against them; then dirstat, howmuchleft, safegit, and saferm;
 then pgdesign; then selfdoc; then reposummary. Clear the known blockers
 first: tinymoon's ten uncovered commits, strictcli's empty root release

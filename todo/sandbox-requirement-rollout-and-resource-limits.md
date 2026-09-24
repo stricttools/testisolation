@@ -7,9 +7,9 @@ resolve the scope question unilaterally — it needs a user ruling when picked u
 
 The isolation stack has two tiers: the in-process pytest floor (this package's
 plugin) and the bwrap sandbox runner (distributed as a scaffold template by the
-release-orchestration tool, detected by the plugin via `STRICTTEST_SANDBOX`).
+release-orchestration tool, detected by the plugin via `TESTISOLATION_SANDBOX`).
 Floor adoption is spreading across consumer repos, but every adopter so far sets
-`stricttest_sandbox_required = "false"`, so the adoption check effectively
+`testisolation_sandbox_required = "false"`, so the adoption check effectively
 enforces floor-presence only. The sandbox runner is in real use in exactly one
 consumer repo.
 
@@ -37,7 +37,7 @@ consumer repo.
   disk-backed TMPDIR mode for large suites, worker-count ceilings, a documented
   RAM budget, and possibly a concurrency guard so simultaneous sandboxed runs
   on one machine queue rather than stack. Then flip
-  `stricttest_sandbox_required = "true"` only for the highest-credential-
+  `testisolation_sandbox_required = "true"` only for the highest-credential-
   exposure consumers. Pros: fixes the witnessed harm before spreading it;
   bounded maintenance surface. Cons: two design efforts in sequence.
 - (b) **Floor-only as the permanent fleet posture.** The sandbox stays a
@@ -53,7 +53,7 @@ consumer repo.
 
 ## Affected
 
-- This repo: the plugin's sandbox detection + the `stricttest_sandbox_required`
+- This repo: the plugin's sandbox detection + the `testisolation_sandbox_required`
   key semantics; sandbox contract docs.
 - The distributing tool's runner template + adoption check (lives outside this
   repo; coordinate at pickup).

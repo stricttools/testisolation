@@ -37,7 +37,7 @@ remote API with whatever credentials leak past the environment hygiene.
 
 Keep the packages as they are and make the sandbox runner (network
 namespace removed) a first-class, documented part of running a Go or Node
-suite under stricttest, with a check that refuses to run outside it.
+suite under testisolation, with a check that refuses to run outside it.
 
 - Pros: airtight isolation, no partial guard to caveat.
 - Cons: Linux-only, and one more thing to install.
