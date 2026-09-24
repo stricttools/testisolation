@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-14T16:27:35Z",
+  "generated_at": "2026-09-24T15:28:14Z",
   "package_count": 4,
   "packages": {
-    "stricttest": {
+    "testisolation": {
       "path": "python",
       "targets": [
         "pypi"
@@ -16,7 +16,7 @@
       "releasable_flag": true,
       "test_only": false
     },
-    "go-stricttest": {
+    "go-testisolation": {
       "path": "go",
       "targets": [
         "go"
@@ -30,7 +30,7 @@
       "releasable_flag": true,
       "test_only": false
     },
-    "ts-stricttest": {
+    "ts-testisolation": {
       "path": "typescript",
       "targets": [
         "npm"
@@ -59,23 +59,23 @@
   },
   "graph": {
     "leaf_nodes": [
-      "go-stricttest",
+      "go-testisolation",
       "root",
-      "stricttest",
-      "ts-stricttest"
+      "testisolation",
+      "ts-testisolation"
     ],
     "root_nodes": [
-      "go-stricttest",
+      "go-testisolation",
       "root",
-      "stricttest",
-      "ts-stricttest"
+      "testisolation",
+      "ts-testisolation"
     ],
     "max_depth": 0,
     "topological_order": [
-      "go-stricttest",
+      "go-testisolation",
       "root",
-      "stricttest",
-      "ts-stricttest"
+      "testisolation",
+      "ts-testisolation"
     ]
   }
 }
