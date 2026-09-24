@@ -61,35 +61,43 @@
   },
   "en/python-src-testisolation-config.md": {
     "content": "2e7c6e1682699f4c8a3cde384c99677097dceb9f5d427503cae3171154b5400a",
-    "description": "b3ddfa3b52b30f48ceb1a275ca272f3ef217bb3394162592fbd3c0e04e6b07e0"
+    "description": "b3ddfa3b52b30f48ceb1a275ca272f3ef217bb3394162592fbd3c0e04e6b07e0",
+    "source_docstring": "b928c1dfd03b4e75a314fc251cacbf912c19bea1630c1844f71a9f1fbb0230c5"
   },
   "en/python-src-testisolation-env_overrides.md": {
     "content": "3f94e6c6a420b6e0fc79240b6ad696b57222037070aa5a60a825e982abb91cd9",
-    "description": "eb62c68facccd839f3f44ab2b7fd696af292ed74ee0638dfed6f0ca13f2428a6"
+    "description": "eb62c68facccd839f3f44ab2b7fd696af292ed74ee0638dfed6f0ca13f2428a6",
+    "source_docstring": "dc8af8ca1053d7ab8490e2d890c188853a63d528cfdf631b0c1b53c031595b96"
   },
   "en/python-src-testisolation-pgcluster.md": {
     "content": "103af2faadb01856fac9409265d8e86f32d08020ed4b5122ff4e46eaf5114306",
-    "description": "e3b8eeeea05341230bfd3035399f57055f5bc1fa1369a4f8e82a0abc6bffe3c8"
+    "description": "e3b8eeeea05341230bfd3035399f57055f5bc1fa1369a4f8e82a0abc6bffe3c8",
+    "source_docstring": "83ffb7c78fce7741bebf66eb266f5cbad21d8a0d382ff8ccc32336cf4991b037"
   },
   "en/python-src-testisolation-plugin.md": {
     "content": "f7809b1d95b785b89c2d32704f535791e799fe0abdfaa92c5bb53d155b5347ba",
-    "description": "3b1a49430d15657cdfbfe7e9c47a8b658cb624f5c2c9516769a5b1bdc04e985e"
+    "description": "3b1a49430d15657cdfbfe7e9c47a8b658cb624f5c2c9516769a5b1bdc04e985e",
+    "source_docstring": "61f5cc42fb6ae88e9d317d5e35ccc81145b2e6187d1cdfb4b56aa11dcc58043b"
   },
   "en/python-src-testisolation-pushguard.md": {
     "content": "0fb68ea4a7fef69cc0efe79eede04b2a7f9d10c856b794acebbdfb7d211470aa",
-    "description": "f9467b2a82e3be01957c2d5fa2571f2b467c7298264311903612a58a7e750b91"
+    "description": "f9467b2a82e3be01957c2d5fa2571f2b467c7298264311903612a58a7e750b91",
+    "source_docstring": "ed3e90370a929f210d7f38499ede64dc1aabf9ac15c2cfdddefeadc732d576ac"
   },
   "en/python-src-testisolation-sandbox.md": {
     "content": "4d72a4f60c908b00ed8d729c5c267d56bdf9dac12af516b7c263bd4d59e94cc6",
-    "description": "704c461b1148fc9b8ba233b619408d2400bf9236b3cac96fe0a2014d889b71f1"
+    "description": "704c461b1148fc9b8ba233b619408d2400bf9236b3cac96fe0a2014d889b71f1",
+    "source_docstring": "0eb05cd2fb3b6325ed6addcb79677798423dfb9cedf01427253a86db0b637114"
   },
   "en/python-src-testisolation-socketguard.md": {
     "content": "52ac68fefaa4c7c00dda8397af3f71b0c84c99e2cde6fa6c517811f48be1a9d9",
-    "description": "2bee161d4d7182f3a1b926bd7f65319562df2f72fc7d4fa2530da4d8ebdd7bfa"
+    "description": "2bee161d4d7182f3a1b926bd7f65319562df2f72fc7d4fa2530da4d8ebdd7bfa",
+    "source_docstring": "eb43a8c021a1bf664913cd8296687a3facc8cd4ce3bed86dce1c33d1a0770991"
   },
   "en/python-src-testisolation.md": {
     "content": "ca99d3e6296bc92e65995f1864934a4c0b68e31be862c15ab6742e0e5ee7cbb7",
-    "description": "b564c6a150ec8cb71ada48160a5d12c544003611571bcfa2cde5daffc13db074"
+    "description": "b564c6a150ec8cb71ada48160a5d12c544003611571bcfa2cde5daffc13db074",
+    "source_docstring": "4e55bdc5ae5a0aeb461cd0c65743f3996efe5f7b16dd0c42eb6d4cbbfad54787"
   },
   "en/typescript-src-env.md": {
     "content": "83dd97bbffef8158329e1522f094497f2f360d1819a3f308710cd6860bbbf067",
