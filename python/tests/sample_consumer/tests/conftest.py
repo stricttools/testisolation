@@ -1,4 +1,4 @@
-"""An ordinary consumer conftest -- nothing stricttest-aware in it."""
+"""An ordinary consumer conftest -- nothing testisolation-aware in it."""
 
 from __future__ import annotations
 

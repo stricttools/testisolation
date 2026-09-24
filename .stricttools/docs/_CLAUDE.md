@@ -1,7 +1,7 @@
 +++
 title = "CLAUDE.md"
 +++
-# stricttest
+# testisolation
 
 Always-on test isolation: a pytest plugin (`python/`), a Go module
 carrying the same environment isolation plus an ephemeral PostgreSQL launcher (`go/`), and
@@ -11,9 +11,9 @@ a Node env-hygiene package (`typescript/`).
 
 | Path | Releasable | Registry | Notes |
 |------|-----------|----------|-------|
-| `python/` | `py-stricttest` | PyPI (`stricttest`) | hatchling, src layout, `pytest11` entry point |
-| `go/` | `go-stricttest` | Go module proxy | `github.com/smm-h/stricttest/go`, library artifact |
-| `typescript/` | `ts-stricttest` | npm (`stricttest`) | ESM, Node >= 22, `node:test` |
+| `python/` | `py-testisolation` | PyPI (`testisolation`) | hatchling, src layout, `pytest11` entry point |
+| `go/` | `go-testisolation` | Go module proxy | `github.com/stricttools/testisolation/go`, library artifact |
+| `typescript/` | `ts-testisolation` | npm (`testisolation`) | ESM, Node >= 22, `node:test` |
 
 ## Rules for this repo
 
@@ -24,9 +24,9 @@ a Node env-hygiene package (`typescript/`).
 - **No implicit safety defaults.** The socket stance, both allowlists, and the
   sandbox stance are required ini keys. Never add a default for one to make
   adoption smoother -- the configure-time abort is the feature.
-- **No escape hatches.** No `--disable-stricttest`, no env var that turns the
+- **No escape hatches.** No `--disable-testisolation`, no env var that turns the
   isolation off, no "warn instead of fail" mode. If a guard is wrong, fix the guard.
-- **Closed enums stay closed.** `stricttest_preserve` accepts only names in
+- **Closed enums stay closed.** `testisolation_preserve` accepts only names in
   `PRESERVE_VARS`. Never accept a raw environment variable name.
 - **The three implementations stay in lockstep.** The credential list and the preserve
   enum are duplicated in Python, Go and TypeScript on purpose (each implementation must
@@ -40,11 +40,11 @@ a Node env-hygiene package (`typescript/`).
 - **Never write that the socket guard covers a libpq driver.** The audit events
   are raised by Python's `socket` module, so `psycopg` -- a C extension --
   connects where the hook never runs. There is no event to allow, so
-  `stricttest_unix_socket_allowlist` changes nothing for it in either
+  `testisolation_unix_socket_allowlist` changes nothing for it in either
   direction. `asyncpg` is pure Python, is seen, and does need the allowlist
   entry. Any doc that mentions the guard and a database driver in the same
   breath has to make that distinction.
-- **The two cluster launchers stay in lockstep.** `python/src/stricttest/pgcluster.py`
+- **The two cluster launchers stay in lockstep.** `python/src/testisolation/pgcluster.py`
   and `go/pgcluster/` boot the same cluster: the same `initdb` and `pg_ctl`
   flags, the same 107-byte `sun_path` refusal, the same parent-candidate order,
   the same closed database-name character set, the same `PG*` environment

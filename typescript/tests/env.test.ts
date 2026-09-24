@@ -253,7 +253,7 @@ test("a poisoned home hides the developer's real dotfiles", () => {
 		assert.deepEqual(
 			readdirSync(home).filter((entry) => !planted.has(entry)),
 			[],
-			"the throwaway home holds nothing but what stricttest put there",
+			"the throwaway home holds nothing but what testisolation put there",
 		);
 	} finally {
 		fake.release();

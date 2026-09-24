@@ -383,7 +383,7 @@ func TestCredentialVarsCoversTheDocumentedVectors(t *testing.T) {
 }
 
 func TestUnsetEnvLeavesAnUnsetVariableUnset(t *testing.T) {
-	const name = "STRICTTEST_HYGIENE_NEVER_SET"
+	const name = "TESTISOLATION_HYGIENE_NEVER_SET"
 	t.Run("during", func(t *testing.T) {
 		unsetEnv(t, name)
 		if _, ok := os.LookupEnv(name); ok {

@@ -31,7 +31,7 @@ def test_sample_consumer_is_green_under_xdist(inner):
 
 def test_sample_consumer_declares_every_required_key():
     """The checked-in fixture must stay a valid adoption example."""
-    from stricttest.config import REQUIRED_KEYS
+    from testisolation.config import REQUIRED_KEYS
 
     ini = (SAMPLE / "pytest.ini").read_text()
     for key in REQUIRED_KEYS:
@@ -48,7 +48,7 @@ def test_sample_consumer_unmocked_push_would_be_caught(inner):
         "    acme.init_repo(repo)\n"
         "    (repo / 'f.txt').write_text('x')\n"
         "    acme.commit_all(repo, 'x')\n"
-        "    acme.publish(repo, 'https://github.com/smm-h/stricttest.git')\n"
+        "    acme.publish(repo, 'https://github.com/stricttools/testisolation.git')\n"
     )
     result = inner.run("-q")
     assert result.ret != 0

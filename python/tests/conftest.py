@@ -1,4 +1,4 @@
-"""Test harness for the stricttest plugin's own suite.
+"""Test harness for the testisolation plugin's own suite.
 
 Most isolation pieces can only be proved end-to-end, from a real pytest session
 that adopts the plugin. Those tests run an INNER pytest session in a
@@ -24,11 +24,11 @@ collect_ignore = ["sample_consumer"]
 # The most restrictive stance -- what a new consumer starts from. Individual
 # tests override single keys.
 SAFE_DEFAULTS: dict[str, object] = {
-    "stricttest_sockets": "deny",
-    "stricttest_socket_allowlist": [],
-    "stricttest_unix_socket_allowlist": [],
-    "stricttest_loopback": "deny",
-    "stricttest_sandbox_required": "false",
+    "testisolation_sockets": "deny",
+    "testisolation_socket_allowlist": [],
+    "testisolation_unix_socket_allowlist": [],
+    "testisolation_loopback": "deny",
+    "testisolation_sandbox_required": "false",
 }
 
 
@@ -111,7 +111,7 @@ class InnerProject:
         """Run pytest inside the generated project.
 
         ``pytester`` puts its own ``--basetemp`` INSIDE the inner project root,
-        which stricttest's own TMPDIR refusal correctly rejects. A basetemp
+        which testisolation's own TMPDIR refusal correctly rejects. A basetemp
         outside the project root is appended so it wins the last-flag-wins
         argument race -- which is exactly the remediation the refusal message
         asks a consumer for.

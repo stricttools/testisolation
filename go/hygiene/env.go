@@ -11,8 +11,8 @@ import (
 // commit made under it can never be mistaken for one of the developer's own,
 // and mail to it goes nowhere.
 const (
-	identityName  = "stricttest"
-	identityEmail = "stricttest@example.invalid"
+	identityName  = "testisolation"
+	identityEmail = "testisolation@example.invalid"
 )
 
 // blockedCommand is what every helper program git might reach for is pinned to.

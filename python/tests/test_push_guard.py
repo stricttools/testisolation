@@ -6,7 +6,7 @@ import subprocess
 
 import pytest
 
-from stricttest.pushguard import extract_push_remote, make_guarded_popen, remote_is_local
+from testisolation.pushguard import extract_push_remote, make_guarded_popen, remote_is_local
 
 
 @pytest.mark.parametrize(
@@ -25,11 +25,11 @@ def test_local_remotes_are_allowed(url):
 @pytest.mark.parametrize(
     "url",
     [
-        "https://github.com/smm-h/stricttest.git",
-        "ssh://git@github.com/smm-h/stricttest.git",
+        "https://github.com/stricttools/testisolation.git",
+        "ssh://git@github.com/stricttools/testisolation.git",
         "git://example.com/repo.git",
-        "git@github.com:smm-h/stricttest.git",
-        "github.com:smm-h/stricttest.git",
+        "git@github.com:stricttools/testisolation.git",
+        "github.com:stricttools/testisolation.git",
         None,
         "",
     ],

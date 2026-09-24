@@ -1,4 +1,4 @@
-# stricttest (npm)
+# testisolation (npm)
 
 Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
@@ -7,14 +7,14 @@ XDG directories, an isolated git configuration and identity, transport lockdown,
 credential stripping, and bare-run refusal.
 
 It is the Node member of a three-language package. The
-[pytest plugin](https://pypi.org/project/stricttest/) and the
-[Go module](https://pkg.go.dev/github.com/smm-h/stricttest/go/hygiene) ship from
+[pytest plugin](https://pypi.org/project/testisolation/) and the
+[Go module](https://pkg.go.dev/github.com/stricttools/testisolation/go/hygiene) ship from
 the same repository, and a cross-language test holds their credential lists and
 preserve enums in lockstep, so a polyglot repo gets the same guarantee in every
 language it tests in.
 
 ```bash
-npm install --save-dev stricttest
+npm install --save-dev testisolation
 ```
 
 Requires Node >= 22. ESM only.
@@ -23,7 +23,7 @@ Requires Node >= 22. ESM only.
 
 ```ts
 import { test } from "node:test";
-import { isolate } from "stricttest";
+import { isolate } from "testisolation";
 
 test("something", (t) => {
   isolate(t);
@@ -82,7 +82,7 @@ requireSandbox({ policy: "always" });
 ```
 
 The policy is required -- a suite declares where it stands rather than
-inheriting one. Both forms are keyed on `STRICTTEST_SANDBOX=1`, which the
+inheriting one. Both forms are keyed on `TESTISOLATION_SANDBOX=1`, which the
 sandbox runner exports.
 
 The count has to come from wherever the consumer genuinely knows it, because

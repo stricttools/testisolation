@@ -4,15 +4,15 @@ from __future__ import annotations
 
 import pytest
 
-from stricttest.config import Settings
-from stricttest.sandbox import enforce_threshold
+from testisolation.config import Settings
+from testisolation.sandbox import enforce_threshold
 
 
 def _tests(count: int, prefix: str = "a") -> str:
     return "\n".join(f"def test_{prefix}{i}():\n    assert True\n" for i in range(count))
 
 
-STRICT = {"stricttest_sandbox_required": "true", "stricttest_threshold": "3"}
+STRICT = {"testisolation_sandbox_required": "true", "testisolation_threshold": "3"}
 
 
 def test_bare_full_run_is_refused(inner):
@@ -26,7 +26,7 @@ def test_bare_full_run_is_refused(inner):
 
 def test_run_inside_the_sandbox_is_allowed(inner, monkeypatch):
     inner.write({"test_many.py": _tests(5)}, ini=STRICT)
-    monkeypatch.setenv("STRICTTEST_SANDBOX", "1")
+    monkeypatch.setenv("TESTISOLATION_SANDBOX", "1")
     inner.run("-q").assert_outcomes(passed=5)
 
 
@@ -48,16 +48,16 @@ def test_deselection_is_counted_after_k_filtering(inner):
 
 
 def test_sandbox_not_required_disables_the_threshold(inner):
-    inner.write({"test_many.py": _tests(20)}, ini={"stricttest_sandbox_required": "false"})
+    inner.write({"test_many.py": _tests(20)}, ini={"testisolation_sandbox_required": "false"})
     inner.run("-q").assert_outcomes(passed=20)
 
 
 def test_configured_sandbox_env_var_is_honoured(inner, monkeypatch):
-    ini = dict(STRICT, stricttest_sandbox_env="ACME_TEST_SANDBOX")
+    ini = dict(STRICT, testisolation_sandbox_env="ACME_TEST_SANDBOX")
     inner.write({"test_many.py": _tests(5)}, ini=ini)
 
     # The default name must NOT satisfy a project that renamed the handshake.
-    monkeypatch.setenv("STRICTTEST_SANDBOX", "1")
+    monkeypatch.setenv("TESTISOLATION_SANDBOX", "1")
     result = inner.run("-q")
     assert result.ret != 0
     assert "ACME_TEST_SANDBOX" in "\n".join(result.outlines + result.errlines)
@@ -67,7 +67,7 @@ def test_configured_sandbox_env_var_is_honoured(inner, monkeypatch):
 
 
 def test_configured_runner_command_appears_in_the_refusal(inner):
-    ini = dict(STRICT, stricttest_runner_command="make sandboxed-test")
+    ini = dict(STRICT, testisolation_runner_command="make sandboxed-test")
     inner.write({"test_many.py": _tests(5)}, ini=ini)
     result = inner.run("-q")
     assert result.ret != 0
@@ -91,7 +91,7 @@ def test_xdist_controller_refuses_once(inner):
 
 def test_xdist_inside_the_sandbox_is_allowed(inner, monkeypatch):
     inner.write({"test_many.py": _tests(5)}, ini=STRICT)
-    monkeypatch.setenv("STRICTTEST_SANDBOX", "1")
+    monkeypatch.setenv("TESTISOLATION_SANDBOX", "1")
     result = inner.run("-q", "-n", "2")
     result.assert_outcomes(passed=5)
 
@@ -114,11 +114,11 @@ def _settings(**overrides) -> Settings:
         loopback="deny",
         sandbox_required=True,
         threshold=50,
-        sandbox_env="STRICTTEST_SANDBOX",
+        sandbox_env="TESTISOLATION_SANDBOX",
         runner_command="scripts/test.sh",
-        tmp_prefix="stricttest-env-",
-        git_user_name="stricttest",
-        git_user_email="stricttest@example.invalid",
+        tmp_prefix="testisolation-env-",
+        git_user_name="testisolation",
+        git_user_email="testisolation@example.invalid",
         preserve=(),
     )
     base.update(overrides)
@@ -127,28 +127,28 @@ def _settings(**overrides) -> Settings:
 
 @pytest.mark.parametrize("count", [0, 1, 49, 50])
 def test_counts_up_to_the_threshold_pass(count, monkeypatch):
-    monkeypatch.delenv("STRICTTEST_SANDBOX", raising=False)
+    monkeypatch.delenv("TESTISOLATION_SANDBOX", raising=False)
     enforce_threshold(_settings(), count)
 
 
 def test_count_above_the_threshold_raises(monkeypatch):
-    monkeypatch.delenv("STRICTTEST_SANDBOX", raising=False)
+    monkeypatch.delenv("TESTISOLATION_SANDBOX", raising=False)
     with pytest.raises(pytest.UsageError, match="Refusing to run 51 tests bare"):
         enforce_threshold(_settings(), 51)
 
 
 def test_sandbox_env_short_circuits(monkeypatch):
-    monkeypatch.setenv("STRICTTEST_SANDBOX", "1")
+    monkeypatch.setenv("TESTISOLATION_SANDBOX", "1")
     enforce_threshold(_settings(), 10_000)
 
 
 def test_sandbox_env_must_be_exactly_one(monkeypatch):
     """A truthy-looking value that is not '1' does not satisfy the handshake."""
-    monkeypatch.setenv("STRICTTEST_SANDBOX", "yes")
+    monkeypatch.setenv("TESTISOLATION_SANDBOX", "yes")
     with pytest.raises(pytest.UsageError):
         enforce_threshold(_settings(), 51)
 
 
 def test_not_required_short_circuits(monkeypatch):
-    monkeypatch.delenv("STRICTTEST_SANDBOX", raising=False)
+    monkeypatch.delenv("TESTISOLATION_SANDBOX", raising=False)
     enforce_threshold(_settings(sandbox_required=False), 10_000)

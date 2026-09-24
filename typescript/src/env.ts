@@ -20,8 +20,8 @@ import {
  * made under it can never be mistaken for one of the developer's own, and mail
  * to it goes nowhere.
  */
-export const IDENTITY_NAME = "stricttest";
-export const IDENTITY_EMAIL = "stricttest@example.invalid";
+export const IDENTITY_NAME = "testisolation";
+export const IDENTITY_EMAIL = "testisolation@example.invalid";
 
 /**
  * What every helper program git might reach for is pinned to. It exists, it is
@@ -31,7 +31,7 @@ export const IDENTITY_EMAIL = "stricttest@example.invalid";
 const BLOCKED_COMMAND = "/bin/false";
 
 /** Prefix for the throwaway home directory created under the system temp dir. */
-const TEMP_PREFIX = "stricttest-env-";
+const TEMP_PREFIX = "testisolation-env-";
 
 /**
  * The closed list of ambient credential vectors that {@link stripCredentials}
@@ -206,7 +206,7 @@ export function chdir(registry: CleanupRegistry, dir: string): void {
 			process.chdir(previous);
 		} catch (cause) {
 			throw new Error(
-				`stricttest: restoring the working directory to ${previous} after ` +
+				`testisolation: restoring the working directory to ${previous} after ` +
 					`the test chdir'd to ${dir} failed -- every later test in this ` +
 					"file now runs from the wrong directory",
 				{ cause },

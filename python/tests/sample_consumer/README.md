@@ -1,6 +1,6 @@
 # Sample consumer
 
-A miniature project that adopts stricttest exactly the way a real repo does:
+A miniature project that adopts testisolation exactly the way a real repo does:
 a `pytest.ini` declaring the five safety keys, a small library that touches the
 user's home directory / git / the network, and a normal test suite exercising
 it.

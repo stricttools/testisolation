@@ -62,8 +62,8 @@ export function scopeFor(registry: CleanupRegistry): Scope {
 	if (existing) {
 		if (existing.released) {
 			throw new Error(
-				"stricttest: this test's isolation scope was already released; a " +
-					"stricttest helper was called from an `after` callback, or the same " +
+				"testisolation: this test's isolation scope was already released; a " +
+					"testisolation helper was called from an `after` callback, or the same " +
 					"test context was reused after its test finished.",
 			);
 		}
@@ -113,7 +113,7 @@ function release(scope: Scope): void {
 	}
 	if (innermost !== scope) {
 		throw new Error(
-			"stricttest: a test finished its isolation while another test's " +
+			"testisolation: a test finished its isolation while another test's " +
 				"isolation was still open. HOME, the working directory and the git " +
 				"identity are process-wide, so two tests cannot own them at once -- " +
 				"neither test's environment was really its own. Run the tests in this " +

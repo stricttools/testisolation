@@ -14,7 +14,7 @@ A consumer writes its own fixtures -- the plugin deliberately ships none, so
 that a suite with no database pays nothing::
 
     import pytest
-    from stricttest.pgcluster import ephemeral_cluster
+    from testisolation.pgcluster import ephemeral_cluster
 
     @pytest.fixture(scope="session")
     def pg():
@@ -44,13 +44,13 @@ through ``socket``, so the audit hook fires and the guard refuses the connect
 unless it is allowlisted. A suite that reaches the cluster through asyncpg must
 allowlist the socket directory's parent as a prefix::
 
-    stricttest_unix_socket_allowlist = ["/dev/shm/"]
+    testisolation_unix_socket_allowlist = ["/dev/shm/"]
 
 ``psycopg`` -- and anything else built on libpq -- is a C extension. The
 connect happens inside libpq, never through Python's ``socket`` module, so no
 audit event is ever raised. The guard does not see the connection, cannot
 refuse it, and cannot be made to allow it: there is no event to allow. Adding
-the socket directory to ``stricttest_unix_socket_allowlist`` changes nothing
+the socket directory to ``testisolation_unix_socket_allowlist`` changes nothing
 for a libpq consumer, in either direction, and no stance this plugin offers
 protects one. The same is true of ``psql``, which is a subprocess.
 

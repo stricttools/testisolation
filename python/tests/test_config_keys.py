@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from stricttest import config
+from testisolation import config
 
 OK_TEST = "def test_ok():\n    assert True\n"
 
@@ -38,19 +38,19 @@ def test_empty_allowlists_count_as_declared(inner):
 
 
 def test_unknown_socket_stance_rejected(inner):
-    inner.write({"test_ok.py": OK_TEST}, ini={"stricttest_sockets": "sometimes"})
+    inner.write({"test_ok.py": OK_TEST}, ini={"testisolation_sockets": "sometimes"})
     result = inner.run("-q")
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
-    assert "stricttest_sockets' must be one of deny, allowlist" in combined
+    assert "testisolation_sockets' must be one of deny, allowlist" in combined
 
 
 def test_unknown_loopback_stance_rejected(inner):
-    inner.write({"test_ok.py": OK_TEST}, ini={"stricttest_loopback": "maybe"})
+    inner.write({"test_ok.py": OK_TEST}, ini={"testisolation_loopback": "maybe"})
     result = inner.run("-q")
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
-    assert "stricttest_loopback' must be one of deny, allow" in combined
+    assert "testisolation_loopback' must be one of deny, allow" in combined
 
 
 def test_deny_plus_allowlist_is_a_contradiction(inner):
@@ -58,8 +58,8 @@ def test_deny_plus_allowlist_is_a_contradiction(inner):
     inner.write(
         {"test_ok.py": OK_TEST},
         ini={
-            "stricttest_sockets": "deny",
-            "stricttest_socket_allowlist": ["example.com:443"],
+            "testisolation_sockets": "deny",
+            "testisolation_socket_allowlist": ["example.com:443"],
         },
     )
     result = inner.run("-q")
@@ -72,8 +72,8 @@ def test_malformed_allowlist_entry_rejected(inner):
     inner.write(
         {"test_ok.py": OK_TEST},
         ini={
-            "stricttest_sockets": "allowlist",
-            "stricttest_socket_allowlist": ["example.com"],
+            "testisolation_sockets": "allowlist",
+            "testisolation_socket_allowlist": ["example.com"],
         },
     )
     result = inner.run("-q")
@@ -85,24 +85,24 @@ def test_malformed_allowlist_entry_rejected(inner):
 def test_zero_threshold_rejected_in_favour_of_the_sandbox_stance(inner):
     inner.write(
         {"test_ok.py": OK_TEST},
-        ini={"stricttest_threshold": "0", "stricttest_sandbox_required": "true"},
+        ini={"testisolation_threshold": "0", "testisolation_sandbox_required": "true"},
     )
     result = inner.run("-q")
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
-    assert "stricttest_threshold' must be >= 1" in combined
+    assert "testisolation_threshold' must be >= 1" in combined
 
 
 def test_non_integer_threshold_rejected(inner):
-    inner.write({"test_ok.py": OK_TEST}, ini={"stricttest_threshold": "many"})
+    inner.write({"test_ok.py": OK_TEST}, ini={"testisolation_threshold": "many"})
     result = inner.run("-q")
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
-    assert "stricttest_threshold' must be an integer" in combined
+    assert "testisolation_threshold' must be an integer" in combined
 
 
 def test_non_boolean_sandbox_stance_rejected(inner):
-    inner.write({"test_ok.py": OK_TEST}, ini={"stricttest_sandbox_required": "sorta"})
+    inner.write({"test_ok.py": OK_TEST}, ini={"testisolation_sandbox_required": "sorta"})
     result = inner.run("-q")
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
@@ -120,7 +120,7 @@ def test_remediation_snippet_is_toml_for_a_pyproject(inner):
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
     assert "[tool.pytest.ini_options]" in combined
-    assert 'stricttest_sockets = "deny"' in combined
+    assert 'testisolation_sockets = "deny"' in combined
 
 
 @pytest.mark.parametrize(
@@ -141,8 +141,8 @@ def test_remediation_snippet_is_ini_syntax_for_an_ini_file(inner, filename, head
     assert "[tool.pytest.ini_options]" not in combined
     # Unquoted: ini values are literal text, and the quotes would end up in
     # the value.
-    assert "stricttest_sockets = deny" in combined
-    assert 'stricttest_sockets = "deny"' not in combined
+    assert "testisolation_sockets = deny" in combined
+    assert 'testisolation_sockets = "deny"' not in combined
 
 
 @pytest.mark.parametrize(
@@ -194,4 +194,4 @@ def test_default_threshold_is_fifty():
 
 
 def test_default_sandbox_env_var_name():
-    assert config.DEFAULT_SANDBOX_ENV == "STRICTTEST_SANDBOX"
+    assert config.DEFAULT_SANDBOX_ENV == "TESTISOLATION_SANDBOX"

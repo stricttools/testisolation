@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "stricttest"
+name = "testisolation"
 version = "0.2.1"
 description = "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node"
 readme = "README.md"
@@ -32,29 +32,29 @@ classifiers = [
 dependencies = ["pytest>=7.0"]
 
 [project.entry-points.pytest11]
-stricttest = "stricttest.plugin"
+testisolation = "testisolation.plugin"
 
 [dependency-groups]
 dev = ["pytest", "pytest-xdist"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/stricttest"]
+packages = ["src/testisolation"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-# stricttest is active in its own suite through the pytest11 entry point, so
+# testisolation is active in its own suite through the pytest11 entry point, so
 # this project declares its safety stance like any other consumer.
-stricttest_sockets = "deny"
-stricttest_socket_allowlist = []
-stricttest_unix_socket_allowlist = []
-stricttest_loopback = "deny"
+testisolation_sockets = "deny"
+testisolation_socket_allowlist = []
+testisolation_unix_socket_allowlist = []
+testisolation_loopback = "deny"
 # No sandbox runner exists in this repo yet; the runner ships as a scaffold
 # template from rlsbl. Flip to "true" at adoption.
-stricttest_sandbox_required = "false"
+testisolation_sandbox_required = "false"
 
 [project.urls]
-Homepage = "https://smmh.dev/stricttest/"
-Documentation = "https://smmh.dev/stricttest/"
-Repository = "https://github.com/smm-h/stricttest"
-Issues = "https://github.com/smm-h/stricttest/issues"
-Changelog = "https://github.com/smm-h/stricttest/blob/main/CHANGELOG.md"
+Homepage = "https://smmh.dev/testisolation/"
+Documentation = "https://smmh.dev/testisolation/"
+Repository = "https://github.com/stricttools/testisolation"
+Issues = "https://github.com/stricttools/testisolation/issues"
+Changelog = "https://github.com/stricttools/testisolation/blob/main/CHANGELOG.md"

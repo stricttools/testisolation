@@ -7,7 +7,7 @@ real environment. ``os.environ`` is mutated directly rather than through
 individual test.
 
 Extracted verbatim-in-behavior from rlsbl's test suite, with the
-repo-specific constants moved into :mod:`stricttest.config`.
+repo-specific constants moved into :mod:`testisolation.config`.
 """
 
 from __future__ import annotations

@@ -21,7 +21,7 @@ import (
 	"time"
 )
 
-const dsnEnvVar = "STRICTTEST_TEST_DATABASE_URL"
+const dsnEnvVar = "TESTISOLATION_TEST_DATABASE_URL"
 
 var (
 	// shared is the cluster every live test uses. It is nil when this machine

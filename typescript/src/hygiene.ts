@@ -84,7 +84,7 @@ export interface IsolateOptions {
  *
  * ```ts
  * import { test } from "node:test";
- * import { isolate } from "stricttest";
+ * import { isolate } from "testisolation";
  *
  * test("something", (t) => {
  *   isolate(t);
@@ -142,7 +142,7 @@ export function preserveVars(
 			: undefined;
 		if (known === undefined) {
 			throw new Error(
-				`stricttest: preserve got an unknown name (${JSON.stringify(name)}); ` +
+				`testisolation: preserve got an unknown name (${JSON.stringify(name)}); ` +
 					"only the closed enum declared in this package is accepted: " +
 					`${Object.keys(KNOWN_VARS).join(", ")}. Arbitrary environment ` +
 					"variable names are rejected on purpose -- a credential vector must " +

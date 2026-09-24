@@ -11,7 +11,7 @@ import socket
 
 import pytest
 
-from stricttest.socketguard import Policy, is_loopback
+from testisolation.socketguard import Policy, is_loopback
 
 
 def _free_port() -> int:
@@ -52,7 +52,7 @@ def test_loopback_connect_is_denied_by_default(inner):
                 "import socket\n"
                 "import pytest\n"
                 "from helpers import listening\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 f"PORT = {port}\n"
                 "\n"
@@ -73,7 +73,7 @@ def test_public_name_resolution_is_denied_by_default(inner):
             "test_dns.py": (
                 "import socket\n"
                 "import pytest\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 "def test_resolution_denied():\n"
                 "    with pytest.raises(NetworkBlocked) as exc:\n"
@@ -96,7 +96,7 @@ def test_gethostbyname_is_denied_by_default(inner):
             "test_dns.py": (
                 "import socket\n"
                 "import pytest\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 "def test_gethostbyname_denied():\n"
                 "    with pytest.raises(NetworkBlocked) as exc:\n"
@@ -119,7 +119,7 @@ def test_gethostbyaddr_is_denied_by_default(inner):
             "test_dns.py": (
                 "import socket\n"
                 "import pytest\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 "def test_gethostbyaddr_denied():\n"
                 "    with pytest.raises(NetworkBlocked) as exc:\n"
@@ -143,13 +143,13 @@ def test_udp_sendmsg_is_denied_by_default(inner):
             "test_udp.py": (
                 "import socket\n"
                 "import pytest\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 "def test_sendmsg_denied():\n"
                 "    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)\n"
                 "    try:\n"
                 "        with pytest.raises(NetworkBlocked) as exc:\n"
-                "            sock.sendmsg([b'stricttest'], [], 0, ('8.8.8.8', 53))\n"
+                "            sock.sendmsg([b'testisolation'], [], 0, ('8.8.8.8', 53))\n"
                 "    finally:\n"
                 "        sock.close()\n"
                 "    assert '8.8.8.8:53' in str(exc.value)\n"
@@ -166,7 +166,7 @@ def test_refusal_is_not_swallowed_by_a_broad_except(inner):
             "test_swallow.py": (
                 "import socket\n"
                 "import pytest\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 "def test_not_swallowed():\n"
                 "    with pytest.raises(NetworkBlocked):\n"
@@ -194,7 +194,7 @@ def test_loopback_allow_permits_local_connects(inner):
                 "import socket\n"
                 "import pytest\n"
                 "from helpers import listening\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 f"PORT = {port}\n"
                 "\n"
@@ -208,7 +208,7 @@ def test_loopback_allow_permits_local_connects(inner):
                 "        socket.getaddrinfo('example.com', 443)\n"
             ),
         },
-        ini={"stricttest_loopback": "allow"},
+        ini={"testisolation_loopback": "allow"},
     )
     inner.run("-q").assert_outcomes(passed=2)
 
@@ -224,7 +224,7 @@ def test_loopback_allow_permits_every_guarded_event(inner):
         {
             "test_loopback_events.py": (
                 "import socket\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 f"PORT = {port}\n"
                 "\n"
@@ -270,7 +270,7 @@ def test_loopback_allow_permits_every_guarded_event(inner):
                 "        sock.close()\n"
             ),
         },
-        ini={"stricttest_loopback": "allow"},
+        ini={"testisolation_loopback": "allow"},
     )
     inner.run("-q").assert_outcomes(passed=6)
 
@@ -282,7 +282,7 @@ def test_allowlisted_host_permits_its_name_resolution(inner):
         {
             "test_allowlisted_dns.py": (
                 "import socket\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 "def not_blocked(fn, *args):\n"
                 "    try:\n"
@@ -297,9 +297,9 @@ def test_allowlisted_host_permits_its_name_resolution(inner):
             ),
         },
         ini={
-            "stricttest_sockets": "allowlist",
-            "stricttest_loopback": "deny",
-            "stricttest_socket_allowlist": [f"localhost:{port}"],
+            "testisolation_sockets": "allowlist",
+            "testisolation_loopback": "deny",
+            "testisolation_socket_allowlist": [f"localhost:{port}"],
         },
     )
     inner.run("-q").assert_outcomes(passed=1)
@@ -320,7 +320,7 @@ def test_allowlist_is_port_specific(inner):
                 "import socket\n"
                 "import pytest\n"
                 "from helpers import listening\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 f"ALLOWED = {allowed}\n"
                 f"DENIED = {denied}\n"
@@ -338,9 +338,9 @@ def test_allowlist_is_port_specific(inner):
             ),
         },
         ini={
-            "stricttest_sockets": "allowlist",
-            "stricttest_loopback": "deny",
-            "stricttest_socket_allowlist": [f"127.0.0.1:{allowed}"],
+            "testisolation_sockets": "allowlist",
+            "testisolation_loopback": "deny",
+            "testisolation_socket_allowlist": [f"127.0.0.1:{allowed}"],
         },
     )
     inner.run("-q").assert_outcomes(passed=2)
@@ -377,7 +377,7 @@ def test_unix_socket_denied_by_default(inner, tmp_path):
                 "import socket\n"
                 "import pytest\n"
                 "from helpers import unix_listening\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 f"PATH = {str(sock_path)!r}\n"
                 "\n"
@@ -403,7 +403,7 @@ def test_unix_socket_exact_path_allowlist(inner, tmp_path):
                 "import socket\n"
                 "import pytest\n"
                 "from helpers import unix_listening\n"
-                "from stricttest import NetworkBlocked\n"
+                "from testisolation import NetworkBlocked\n"
                 "\n"
                 f"ALLOWED = {str(allowed)!r}\n"
                 f"OTHER = {str(other)!r}\n"
@@ -421,7 +421,7 @@ def test_unix_socket_exact_path_allowlist(inner, tmp_path):
                 "            client.connect(OTHER)\n"
             ),
         },
-        ini={"stricttest_unix_socket_allowlist": [str(allowed)]},
+        ini={"testisolation_unix_socket_allowlist": [str(allowed)]},
     )
     inner.run("-q").assert_outcomes(passed=2)
 
@@ -448,7 +448,7 @@ def test_unix_socket_directory_prefix_allowlist(inner, tmp_path):
                 "        client.close()\n"
             ),
         },
-        ini={"stricttest_unix_socket_allowlist": [f"{sock_dir}/"]},
+        ini={"testisolation_unix_socket_allowlist": [f"{sock_dir}/"]},
     )
     inner.run("-q").assert_outcomes(passed=1)
 
@@ -482,8 +482,8 @@ def test_policy_describe_names_every_axis():
     )
     described = policy.describe()
     for fragment in (
-        "stricttest_sockets=allowlist",
-        "stricttest_loopback=deny",
+        "testisolation_sockets=allowlist",
+        "testisolation_loopback=deny",
         "127.0.0.1:5432",
         "/run/pg/",
     ):
@@ -491,7 +491,7 @@ def test_policy_describe_names_every_axis():
 
 
 def test_guard_is_armed_in_this_very_session():
-    from stricttest import socketguard
+    from testisolation import socketguard
 
     policy = socketguard.current_policy()
     assert policy is not None
@@ -501,7 +501,7 @@ def test_guard_is_armed_in_this_very_session():
 
 def test_this_suite_cannot_reach_the_network():
     """A meta-test on the suite you are reading: egress is off, right now."""
-    from stricttest import NetworkBlocked
+    from testisolation import NetworkBlocked
 
     with pytest.raises(NetworkBlocked):
         socket.getaddrinfo("pypi.org", 443)

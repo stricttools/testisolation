@@ -9,8 +9,8 @@ from pathlib import Path
 
 import pytest
 
-from stricttest import env_overrides
-from stricttest.config import PRESERVE_VARS
+from testisolation import env_overrides
+from testisolation.config import PRESERVE_VARS
 
 OK_TEST = "def test_ok():\n    assert True\n"
 
@@ -86,7 +86,7 @@ def test_git_reports_the_throwaway_identity(tmp_path):
         text=True,
         cwd=tmp_path,
     )
-    assert out.stdout.strip() == "stricttest@example.invalid"
+    assert out.stdout.strip() == "testisolation@example.invalid"
 
 
 def test_git_commits_are_attributed_to_the_throwaway_identity(tmp_path):
@@ -102,8 +102,8 @@ def test_git_commits_are_attributed_to_the_throwaway_identity(tmp_path):
         check=True,
     )
     assert out.stdout.strip() == (
-        "stricttest <stricttest@example.invalid> | "
-        "stricttest <stricttest@example.invalid>"
+        "testisolation <testisolation@example.invalid> | "
+        "testisolation <testisolation@example.invalid>"
     )
 
 
@@ -129,7 +129,7 @@ def test_transport_lockdown(var, value):
 def test_https_clone_is_refused_by_the_transport_lockdown(tmp_path):
     """A live network clone cannot even start: the protocol is not permitted."""
     out = subprocess.run(
-        ["git", "clone", "https://github.com/smm-h/stricttest.git", str(tmp_path / "c")],
+        ["git", "clone", "https://github.com/stricttools/testisolation.git", str(tmp_path / "c")],
         capture_output=True,
         text=True,
     )
@@ -173,7 +173,7 @@ def test_isolation_binds_before_the_consumer_conftest_is_imported(inner):
                 "def test_home_was_already_poisoned_at_import():\n"
                 "    real = pwd.getpwuid(os.getuid()).pw_dir\n"
                 "    assert HOME_AT_IMPORT != real\n"
-                "    assert 'stricttest-env-' in HOME_AT_IMPORT\n"
+                "    assert 'testisolation-env-' in HOME_AT_IMPORT\n"
             ),
         }
     )
@@ -189,7 +189,7 @@ def test_throwaway_dir_uses_the_configured_prefix(inner):
                 "    assert 'consumer-env-' in os.environ['HOME']\n"
             )
         },
-        ini={"stricttest_tmp_prefix": "consumer-env-"},
+        ini={"testisolation_tmp_prefix": "consumer-env-"},
     )
     inner.run("-q").assert_outcomes(passed=1)
 
@@ -206,7 +206,7 @@ def test_configured_commit_identity_is_used(inner):
                 "    assert os.environ['GIT_AUTHOR_NAME'] == 'acme-tests'\n"
             )
         },
-        ini={"stricttest_git_user_name": "acme-tests"},
+        ini={"testisolation_git_user_name": "acme-tests"},
     )
     inner.run("-q").assert_outcomes(passed=1)
 
@@ -217,7 +217,7 @@ def test_configured_commit_identity_is_used(inner):
 
 
 def test_preserve_rejects_arbitrary_env_var_names(inner):
-    inner.write({"test_ok.py": OK_TEST}, ini={"stricttest_preserve": ["GITHUB_TOKEN"]})
+    inner.write({"test_ok.py": OK_TEST}, ini={"testisolation_preserve": ["GITHUB_TOKEN"]})
     result = inner.run("-q")
     assert result.ret != 0
     combined = "\n".join(result.outlines + result.errlines)
@@ -229,7 +229,7 @@ def test_preserve_rejects_arbitrary_env_var_names(inner):
 
 
 def test_preserve_rejects_a_near_miss_name(inner):
-    inner.write({"test_ok.py": OK_TEST}, ini={"stricttest_preserve": ["gocache"]})
+    inner.write({"test_ok.py": OK_TEST}, ini={"testisolation_preserve": ["gocache"]})
     result = inner.run("-q")
     assert result.ret != 0
     assert "Unknown: gocache" in "\n".join(result.outlines + result.errlines)
@@ -248,7 +248,7 @@ def test_preserved_caches_survive_the_home_repoint(inner):
                 "    assert os.environ['GOMODCACHE'].startswith(os.environ['GOPATH'])\n"
             )
         },
-        ini={"stricttest_preserve": ["go_path", "go_mod_cache", "go_cache"]},
+        ini={"testisolation_preserve": ["go_path", "go_mod_cache", "go_cache"]},
     )
     inner.run("-q").assert_outcomes(passed=1)
 

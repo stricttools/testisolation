@@ -28,7 +28,7 @@
  *   ```ts
  *   import { run } from "node:test";
  *   import { glob } from "node:fs/promises";
- *   import { requireSandbox } from "stricttest";
+ *   import { requireSandbox } from "testisolation";
  *
  *   const files = await Array.fromAsync(glob("dist-test/tests/ **\/*.test.js"));
  *   requireSandbox({ policy: "threshold", threshold: 10, count: files.length });
@@ -48,7 +48,7 @@
  */
 
 /** The environment variable the sandbox runner sets to `"1"`. */
-export const DEFAULT_SANDBOX_ENV = "STRICTTEST_SANDBOX";
+export const DEFAULT_SANDBOX_ENV = "TESTISOLATION_SANDBOX";
 
 /** The command shown in the refusal message. */
 export const DEFAULT_RUNNER_COMMAND = "scripts/test.sh";
@@ -100,20 +100,20 @@ export function requireSandbox(options: RequireSandboxOptions): void {
 	if (options.policy === "threshold") {
 		if (!Number.isInteger(options.threshold) || options.threshold < 1) {
 			throw new TypeError(
-				"stricttest: requireSandbox threshold must be an integer >= 1, got " +
+				"testisolation: requireSandbox threshold must be an integer >= 1, got " +
 					`${options.threshold}. Use { policy: "always" } to refuse every ` +
 					"bare run, not a zero threshold.",
 			);
 		}
 		if (!Number.isInteger(options.count) || options.count < 0) {
 			throw new TypeError(
-				"stricttest: requireSandbox count must be a non-negative integer, " +
+				"testisolation: requireSandbox count must be a non-negative integer, " +
 					`got ${options.count}.`,
 			);
 		}
 	} else if (options.policy !== "always") {
 		throw new TypeError(
-			"stricttest: requireSandbox needs an explicit policy, either " +
+			"testisolation: requireSandbox needs an explicit policy, either " +
 				`{ policy: "always" } or { policy: "threshold", threshold, count }; ` +
 				`got ${JSON.stringify((options as { policy: unknown }).policy)}.`,
 		);

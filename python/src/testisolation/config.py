@@ -1,4 +1,4 @@
-"""Ini-file configuration for stricttest's isolation.
+"""Ini-file configuration for testisolation's isolation.
 
 Every knob lives in ``[tool.pytest.ini_options]`` (or ``pytest.ini`` /
 ``tox.ini`` / ``setup.cfg`` -- anything pytest reads as ini).
@@ -22,11 +22,11 @@ import pytest
 # ---------------------------------------------------------------------------
 
 # Safety keys -- REQUIRED. Absence is a hard configure-time error.
-KEY_SOCKETS = "stricttest_sockets"
-KEY_SOCKET_ALLOWLIST = "stricttest_socket_allowlist"
-KEY_UNIX_SOCKET_ALLOWLIST = "stricttest_unix_socket_allowlist"
-KEY_LOOPBACK = "stricttest_loopback"
-KEY_SANDBOX_REQUIRED = "stricttest_sandbox_required"
+KEY_SOCKETS = "testisolation_sockets"
+KEY_SOCKET_ALLOWLIST = "testisolation_socket_allowlist"
+KEY_UNIX_SOCKET_ALLOWLIST = "testisolation_unix_socket_allowlist"
+KEY_LOOPBACK = "testisolation_loopback"
+KEY_SANDBOX_REQUIRED = "testisolation_sandbox_required"
 
 REQUIRED_KEYS = (
     KEY_SOCKETS,
@@ -37,34 +37,34 @@ REQUIRED_KEYS = (
 )
 
 # Optional keys -- the five parameterized constants plus the preserve enum.
-KEY_THRESHOLD = "stricttest_threshold"
-KEY_SANDBOX_ENV = "stricttest_sandbox_env"
-KEY_RUNNER_COMMAND = "stricttest_runner_command"
-KEY_TMP_PREFIX = "stricttest_tmp_prefix"
-KEY_GIT_USER_NAME = "stricttest_git_user_name"
-KEY_GIT_USER_EMAIL = "stricttest_git_user_email"
-KEY_PRESERVE = "stricttest_preserve"
+KEY_THRESHOLD = "testisolation_threshold"
+KEY_SANDBOX_ENV = "testisolation_sandbox_env"
+KEY_RUNNER_COMMAND = "testisolation_runner_command"
+KEY_TMP_PREFIX = "testisolation_tmp_prefix"
+KEY_GIT_USER_NAME = "testisolation_git_user_name"
+KEY_GIT_USER_EMAIL = "testisolation_git_user_email"
+KEY_PRESERVE = "testisolation_preserve"
 
 DEFAULT_THRESHOLD = 50
-DEFAULT_SANDBOX_ENV = "STRICTTEST_SANDBOX"
+DEFAULT_SANDBOX_ENV = "TESTISOLATION_SANDBOX"
 DEFAULT_RUNNER_COMMAND = "scripts/test.sh"
-DEFAULT_TMP_PREFIX = "stricttest-env-"
-DEFAULT_GIT_USER_NAME = "stricttest"
-DEFAULT_GIT_USER_EMAIL = "stricttest@example.invalid"
+DEFAULT_TMP_PREFIX = "testisolation-env-"
+DEFAULT_GIT_USER_NAME = "testisolation"
+DEFAULT_GIT_USER_EMAIL = "testisolation@example.invalid"
 
 
 class _Missing:
     """Sentinel default for every ini key.
 
     Presence must be distinguishable from an explicitly-empty value: a project
-    that writes ``stricttest_socket_allowlist = []`` has declared its stance,
+    that writes ``testisolation_socket_allowlist = []`` has declared its stance,
     while one that omits the key has not. Registering this sentinel as each
     key's default makes ``getini`` itself report presence, without reaching for
     the deprecated ``config.inicfg``.
     """
 
     def __repr__(self) -> str:  # pragma: no cover - debugging aid
-        return "<stricttest: key not declared>"
+        return "<testisolation: key not declared>"
 
 
 MISSING = _Missing()
@@ -94,7 +94,7 @@ PRESERVE_VARS: dict[str, tuple[str, str]] = {
 
 @dataclass(frozen=True)
 class Settings:
-    """Resolved, validated stricttest configuration for one pytest session."""
+    """Resolved, validated testisolation configuration for one pytest session."""
 
     sockets: str
     socket_allowlist: tuple[tuple[str, str], ...]
@@ -111,7 +111,7 @@ class Settings:
 
 
 def add_ini_options(parser) -> None:
-    """Register every stricttest ini key with pytest's parser."""
+    """Register every testisolation ini key with pytest's parser."""
     parser.addini(
         KEY_SOCKETS,
         "REQUIRED. Socket stance for non-loopback addresses: 'deny' (no "
@@ -212,7 +212,7 @@ def _as_bool(key: str, value) -> bool:
     if text in ("0", "false", "no", "off"):
         return False
     raise pytest.UsageError(
-        f"stricttest: ini key '{key}' must be a boolean "
+        f"testisolation: ini key '{key}' must be a boolean "
         f"('true' or 'false'), got {value!r}."
     )
 
@@ -231,7 +231,7 @@ def parse_host_port(entry: str) -> tuple[str, str]:
     match = _HOSTPORT_BRACKETED.match(text) or _HOSTPORT_PLAIN.match(text)
     if not match:
         raise pytest.UsageError(
-            f"stricttest: ini key '{KEY_SOCKET_ALLOWLIST}' entry {entry!r} is "
+            f"testisolation: ini key '{KEY_SOCKET_ALLOWLIST}' entry {entry!r} is "
             "not a 'host:port' pair. Use 'example.com:443' or, for IPv6, "
             "'[::1]:5432'."
         )
@@ -291,7 +291,7 @@ def required_keys_error(config, missing: list[str]) -> pytest.UsageError:
     inifile = inipath or "your pytest ini file"
     template = remediation_block(inipath)
     return pytest.UsageError(
-        "stricttest is installed, and installing it IS adoption -- but this "
+        "testisolation is installed, and installing it IS adoption -- but this "
         "project has not declared its safety stance. Missing required ini "
         f"key(s): {', '.join(missing)}.\n\n"
         f"Declare every one of them in {inifile}. There are no defaults: the "
@@ -312,14 +312,14 @@ def resolve(config) -> Settings:
     sockets = str(_raw(config, KEY_SOCKETS)).strip()
     if sockets not in SOCKET_STANCES:
         raise pytest.UsageError(
-            f"stricttest: ini key '{KEY_SOCKETS}' must be one of "
+            f"testisolation: ini key '{KEY_SOCKETS}' must be one of "
             f"{', '.join(SOCKET_STANCES)}; got {sockets!r}."
         )
 
     loopback = str(_raw(config, KEY_LOOPBACK)).strip()
     if loopback not in LOOPBACK_STANCES:
         raise pytest.UsageError(
-            f"stricttest: ini key '{KEY_LOOPBACK}' must be one of "
+            f"testisolation: ini key '{KEY_LOOPBACK}' must be one of "
             f"{', '.join(LOOPBACK_STANCES)}; got {loopback!r}."
         )
 
@@ -327,7 +327,7 @@ def resolve(config) -> Settings:
     socket_allowlist = tuple(parse_host_port(e) for e in allowlist_entries)
     if sockets == "deny" and socket_allowlist:
         raise pytest.UsageError(
-            f"stricttest: '{KEY_SOCKETS} = deny' forbids all network access, "
+            f"testisolation: '{KEY_SOCKETS} = deny' forbids all network access, "
             f"but '{KEY_SOCKET_ALLOWLIST}' lists "
             f"{len(socket_allowlist)} entr{'y' if len(socket_allowlist) == 1 else 'ies'}. "
             "The two contradict each other; entries are never silently "
@@ -349,12 +349,12 @@ def resolve(config) -> Settings:
             threshold = int(raw_threshold)
         except ValueError:
             raise pytest.UsageError(
-                f"stricttest: ini key '{KEY_THRESHOLD}' must be an integer, "
+                f"testisolation: ini key '{KEY_THRESHOLD}' must be an integer, "
                 f"got {raw_threshold!r}."
             ) from None
         if threshold < 1:
             raise pytest.UsageError(
-                f"stricttest: ini key '{KEY_THRESHOLD}' must be >= 1, got "
+                f"testisolation: ini key '{KEY_THRESHOLD}' must be >= 1, got "
                 f"{threshold}. Use '{KEY_SANDBOX_REQUIRED} = false' to turn "
                 "the threshold off, not a zero threshold."
             )
@@ -365,7 +365,7 @@ def resolve(config) -> Settings:
         unknown = [n for n in names if n not in PRESERVE_VARS]
         if unknown:
             raise pytest.UsageError(
-                f"stricttest: ini key '{KEY_PRESERVE}' accepts only the closed "
+                f"testisolation: ini key '{KEY_PRESERVE}' accepts only the closed "
                 f"enum of known-safe toolchain variables. Unknown: "
                 f"{', '.join(sorted(unknown))}. Valid names: "
                 f"{', '.join(sorted(PRESERVE_VARS))}. Arbitrary environment "

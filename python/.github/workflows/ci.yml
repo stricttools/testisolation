@@ -25,7 +25,7 @@ jobs:
       - uses: astral-sh/setup-uv@v7
       - run: uv python install ${{ matrix.python-version }}
       - run: uv sync --locked
-      - run: uv run python -c "import stricttest"
+      - run: uv run python -c "import testisolation"
       - name: Install gitleaks
         run: |
           GITLEAKS_VERSION=8.24.3

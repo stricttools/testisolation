@@ -42,7 +42,7 @@ test("--import setup modules load per test FILE, never in the runner parent", ()
 	// This is the reason requireSandbox is a function the consumer calls rather
 	// than an automatic hook, and it is the kind of claim that rots silently.
 	// The fixture below proves it against the installed node.
-	const dir = mkdtempSync(join(tmpdir(), "stricttest-runner-probe-"));
+	const dir = mkdtempSync(join(tmpdir(), "testisolation-runner-probe-"));
 	fixtureDirs.push(dir);
 	// The setup module records each load in a file rather than on a stream: the
 	// runner rewrites child output into TAP, and this observation must not

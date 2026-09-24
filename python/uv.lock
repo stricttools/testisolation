@@ -86,7 +86,7 @@ wheels = [
 ]
 
 [[package]]
-name = "stricttest"
+name = "testisolation"
 version = "0.2.1"
 source = { editable = "." }
 dependencies = [

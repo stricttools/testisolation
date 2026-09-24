@@ -8,8 +8,8 @@ from __future__ import annotations
 
 import pytest
 
-from stricttest import pgcluster
-from stricttest.pgcluster import (
+from testisolation import pgcluster
+from testisolation.pgcluster import (
     SUN_PATH_MAX,
     EphemeralCluster,
     PostgresUnavailable,

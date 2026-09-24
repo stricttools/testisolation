@@ -1,6 +1,6 @@
 """Audit-hook socket guard.
 
-Net-new to stricttest (rlsbl's isolation layer had no in-process network guard). Built on
+Net-new to testisolation (rlsbl's isolation layer had no in-process network guard). Built on
 ``sys.addaudithook`` rather than by monkeypatching ``socket``, so it cannot be
 un-patched by a test, a library, or a ``reload``. Audit hooks are permanent for
 the life of the process by design: the hook is installed at most once and reads
@@ -29,7 +29,7 @@ either direction, and no stance offered here protects such a consumer. Clients
 implemented in Python (``asyncpg``, ``httpx``, ``requests``, ``urllib``) go
 through ``socket`` and are covered. For the ones that are not, the protection
 has to be structural -- an ephemeral database at the end of the socket
-(:mod:`stricttest.pgcluster`), or the sandbox runner's network namespace.
+(:mod:`testisolation.pgcluster`), or the sandbox runner's network namespace.
 """
 
 from __future__ import annotations
@@ -78,8 +78,8 @@ class Policy:
 
     def describe(self) -> str:
         parts = [
-            f"stricttest_sockets={self.sockets}",
-            f"stricttest_loopback={self.loopback}",
+            f"testisolation_sockets={self.sockets}",
+            f"testisolation_loopback={self.loopback}",
             f"allowlist={sorted(f'{h}:{p}' for h, p in self.allowlist) or '[]'}",
             f"unix_allowlist={list(self.unix_allowlist) or '[]'}",
         ]
@@ -108,11 +108,11 @@ def is_loopback(host: str) -> bool:
 
 def _blocked(policy: Policy, what: str, detail: str) -> NetworkBlocked:
     return NetworkBlocked(
-        f"BLOCKED: {what} {detail} refused by the stricttest socket guard. "
+        f"BLOCKED: {what} {detail} refused by the testisolation socket guard. "
         f"Current stance: {policy.describe()}. Tests do not reach the network: "
         "mock the call, point it at a fixture, or -- if this connection is "
-        "genuinely required -- declare it in stricttest_socket_allowlist / "
-        "stricttest_unix_socket_allowlist."
+        "genuinely required -- declare it in testisolation_socket_allowlist / "
+        "testisolation_unix_socket_allowlist."
     )
 
 

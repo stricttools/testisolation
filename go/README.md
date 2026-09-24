@@ -1,4 +1,4 @@
-# stricttest (Go)
+# testisolation (Go)
 
 Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node
 
@@ -8,11 +8,11 @@ and cleanup-restoring chdir. A second package in the same module, `pgcluster`,
 boots a throwaway PostgreSQL cluster for suites that need a real database.
 
 ```bash
-go get github.com/smm-h/stricttest/go
+go get github.com/stricttools/testisolation/go
 ```
 
 ```go
-import "github.com/smm-h/stricttest/go/hygiene"
+import "github.com/stricttools/testisolation/go/hygiene"
 
 func TestSomething(t *testing.T) {
 	hygiene.Isolate(t)
@@ -54,7 +54,7 @@ never links a driver, so adopting it cannot drag a database driver into a
 consumer's module graph.
 
 ```go
-import "github.com/smm-h/stricttest/go/pgcluster"
+import "github.com/stricttools/testisolation/go/pgcluster"
 
 var cluster *pgcluster.Cluster
 

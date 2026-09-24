@@ -1,5 +1,5 @@
 /**
- * stricttest -- always-on test isolation for Node suites.
+ * testisolation -- always-on test isolation for Node suites.
  *
  * The composite entry point is {@link isolate}: one call at the top of a test
  * (or of a helper every test in the file funnels through) binds every

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from stricttest.sandbox import enforce_tmp_outside_repo
+from testisolation.sandbox import enforce_tmp_outside_repo
 
 OK_TEST = "def test_ok():\n    assert True\n"
 

@@ -1,6 +1,6 @@
 """The pytest plugin entry point (``pytest11``).
 
-Installing stricttest IS adoption. Every hook below binds unconditionally once
+Installing testisolation IS adoption. Every hook below binds unconditionally once
 the project's safety keys validate; there is no opt-in switch and no runtime
 degradation path -- a project either declares its stance and gets the isolation, or
 the session aborts.
@@ -37,7 +37,7 @@ _settings: Settings | None = None
 def settings() -> Settings:
     """The resolved settings for this session (raises if not yet configured)."""
     if _settings is None:
-        raise RuntimeError("stricttest is not configured yet")
+        raise RuntimeError("testisolation is not configured yet")
     return _settings
 
 
@@ -131,7 +131,7 @@ def pytest_xdist_node_collection_finished(node, ids):
 
 
 @pytest.fixture(autouse=True)
-def _stricttest_chdir_into_tmp(request, tmp_path, monkeypatch):
+def _testisolation_chdir_into_tmp(request, tmp_path, monkeypatch):
     """Autouse: never let a test run with the process cwd at the real repo.
 
     A test whose process cwd is the real repo can make every unanchored git
@@ -151,7 +151,7 @@ def _stricttest_chdir_into_tmp(request, tmp_path, monkeypatch):
 
 
 @pytest.fixture(autouse=True)
-def _stricttest_guard_nonlocal_push():
+def _testisolation_guard_nonlocal_push():
     """Autouse guard: block any real ``git push`` to a non-local remote."""
     guarded = make_guarded_popen(subprocess.Popen)
     with patch("subprocess.Popen", side_effect=guarded):

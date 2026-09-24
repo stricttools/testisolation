@@ -12,7 +12,7 @@ import time
 
 import pytest
 
-from stricttest.pgcluster import (
+from testisolation.pgcluster import (
     SUN_PATH_MAX,
     EphemeralCluster,
     PostgresUnavailable,
@@ -20,7 +20,7 @@ from stricttest.pgcluster import (
     find_binaries,
 )
 
-DSN_ENV = "STRICTTEST_TEST_DATABASE_URL"
+DSN_ENV = "TESTISOLATION_TEST_DATABASE_URL"
 
 
 @pytest.fixture(scope="module")

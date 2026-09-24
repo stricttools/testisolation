@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "source": [
     {
-      "path": "python/src/stricttest",
+      "path": "python/src/testisolation",
       "language": "python"
     },
     {
@@ -20,8 +20,8 @@
   ],
   "docs": ".stricttools/docs/",
   "output": ".stricttools/docs-cache/build/",
-  "changelog": ".rlsbl-monorepo/releasables/py-stricttest/CHANGELOG.md",
-  "base_url": "https://docs.smmh.dev/stricttest",
+  "changelog": ".rlsbl-monorepo/releasables/py-testisolation/CHANGELOG.md",
+  "base_url": "https://docs.smmh.dev/testisolation",
   "search_engine": "pagefind",
   "author": {
     "name": "SMMH",
@@ -43,13 +43,13 @@
     }
   ],
   "description": "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node",
-  "repo": "https://github.com/smm-h/stricttest",
+  "repo": "https://github.com/stricttools/testisolation",
   "root_files": [
     ".stricttools/docs/_README.md",
     ".stricttools/docs/_CLAUDE.md"
   ],
   "topology": {
-    "slug": "stricttest",
+    "slug": "testisolation",
     "docs_base": "https://smmh.dev",
     "posts_base": "https://blog.smmh.dev"
   },

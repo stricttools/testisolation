@@ -26,7 +26,7 @@ from .config import Settings
 def enforce_threshold(settings: Settings, count: int) -> None:
     """Raise ``UsageError`` if a bare run of ``count`` tests is too large.
 
-    No-op when the project declared ``stricttest_sandbox_required = false``,
+    No-op when the project declared ``testisolation_sandbox_required = false``,
     when the run is already inside the sandbox, or when the run is a small
     targeted slice.
     """
