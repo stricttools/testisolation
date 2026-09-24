@@ -74,7 +74,7 @@ subprocess, because the audit hook is permanent for the life of a process.
 This is an rlsbl monorepo with three releasables.
 
 - `rlsbl monorepo release init`, then edit `.rlsbl-monorepo/releases/unreleased.toml`
-- `rlsbl monorepo release run --no-allow-dirty --watch --yes`
+- `rlsbl monorepo release run --no-allow-dirty --watch --approve-consequential`
 - Never publish manually.
 
 ## License
