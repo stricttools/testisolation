@@ -1,0 +1,1 @@
+{"format_version":1,"kind":"boundary-alias","id":"18d84b26fe3251bda47e59dd43cd40e4827dce4d951b6785","recorded_at":"2026-09-24T17:24:42+02:00","aliases":[{"alias_tag":"go-testisolation@v0.2.1","aliased_tag":"go-stricttest@v0.2.1","commit":"dc5f0535ea5df4b2e73d1a068580f63da5ebdd7e"}]}
