@@ -5,7 +5,7 @@ name = "py-testisolation"
 name = "go-testisolation"
 
 [[releasables]]
-name = "ts-stricttest"
+name = "ts-testisolation"
 
 # Every project watches ".rlsbl-monorepo/snapshot.json" and its own releasable
 # directory. Both are release machinery, not source, and watching them is what
@@ -42,7 +42,7 @@ releasable = "go-testisolation"
 [[projects]]
 path = "typescript/"
 name = "ts-stricttest"
-releasable = "ts-stricttest"
+releasable = "ts-testisolation"
 
 [[projects]]
 path = "."

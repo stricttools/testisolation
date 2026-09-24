@@ -55,11 +55,11 @@ jobs:
           "go-testisolation@v"*)
             regex='^(go\-stricttest\-ci) / '
             ;;
-          "ts-stricttest@v"*)
+          "ts-testisolation@v"*)
             regex='^(ts\-stricttest\-ci) / '
             ;;
           *)
-            echo "::error::Publish gate: ref '$tag_ref' matches no project tag prefix (known prefixes: py-testisolation@v, go-testisolation@v, ts-stricttest@v)."
+            echo "::error::Publish gate: ref '$tag_ref' matches no project tag prefix (known prefixes: py-testisolation@v, go-testisolation@v, ts-testisolation@v)."
             echo "To retry a release publish, dispatch this workflow at the tag ref: gh workflow run publish.yml --ref <tag>"
             exit 1
             ;;
@@ -365,7 +365,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    if: startsWith(inputs.tag || github.ref_name, 'ts-stricttest@v')
+    if: startsWith(inputs.tag || github.ref_name, 'ts-testisolation@v')
     defaults:
       run:
         working-directory: typescript

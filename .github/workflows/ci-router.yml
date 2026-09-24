@@ -41,7 +41,7 @@ jobs:
           ts-stricttest:
             - 'typescript/**'
             - '.github/workflows/ci-router.yml'
-            - '.rlsbl-monorepo/releasables/ts-stricttest/CHANGELOG.md'
+            - '.rlsbl-monorepo/releasables/ts-testisolation/CHANGELOG.md'
         predicate-quantifier: some-with-excludes
   stricttest-ci-test:
     runs-on: ubuntu-latest
