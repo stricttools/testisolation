@@ -1,5 +1,5 @@
 [[releasables]]
-name = "py-stricttest"
+name = "py-testisolation"
 
 [[releasables]]
 name = "go-stricttest"
@@ -27,7 +27,7 @@ name = "ts-stricttest"
 [[projects]]
 path = "python/"
 name = "stricttest"
-releasable = "py-stricttest"
+releasable = "py-testisolation"
 # "go/**" and "typescript/**" are deliberate: the cross-language parity tests
 # (tests/test_cross_language_parity.py) read the Go and TypeScript sources and
 # fail when the three implementations' variable lists drift. They live in the

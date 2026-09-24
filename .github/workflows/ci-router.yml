@@ -33,7 +33,7 @@ jobs:
           stricttest:
             - 'python/**'
             - '.github/workflows/ci-router.yml'
-            - '.rlsbl-monorepo/releasables/py-stricttest/CHANGELOG.md'
+            - '.rlsbl-monorepo/releasables/py-testisolation/CHANGELOG.md'
           go-stricttest:
             - 'go/**'
             - '.github/workflows/ci-router.yml'
