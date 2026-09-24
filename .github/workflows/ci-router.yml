@@ -21,29 +21,29 @@ jobs:
   detect:
     runs-on: ubuntu-latest
     outputs:
-      stricttest: ${{ steps.changes.outputs.stricttest }}
-      go-stricttest: ${{ steps.changes.outputs.go-stricttest }}
-      ts-stricttest: ${{ steps.changes.outputs.ts-stricttest }}
+      testisolation: ${{ steps.changes.outputs.testisolation }}
+      go-testisolation: ${{ steps.changes.outputs.go-testisolation }}
+      ts-testisolation: ${{ steps.changes.outputs.ts-testisolation }}
     steps:
     - uses: actions/checkout@v6
     - uses: dorny/paths-filter@v4
       id: changes
       with:
         filters: |
-          stricttest:
+          testisolation:
             - 'python/**'
             - '.github/workflows/ci-router.yml'
             - '.rlsbl-monorepo/releasables/py-testisolation/CHANGELOG.md'
-          go-stricttest:
+          go-testisolation:
             - 'go/**'
             - '.github/workflows/ci-router.yml'
             - '.rlsbl-monorepo/releasables/go-testisolation/CHANGELOG.md'
-          ts-stricttest:
+          ts-testisolation:
             - 'typescript/**'
             - '.github/workflows/ci-router.yml'
             - '.rlsbl-monorepo/releasables/ts-testisolation/CHANGELOG.md'
         predicate-quantifier: some-with-excludes
-  stricttest-ci-test:
+  testisolation-ci-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -54,7 +54,7 @@ jobs:
     - uses: astral-sh/setup-uv@v7
     - run: uv python install ${{ matrix.python-version }}
     - run: uv sync --locked
-    - run: uv run python -c "import stricttest"
+    - run: uv run python -c "import testisolation"
     - name: Install gitleaks
       run: |
         GITLEAKS_VERSION=8.24.3
@@ -63,11 +63,11 @@ jobs:
     defaults:
       run:
         working-directory: python
-    name: stricttest-ci / test
+    name: testisolation-ci / test
     needs:
     - detect
-    if: (needs.detect.outputs.stricttest == 'true' || inputs.run_all)
-  go-stricttest-ci-test:
+    if: (needs.detect.outputs.testisolation == 'true' || inputs.run_all)
+  go-testisolation-ci-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
@@ -80,11 +80,11 @@ jobs:
     defaults:
       run:
         working-directory: go
-    name: go-stricttest-ci / test
+    name: go-testisolation-ci / test
     needs:
     - detect
-    if: (needs.detect.outputs.go-stricttest == 'true' || inputs.run_all)
-  ts-stricttest-ci-test:
+    if: (needs.detect.outputs.go-testisolation == 'true' || inputs.run_all)
+  ts-testisolation-ci-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -109,7 +109,7 @@ jobs:
     defaults:
       run:
         working-directory: typescript
-    name: ts-stricttest-ci / test
+    name: ts-testisolation-ci / test
     needs:
     - detect
-    if: (needs.detect.outputs.ts-stricttest == 'true' || inputs.run_all)
+    if: (needs.detect.outputs.ts-testisolation == 'true' || inputs.run_all)

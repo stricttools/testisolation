@@ -50,13 +50,13 @@ jobs:
         tag_ref="${TAG_INPUT:-$GITHUB_REF_NAME}"
         case "$tag_ref" in
           "py-testisolation@v"*)
-            regex='^(stricttest\-ci) / '
+            regex='^(testisolation\-ci) / '
             ;;
           "go-testisolation@v"*)
-            regex='^(go\-stricttest\-ci) / '
+            regex='^(go\-testisolation\-ci) / '
             ;;
           "ts-testisolation@v"*)
-            regex='^(ts\-stricttest\-ci) / '
+            regex='^(ts\-testisolation\-ci) / '
             ;;
           *)
             echo "::error::Publish gate: ref '$tag_ref' matches no project tag prefix (known prefixes: py-testisolation@v, go-testisolation@v, ts-testisolation@v)."
@@ -248,7 +248,7 @@ jobs:
     permissions: {}
     steps:
     - run: echo 'No publish target for this release tag'
-  stricttest-pypi:
+  testisolation-pypi:
     needs: gate
     runs-on: ubuntu-latest
     steps:
@@ -275,7 +275,7 @@ jobs:
     defaults:
       run:
         working-directory: python
-  go-stricttest-go:
+  go-testisolation-go:
     needs: gate
     runs-on: ubuntu-latest
     steps:
@@ -295,7 +295,7 @@ jobs:
         # the proxy for the right module. The proxy resolves subdir modules
         # via their companion subdir tag (<subdir>/vX.Y.Z) automatically, so
         # no manual tag construction is needed here.
-        MODULE="github.com/smm-h/stricttest/go"
+        MODULE="github.com/stricttools/testisolation/go"
 
         # RELEASE_TAG is resolved via step env (never inlined into the
         # script -- inputs.tag is user-controlled). Normalise it to a bare
@@ -318,7 +318,7 @@ jobs:
     defaults:
       run:
         working-directory: go
-  ts-stricttest-npm:
+  ts-testisolation-npm:
     needs: gate
     runs-on: ubuntu-latest
     steps:
