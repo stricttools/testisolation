@@ -1,8 +1,8 @@
 [releasables.py-testisolation]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "minor"
 # Short description of this release (required)
-description = ""
+description = "Requires Python 3.14, and git's background maintenance is disabled in test isolation so it no longer races test cleanup."
 # Optional context explaining why these changes were made
 context = ""
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
@@ -15,9 +15,9 @@ exclude = []
 
 [releasables.go-testisolation]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "patch"
 # Short description of this release (required)
-description = ""
+description = "git's background maintenance is disabled in test isolation so it no longer races test cleanup."
 # Optional context explaining why these changes were made
 context = ""
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
@@ -30,9 +30,9 @@ exclude = []
 
 [releasables.ts-testisolation]
 # Version bump type: patch, minor, major, infra, or prerelease
-bump = ""
+bump = "patch"
 # Short description of this release (required)
-description = ""
+description = "git's background maintenance is disabled in test isolation so it no longer races test cleanup."
 # Optional context explaining why these changes were made
 context = ""
 # Pre-release channel: alpha, beta, rc, or stable (ordered;
