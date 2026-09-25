@@ -47,7 +47,7 @@ isolate({ after: onTestFinished });
 |--------|--------------|
 | `isolate(t, options?)` | Binds every isolation piece: preserved caches, throwaway home, git config, transports, credentials. |
 | `throwawayHome(t)` | Repoints `HOME`, `USERPROFILE` and the four XDG base directories at a fresh temp dir; returns it. Memoized per test. |
-| `isolateGitConfig(t)` | Empty `GIT_CONFIG_GLOBAL`/`GIT_CONFIG_SYSTEM` inside the throwaway home, throwaway `GIT_AUTHOR_*`/`GIT_COMMITTER_*`, `GIT_TERMINAL_PROMPT=0`. |
+| `isolateGitConfig(t)` | Empty `GIT_CONFIG_GLOBAL` and a `GIT_CONFIG_SYSTEM` carrying only `maintenance.auto = false` (no background `git maintenance` racing test cleanup), both inside the throwaway home, throwaway `GIT_AUTHOR_*`/`GIT_COMMITTER_*`, `GIT_TERMINAL_PROMPT=0`. |
 | `lockdownTransports(t)` | `GIT_ALLOW_PROTOCOL=file`, plus `GIT_SSH_COMMAND` and `GIT_PROXY_COMMAND` pinned to `/bin/false`. |
 | `stripCredentials(t)` | Removes every variable in `CREDENTIAL_VARS`. |
 | `chdir(t, dir)` | Moves the working directory (and `PWD`) for the test and restores it after. |
