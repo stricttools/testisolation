@@ -28,8 +28,7 @@ a Node env-hygiene package (`typescript/`).
 - **Closed enums stay closed.** `testisolation_preserve` accepts only names in
   `PRESERVE_VARS`. Never accept a raw environment variable name.
 - **The three implementations stay in lockstep.** The credential list and the preserve
-  enum are duplicated in Python, Go and TypeScript on purpose (each implementation must
-  be readable on its own), and `python/tests/test_cross_language_parity.py`
+  enum exist in Python, Go, and TypeScript, and `python/tests/test_cross_language_parity.py`
   reads the Go and TypeScript sources to prove they have not drifted. Changing
   one list means changing all three in the same commit.
 - **Nothing half-guarded.** The socket guard exists only in Python because only
