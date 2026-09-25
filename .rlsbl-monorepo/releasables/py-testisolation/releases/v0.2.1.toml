@@ -9,6 +9,7 @@ include = ["pypi"]
 exclude = []
 description = "The package describes itself with the project's canonical one-line description, with documentation, issue and changelog links, and the docs base at the unified site."
 candidate_sha = "dc5f0535ea5df4b2e73d1a068580f63da5ebdd7e"
+shipped_as = "py-stricttest@v0.2.1"
 
 [tree_hashes]
 python = "d03e66ae5382f4359032a75ecde5a70d0b7739dd"

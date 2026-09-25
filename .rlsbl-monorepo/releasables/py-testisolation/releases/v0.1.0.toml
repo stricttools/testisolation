@@ -13,6 +13,7 @@ exclude = []
 description = "First release of the stricttest pytest plugin."
 context = "Installing the plugin IS adoption: a pytest11 entry point binds an always-on\nisolation floor before any conftest module is imported -- throwaway HOME/XDG\ndirectories and git identity, transport lockdown, credential stripping, an\naudit-hook socket guard, a git push guard, per-test cwd isolation, a\nTMPDIR-inside-the-repo refusal, and a bare-run threshold -- plus an ephemeral\nPostgreSQL cluster launcher for suites that need a real database. Five safety\nkeys are required in the pytest ini; a missing one aborts the session, because\na suite that has not declared where it stands should not be allowed to run."
 candidate_sha = "dd7e3a9a740d9243385a0f7cbfebccaf49bd6453"
+shipped_as = "py-stricttest@v0.1.0"
 
 [tree_hashes]
 python = "63a5ceca77ece500127bcdd916f4aeec26889684"
