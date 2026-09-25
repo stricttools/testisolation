@@ -15,7 +15,9 @@ import {
 	readFileSync,
 	realpathSync,
 	statSync,
+	writeFileSync,
 } from "node:fs";
+import { join } from "node:path";
 import { test } from "node:test";
 import {
 	chdir,
@@ -83,18 +85,21 @@ test("separate registries get separate homes", () => {
 	}
 });
 
-test("isolateGitConfig empties git's config and replaces the identity", () => {
+test("isolateGitConfig replaces git's config and the identity", () => {
 	const before = snapshot();
 	const fake = fakeRegistry();
 	try {
 		isolateGitConfig(fake.registry);
 		const home = throwawayHome(fake.registry);
 
-		for (const env of ["GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM"]) {
+		for (const [env, content] of [
+			["GIT_CONFIG_GLOBAL", ""],
+			["GIT_CONFIG_SYSTEM", "[maintenance]\n\tauto = false\n"],
+		] as const) {
 			const path = process.env[env];
 			assert.ok(path, `${env} is set`);
 			assert.ok(path.startsWith(home), `${env} lives under the throwaway home`);
-			assert.equal(readFileSync(path, "utf8"), "", `${env} is empty`);
+			assert.equal(readFileSync(path, "utf8"), content, `${env} holds only what isolateGitConfig writes`);
 		}
 		assert.equal(process.env["GIT_AUTHOR_NAME"], IDENTITY_NAME);
 		assert.equal(process.env["GIT_AUTHOR_EMAIL"], IDENTITY_EMAIL);
@@ -139,6 +144,40 @@ test("the isolated git config really is what git reads", () => {
 	} catch (error) {
 		// git exits 1 when the key is absent, which is the assertion above.
 		assert.equal((error as { status?: number }).status, 1);
+	} finally {
+		fake.release();
+	}
+});
+
+test("a commit under the isolated git config starts no background maintenance", () => {
+	// A git commit may start `git maintenance run --auto --detach` in the
+	// background, which keeps writing into .git after the commit returns and
+	// races the removal of the test's temporary directory ("unlinkat .git:
+	// directory not empty"). rerere is enabled so the maintenance run would have
+	// work to do. The child is observed through git's own trace2 event stream,
+	// which records every child process git starts.
+	const fake = fakeRegistry();
+	try {
+		isolateGitConfig(fake.registry);
+		const home = throwawayHome(fake.registry);
+		const repo = join(home, "repo");
+		const git = (args: string[], env: NodeJS.ProcessEnv = process.env) =>
+			execFileSync("git", args, { encoding: "utf8", env, stdio: ["ignore", "pipe", "pipe"] });
+		git(["init", "-q", repo]);
+		git(["-C", repo, "config", "rerere.enabled", "true"]);
+		writeFileSync(join(repo, "f.txt"), "x\n");
+		git(["-C", repo, "add", "f.txt"]);
+
+		const trace = join(home, "trace2.json");
+		git(["-C", repo, "commit", "-qm", "x"], { ...process.env, GIT_TRACE2_EVENT: trace });
+		const events = readFileSync(trace, "utf8");
+		assert.match(
+			events,
+			/"commit"/,
+			"the trace2 stream records the commit itself, so its absence of maintenance means something",
+		);
+		const maintenance = events.split("\n").filter((line) => line.includes('"maintenance"'));
+		assert.deepEqual(maintenance, [], "the commit started a git maintenance child process");
 	} finally {
 		fake.release();
 	}
