@@ -107,6 +107,33 @@ def test_git_commits_are_attributed_to_the_throwaway_identity(tmp_path):
     )
 
 
+def test_a_commit_starts_no_background_maintenance(tmp_path):
+    # A git commit may start `git maintenance run --auto --detach` in the
+    # background, which keeps writing into .git after the commit returns and
+    # races the removal of the test's temporary directory ("unlinkat .git:
+    # directory not empty"). rerere is enabled so the maintenance run would have
+    # work to do. The child is observed through git's own trace2 event stream,
+    # which records every child process git starts.
+    repo = tmp_path / "repo"
+    subprocess.run(["git", "init", "-q", str(repo)], check=True)
+    subprocess.run(["git", "-C", str(repo), "config", "rerere.enabled", "true"], check=True)
+    (repo / "f.txt").write_text("x\n")
+    subprocess.run(["git", "-C", str(repo), "add", "f.txt"], check=True)
+
+    trace = tmp_path / "trace2.json"
+    subprocess.run(
+        ["git", "-C", str(repo), "commit", "-qm", "x"],
+        env={**os.environ, "GIT_TRACE2_EVENT": str(trace)},
+        check=True,
+    )
+    events = trace.read_text()
+    assert '"commit"' in events, (
+        "the trace2 stream does not record the commit itself, so it proves nothing:\n" + events
+    )
+    maintenance = [line for line in events.splitlines() if '"maintenance"' in line]
+    assert maintenance == [], "the commit started a git maintenance child process"
+
+
 def test_ssh_protocol_is_refused_by_the_throwaway_config(tmp_path):
     config_path = Path(os.environ["GIT_CONFIG_GLOBAL"]).read_text()
     assert "allow = never" in config_path

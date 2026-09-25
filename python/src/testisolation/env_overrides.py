@@ -103,6 +103,11 @@ def install(settings: Settings) -> None:
     # and a session commit identity so real-git fixtures that skip per-repo
     # identity still commit.
     #
+    # maintenance.auto=false: without it a git commit may start
+    # `git maintenance run --auto --detach` in the background, which keeps
+    # writing into .git after the commit returns and races the removal of the
+    # test's temporary directory ("unlinkat .git: directory not empty").
+    #
     # We deliberately do NOT set core.hooksPath here. core.hooksPath overrides
     # REPO-LOCAL hooks too, which would silently disable a suite's real
     # pre-push-hook tests. A global config cannot inject hooks on its own, so
@@ -118,6 +123,8 @@ def install(settings: Settings) -> None:
         "\tallow = never\n"
         "[init]\n"
         "\tdefaultBranch = main\n"
+        "[maintenance]\n"
+        "\tauto = false\n"
     )
     os.environ["GIT_CONFIG_GLOBAL"] = str(gitconfig)
     os.environ["GIT_CONFIG_SYSTEM"] = str(gitconfig)
