@@ -19,7 +19,7 @@ a test asserting the copies agree is only a fallback. Applying it here, over
 the old "duplicated on purpose" justification, is the owner's own call. The `CLAUDE.md` template
 sentence claiming the duplication was deliberate has already been removed
 (commit 3964208, regenerated in 8c60833); the "lockstep" bullet itself still
-describes the parity test and must be rewritten when this lands in code.
+describes the parity test and must be rewritten along with the code.
 
 Already done and not part of this work: the Python package moved to
 `requires-python = ">=3.14"` (commits 57c4b23 and 2bed0c8).
