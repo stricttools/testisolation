@@ -250,6 +250,14 @@ equivalent, and a partial guard would read as a guarantee.
 
 # ts-testisolation
 
+## 0.2.1
+
+git's background maintenance is disabled in test isolation so it no longer races test cleanup.
+
+### Fixes
+
+- [ts-testisolation] **git's background maintenance no longer races test cleanup.** `isolateGitConfig` now writes `maintenance.auto = false` into the throwaway system config, so a `git commit` in a test no longer starts a detached `git maintenance` run that keeps writing into `.git` while the test's temporary directory is being removed (`directory not empty`).
+
 ## 0.2.0
 
 First release under the name testisolation: the npm package and sandbox variable are renamed from stricttest.
