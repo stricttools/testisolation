@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "testisolation"
-version = "0.3.0"
+version = "0.4.0"
 description = "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node"
 readme = "README.md"
 requires-python = ">=3.14"

@@ -2,6 +2,18 @@
 
 # Changelog
 
+## 0.4.0
+
+Requires Python 3.14, and git's background maintenance is disabled in test isolation so it no longer races test cleanup.
+
+### Breaking
+
+- [testisolation] **Python 3.14 required.** The `testisolation` pytest plugin now declares `requires-python >=3.14`; installers on Python 3.11 to 3.13 can no longer install new versions.
+
+### Fixes
+
+- [testisolation] **git's background maintenance no longer races test cleanup.** The throwaway git config now carries `maintenance.auto = false`, so a `git commit` in a test no longer starts a detached `git maintenance` run that keeps writing into `.git` while `tmp_path` is being removed (`directory not empty`).
+
 ## 0.3.0
 
 First release under the name testisolation: the package, import name, plugin, ini keys, and sandbox variable are renamed from stricttest.
