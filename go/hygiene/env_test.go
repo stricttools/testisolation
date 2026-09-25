@@ -184,24 +184,27 @@ func TestThrowawayHomeIsPerTest(t *testing.T) {
 // IsolateGitConfig
 // ---------------------------------------------------------------------------
 
-func TestIsolateGitConfigPointsAtEmptyFilesInTheThrowawayHome(t *testing.T) {
+func TestIsolateGitConfigPointsAtThrowawayFilesInTheThrowawayHome(t *testing.T) {
 	t.Setenv("GIT_CONFIG_GLOBAL", "/poisoned/gitconfig")
 	t.Setenv("GIT_CONFIG_SYSTEM", "/poisoned/gitconfig")
 
 	t.Run("during", func(t *testing.T) {
 		IsolateGitConfig(t)
 		home := ThrowawayHome(t)
-		for _, env := range []string{"GIT_CONFIG_GLOBAL", "GIT_CONFIG_SYSTEM"} {
+		for env, want := range map[string]string{
+			"GIT_CONFIG_GLOBAL": "",
+			"GIT_CONFIG_SYSTEM": "[maintenance]\n\tauto = false\n",
+		} {
 			path := os.Getenv(env)
 			if !strings.HasPrefix(path, home+string(filepath.Separator)) {
 				t.Errorf("%s = %q, want a file inside the throwaway home %q", env, path, home)
 			}
-			info, err := os.Stat(path)
+			got, err := os.ReadFile(path)
 			if err != nil {
-				t.Fatalf("%s points at %q which does not exist: %v", env, path, err)
+				t.Fatalf("%s points at %q which cannot be read: %v", env, path, err)
 			}
-			if info.Size() != 0 {
-				t.Errorf("%s points at %q which is not empty (%d bytes)", env, path, info.Size())
+			if string(got) != want {
+				t.Errorf("%s points at %q holding %q, want %q", env, path, got, want)
 			}
 		}
 		if a, b := os.Getenv("GIT_CONFIG_GLOBAL"), os.Getenv("GIT_CONFIG_SYSTEM"); a == b {
@@ -254,6 +257,52 @@ func TestRealGitSeesNoUserConfigAndTheThrowawayIdentity(t *testing.T) {
 		}
 		if !strings.Contains(ident, identityEmail) {
 			t.Errorf("git author identity is %q, want the throwaway %q", strings.TrimSpace(ident), identityEmail)
+		}
+	})
+}
+
+// A git commit may start `git maintenance run --auto --detach` in the
+// background, which keeps writing into .git after the commit returns and races
+// the removal of the test's temporary directory ("unlinkat .git: directory not
+// empty"). rerere is enabled so the maintenance run would have work to do. The
+// child is observed through git's own trace2 event stream, which records every
+// child process git starts.
+func TestACommitStartsNoBackgroundMaintenance(t *testing.T) {
+	gitOrSkip(t)
+	t.Run("during", func(t *testing.T) {
+		IsolateGitConfig(t)
+		repo := t.TempDir()
+		for _, args := range [][]string{
+			{"init", "-q", repo},
+			{"-C", repo, "config", "rerere.enabled", "true"},
+		} {
+			if out, err := runGit(t, args...); err != nil {
+				t.Fatalf("git %v failed: %v\n%s", args, err, out)
+			}
+		}
+		if err := os.WriteFile(filepath.Join(repo, "f.txt"), []byte("x\n"), 0o600); err != nil {
+			t.Fatal(err)
+		}
+		if out, err := runGit(t, "-C", repo, "add", "f.txt"); err != nil {
+			t.Fatalf("git add failed: %v\n%s", err, out)
+		}
+
+		trace := filepath.Join(t.TempDir(), "trace2.json")
+		t.Setenv("GIT_TRACE2_EVENT", trace)
+		if out, err := runGit(t, "-C", repo, "commit", "-qm", "x"); err != nil {
+			t.Fatalf("git commit failed: %v\n%s", err, out)
+		}
+		events, err := os.ReadFile(trace)
+		if err != nil {
+			t.Fatalf("reading the trace2 event stream: %v", err)
+		}
+		if !strings.Contains(string(events), `"commit"`) {
+			t.Fatalf("the trace2 stream does not record the commit itself, so it proves nothing:\n%s", events)
+		}
+		for _, line := range strings.Split(string(events), "\n") {
+			if strings.Contains(line, `"maintenance"`) {
+				t.Errorf("the commit started a git maintenance child process: %s", line)
+			}
 		}
 	})
 }

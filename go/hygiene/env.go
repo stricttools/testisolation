@@ -118,17 +118,27 @@ func ThrowawayHome(t testing.TB) string {
 	return home
 }
 
+// systemGitConfig is what IsolateGitConfig writes into the throwaway system
+// config file. See IsolateGitConfig for why it disables automatic maintenance.
+const systemGitConfig = "[maintenance]\n\tauto = false\n"
+
 // IsolateGitConfig cuts git off from the developer's configuration and
-// identity: GIT_CONFIG_GLOBAL and GIT_CONFIG_SYSTEM point at empty files inside
-// the throwaway home (which it allocates through [ThrowawayHome] if the test
-// has not already), the author and committer identity become a throwaway one,
-// and GIT_TERMINAL_PROMPT is 0 so no git invocation can ever block a test on a
+// identity: GIT_CONFIG_GLOBAL and GIT_CONFIG_SYSTEM point at files inside the
+// throwaway home (which it allocates through [ThrowawayHome] if the test has
+// not already), the author and committer identity become a throwaway one, and
+// GIT_TERMINAL_PROMPT is 0 so no git invocation can ever block a test on a
 // password prompt.
 //
-// The config files are empty rather than carrying the identity, because the
-// GIT_AUTHOR_* / GIT_COMMITTER_* variables below already supply it and outrank
-// any config file -- a git invocation that ignores the config path entirely
-// still cannot commit as the developer.
+// The global file is empty. The system file carries only
+// maintenance.auto = false: without it a git commit may start
+// `git maintenance run --auto --detach` in the background, which keeps writing
+// into .git after the commit returns and races the removal of the test's
+// temporary directory ("unlinkat .git: directory not empty").
+//
+// Neither file carries the identity, because the GIT_AUTHOR_* /
+// GIT_COMMITTER_* variables below already supply it and outrank any config
+// file -- a git invocation that ignores the config path entirely still cannot
+// commit as the developer.
 //
 // core.hooksPath is deliberately NOT set. It overrides repo-local hooks too,
 // which would silently disable a suite's own pre-push-hook tests; an empty
@@ -137,12 +147,12 @@ func IsolateGitConfig(t testing.TB) {
 	t.Helper()
 	home := ThrowawayHome(t)
 
-	for _, cfg := range []struct{ env, file string }{
-		{"GIT_CONFIG_GLOBAL", "gitconfig-global"},
-		{"GIT_CONFIG_SYSTEM", "gitconfig-system"},
+	for _, cfg := range []struct{ env, file, content string }{
+		{"GIT_CONFIG_GLOBAL", "gitconfig-global", ""},
+		{"GIT_CONFIG_SYSTEM", "gitconfig-system", systemGitConfig},
 	} {
 		path := filepath.Join(home, cfg.file)
-		if err := os.WriteFile(path, nil, 0o600); err != nil {
+		if err := os.WriteFile(path, []byte(cfg.content), 0o600); err != nil {
 			t.Fatalf("hygiene: writing the throwaway %s file: %v", cfg.env, err)
 			return
 		}
