@@ -1,0 +1,1 @@
+{"format_version":1,"id":"18d89d507af927ea41db4eba016d4e35a8c1da2e44b25e9e","commits":["57c4b23a2d00f738688df7d812c8ea11b817a64f"],"user_facing":true,"description":"**Python 3.14 required.** The `testisolation` pytest plugin now declares `requires-python >=3.14`; installers on Python 3.11 to 3.13 can no longer install new versions.","type":"breaking","packages":["testisolation"]}
