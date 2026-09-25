@@ -30,7 +30,7 @@ func TestSomething(t *testing.T) {
 |--------|---------------|
 | `Isolate(t, opts...)` | Everything below, in one call |
 | `ThrowawayHome(t) string` | `HOME` / `USERPROFILE` and `XDG_CONFIG_HOME` / `XDG_DATA_HOME` / `XDG_CACHE_HOME` / `XDG_STATE_HOME` → a temporary directory (memoized per test) |
-| `IsolateGitConfig(t)` | Empty `GIT_CONFIG_GLOBAL` / `GIT_CONFIG_SYSTEM`, throwaway author and committer identity, `GIT_TERMINAL_PROMPT=0` |
+| `IsolateGitConfig(t)` | Empty `GIT_CONFIG_GLOBAL`, a `GIT_CONFIG_SYSTEM` carrying only `maintenance.auto = false` (no background `git maintenance` racing test cleanup), throwaway author and committer identity, `GIT_TERMINAL_PROMPT=0` |
 | `LockdownTransports(t)` | `GIT_ALLOW_PROTOCOL=file`, plus `GIT_SSH_COMMAND` and `GIT_PROXY_COMMAND` pinned to `/bin/false` |
 | `StripCredentials(t)` | Removes every variable in `CredentialVars` |
 | `Chdir(t, dir)` | Working directory for the test, restored afterwards (a failed restore fails the test) |
