@@ -1,0 +1,14 @@
+# Archived by rlsbl at release time. This release had no unreleased.toml
+# (a batch member takes its metadata from the batch release file); the
+# archive is written so later changelog regenerations keep the
+# description and context.
+# strictspec document version gate (do not remove)
+format_version = 1
+bump = "minor"
+include = ["pypi"]
+exclude = []
+description = "Requires Python 3.14, and git's background maintenance is disabled in test isolation so it no longer races test cleanup."
+candidate_sha = "c4ee7bf10a79e3346dd4b8900b524e5a7e7cf719"
+
+[tree_hashes]
+python = "6e6726f6178515b68cacb5bb77bae919c10de609"
