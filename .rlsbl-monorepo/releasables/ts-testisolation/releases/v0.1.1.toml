@@ -17,6 +17,7 @@ runs the corrected pipeline end to end and resyncs all three releasables to
 include = ["npm"]
 exclude = []
 candidate_sha = "57c74fd6739386b8f61096a0abca88e7958c005b"
+shipped_as = "ts-stricttest@v0.1.1"
 
 [tree_hashes]
 typescript = "49121d0ec6ea66739700eadb7c526c40a5c55473"

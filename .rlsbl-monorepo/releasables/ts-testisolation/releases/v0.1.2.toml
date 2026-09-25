@@ -10,6 +10,7 @@ exclude = []
 description = "Infrastructure only: refreshed release scaffolding, no package changes"
 context = "The only change in ts-stricttest's scope since 0.1.1 is a scaffold refresh --\nthe publish workflow and the recorded scaffold bases. Nothing in the shipped\npackage changed, so this release carries no user-facing entries and takes an\ninfra bump. It exists to keep the three floors on a coherent release line and to\nprove the refreshed publish pipeline end to end."
 candidate_sha = "ebdad6966e4374157eeec8e1ca73079fd12f2427"
+shipped_as = "ts-stricttest@v0.1.2"
 
 [tree_hashes]
 typescript = "26f0a3dc1b2cf9bf868834a43c95f618d51d7743"

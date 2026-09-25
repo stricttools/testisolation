@@ -13,6 +13,7 @@ exclude = []
 description = "First release of the stricttest npm package."
 context = "The Node member of the same floor, in the shape node:test allows: isolate(t)\nbinds to a TestContext directly and undoes itself when the test finishes, and\nthe package detects overlapping isolations rather than letting one test's HOME\nleak into another's. Bare-run refusal is a function the consumer calls, because\nnode --test runs each test file in its own child process and an --import setup\nmodule can never learn how large the run is. Like the Go module it ships no\nsocket guard, and no push guard either -- patching node:child_process is equally\nporous, and transport lockdown already closes the outcome."
 candidate_sha = "dd7e3a9a740d9243385a0f7cbfebccaf49bd6453"
+shipped_as = "ts-stricttest@v0.1.0"
 
 [tree_hashes]
 typescript = "722aba56484a36c944ed0b0358c05b17ff66f22c"
