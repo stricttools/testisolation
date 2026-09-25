@@ -123,6 +123,14 @@ a suite that has not declared where it stands should not be allowed to run.
 
 # go-testisolation
 
+## 0.3.1
+
+git's background maintenance is disabled in test isolation so it no longer races test cleanup.
+
+### Fixes
+
+- [go-testisolation] **git's background maintenance no longer races test cleanup.** `IsolateGitConfig` now writes `maintenance.auto = false` into the throwaway system config, so a `git commit` in a test no longer starts a detached `git maintenance` run that keeps writing into `.git` and fails the removal of `t.TempDir()` with `unlinkat .git: directory not empty`.
+
 ## 0.3.0
 
 First release under the name testisolation, with the module path github.com/stricttools/testisolation/go.
