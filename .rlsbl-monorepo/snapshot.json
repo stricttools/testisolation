@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T15:31:00Z",
+  "generated_at": "2026-09-25T19:50:44Z",
   "package_count": 4,
   "packages": {
     "testisolation": {
@@ -21,7 +21,7 @@
       "targets": [
         "go"
       ],
-      "version": "0.3.0",
+      "version": "0.3.1",
       "description": null,
       "deps": [],
       "rdeps": [],
