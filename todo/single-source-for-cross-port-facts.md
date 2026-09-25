@@ -10,15 +10,15 @@ The facts those ports share are hand-written in each port, kept in agreement by
 sources) and by the "lockstep" rules in `CLAUDE.md`.
 
 The copies had drifted in ways nothing documents as intended when this todo was
-filed (see "Behavior alignments"), and the next change was going to be one more
+filed (see step 3), and the next change was going to be one more
 triplicated fact: `maintenance.auto=false` for git (see "Step 1").
 
 The owner's rule: a fact declared in several places is reduced to one authority;
 a test asserting the copies agree is only a fallback. Applying it here, over the
 old "duplicated on purpose" justification, is the owner's own call. The
 `CLAUDE.md` template sentence making that justification is already removed
-(commit 3964208, regenerated in 8c60833); the "lockstep" bullet still describes
-the parity test and is rewritten along with the code.
+(commit 3964208, regenerated in 8c60833); the "lockstep" bullets are rewritten in
+step 5.
 
 Already done, not part of this work: the Python package moved to
 `requires-python = ">=3.14"` (commits 57c4b23 and 2bed0c8).
@@ -39,9 +39,11 @@ cleanup with `unlinkat .git: directory not empty`. It made safegit's CI fail on
 `TestReadReportsAQueueWithNoCurrentStep`, and safegit's pending 0.29.4 patch
 release waits on a testisolation release that disables automatic maintenance.
 
-- Every port writes `maintenance.auto = false` into its throwaway git system
-  config file (the file layout is section 3's; for this step, add the setting to
-  the files each port creates).
+- Every port writes `maintenance.auto = false` into the throwaway git config
+  file it creates: the system file in Go and TypeScript (`gitconfig-system`),
+  Python's single file. The setting is hand-written in each port for this
+  release; step 2 moves it into the data file and step 3 settles the file
+  layout.
 - Red tests first, one per port. The Go one exists, uncommitted, in
   `go/hygiene/env_test.go`: `TestACommitStartsNoBackgroundMaintenance` enables
   rerere, commits under `GIT_TRACE2_EVENT`, and fails if a `maintenance` child
@@ -54,7 +56,7 @@ release waits on a testisolation release that disables automatic maintenance.
   the monorepo release flow. Then safegit raises its dependency on
   `github.com/stricttools/testisolation/go` to that release.
 
-Everything after this step ships together in one later release, a minor bump
+Steps 2 to 5 ship together in one later release, a minor bump
 for every releasable it changes, because it contains breaking changes (the
 per-test database export API, what the git config files contain, Python's XDG
 layout).
@@ -98,7 +100,7 @@ generated file differs from what the generator would write.
 ### What moves into `spec/isolation.toml`
 
 - the credential variables stripped from the environment (without
-  `GIT_ASKPASS`, see section 3)
+  `GIT_ASKPASS`, see step 3)
 - the preserve enum (`PRESERVE_VARS` and its Go and TypeScript counterparts);
   generated messages that list its valid names use each port's spelling
 - the throwaway identity (`testisolation` / `testisolation@example.invalid`)
@@ -109,14 +111,16 @@ generated file differs from what the generator would write.
   (`GIT_ALLOW_PROTOCOL=file`, `GIT_SSH_COMMAND`, `GIT_PROXY_COMMAND`,
   `GIT_TERMINAL_PROMPT=0`, `GIT_ASKPASS`)
 - the git config file names (`gitconfig-global`, `gitconfig-system`) and the
-  settings and identity written into the system file (section 3)
+  settings and identity written into the system file (step 3)
 - the throwaway directory prefix, the sandbox variable `TESTISOLATION_SANDBOX`,
   and the runner command `scripts/test.sh`
 - message templates shared across ports. Their parameters are more than an
   option name: the bare-run refusal ("The sandbox binds the real repo
-  read-only…") varies by runner command, sandbox variable, test count, and
-  threshold, and Python's version ends with a pytest-specific tail ("a single
-  file or a -k slice"), which becomes a per-port parameter. The preserve-enum
+  read-only…") varies by runner command and sandbox variable; its threshold form
+  (Python, and TypeScript outside its `--import` form) also takes the test count
+  and threshold, while the always-only form (Go, and TypeScript's `--import`
+  form) takes neither; and Python's version ends with a pytest-specific tail ("a
+  single file or a -k slice"), which becomes a per-port parameter. The preserve-enum
   rejection lists the valid names in each port's spelling (Go's text lists none
   and has drifted). The launcher's messages take the language-specific option
   name (`socket_parent` / `SocketParent`) as a parameter.
@@ -127,7 +131,7 @@ generated file differs from what the generator would write.
   superuser, database, timeout), the initdb, pg_ctl, and psql flags, the `PG*`
   environment scrub plus `LC_ALL=C` / `LANG=C`, the `stpg-` / `stpg-data-`
   prefixes, the generated database name form, and the rejection labels
-  (section 3). Process spawning, cleanup (Python's atexit, Go's `testing.TB`),
+  (step 3). Process spawning, cleanup (Python's atexit, Go's `testing.TB`),
   and argument-list assembly stay hand-written.
 - package metadata: the one-line description, keywords, homepage, repository,
   and issues URLs. The generator writes them into `python/pyproject.toml` (with
@@ -185,8 +189,8 @@ them read their values from the generated files.
   credential-strip list.** In Go and TypeScript the pin moves into
   `LockdownTransports` / `lockdownTransports` (Python already pins it with its
   transport lockdown). Consequence to document: a consumer calling only
-  `StripCredentials` no longer clears `GIT_ASKPASS`; `LockdownTransports` pins
-  it instead, which is stronger (git cannot fall back to another askpass
+  `StripCredentials` / `stripCredentials` no longer clears `GIT_ASKPASS`;
+  `LockdownTransports` / `lockdownTransports` pins it instead, which is stronger (git cannot fall back to another askpass
   program).
 - **Python's XDG directories move inside the throwaway home** at the standard
   relative paths, like Go and TypeScript. Python creates them as siblings of the
@@ -255,8 +259,13 @@ them read their values from the generated files.
   `pgcluster`; the comments in `.rlsbl-monorepo/workspace.toml` describe watch
   keys the file does not have; the helper tables in the Go and TypeScript
   READMEs describe the git config files as empty, which step 3 makes false; the
-  parity claims in the README template and `CLAUDE.md` ("a cross-language test
-  holds…") become false when the generator replaces the parity test.
+  parity claim in the README template ("a cross-language test holds…") becomes
+  false when the generator replaces the parity test.
+- **`CLAUDE.md` rules (in the template `.stricttools/docs/_CLAUDE.md`,
+  regenerated with `selfdoc gen`):** rewrite the "three implementations stay in
+  lockstep" bullet and the "two cluster launchers stay in lockstep" bullet to say
+  the shared facts come from `spec/isolation.toml` through the generator and
+  what stays hand-written in each port.
 - **Docs version:** `selfdoc.json` declares documentation version 0.2.0, while
   at filing time the Python and Go releasables were at 0.3.0 and TypeScript at
   0.2.0. Find out how selfdoc and rlsbl intend a documentation version to be
