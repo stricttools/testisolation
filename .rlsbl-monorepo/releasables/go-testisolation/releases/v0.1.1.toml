@@ -17,6 +17,7 @@ runs the corrected pipeline end to end and resyncs all three releasables to
 include = ["go"]
 exclude = []
 candidate_sha = "57c74fd6739386b8f61096a0abca88e7958c005b"
+shipped_as = "go-stricttest@v0.1.1"
 
 [tree_hashes]
 go = "906717dea8b3ee4c788de17c99602f08164dbb9b"

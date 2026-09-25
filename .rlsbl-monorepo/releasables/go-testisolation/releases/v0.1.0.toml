@@ -13,6 +13,7 @@ exclude = []
 description = "First release of the stricttest Go env-hygiene module."
 context = "Go has no plugin mechanism, so the floor ships as explicit helpers: one\nhygiene.Isolate(t) call gives a test a throwaway HOME and XDG directory set, an\nempty git config with a throwaway identity, transports locked to file://, and an\nenvironment stripped of every ambient credential -- all restored when the test\nends. There is deliberately no socket guard: Go has no sys.addaudithook\nequivalent, and a partial guard would read as a guarantee."
 candidate_sha = "dd7e3a9a740d9243385a0f7cbfebccaf49bd6453"
+shipped_as = "go-stricttest@v0.1.0"
 
 [tree_hashes]
 go = "199ca3bea275560fa403ff1eea4ae901b1e119d7"
