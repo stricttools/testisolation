@@ -7,7 +7,7 @@ name = "testisolation"
 version = "0.3.0"
 description = "Uncompromising test isolation: your tests structurally cannot touch your real files, secrets, or git identity -- First-class support for Go, Python with pytest, and TypeScript with Node"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "S. M. Hosseini", email = "m.hosseini@veliu.com" }]
