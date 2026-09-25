@@ -23,8 +23,9 @@ installed, every session binds:
 - **Environment overrides.** A throwaway `HOME`, `USERPROFILE` and XDG directory set,
   created before any conftest module is imported.
 - **Throwaway git identity and config.** `GIT_CONFIG_GLOBAL` / `GIT_CONFIG_SYSTEM`
-  point at a session-local file carrying `protocol.ssh.allow=never` and a
-  throwaway commit identity; `GIT_AUTHOR_*` / `GIT_COMMITTER_*` are pinned to it.
+  point at a session-local file carrying `protocol.ssh.allow=never`,
+  `maintenance.auto=false`, and a throwaway commit identity; `GIT_AUTHOR_*` /
+  `GIT_COMMITTER_*` are pinned to it.
 - **Transport lockdown.** `GIT_ALLOW_PROTOCOL=file`; ssh, proxy, terminal prompt
   and askpass are wired to hard-fail.
 - **Credential stripping.** GitHub, npm, PyPI, cargo, AWS, Cloudflare and model
@@ -137,10 +138,11 @@ func TestSomething(t *testing.T) {
 }
 ```
 
-One call gives the test a throwaway `HOME` and XDG directory set, an empty git
-config with a throwaway identity, `GIT_ALLOW_PROTOCOL=file` with git's ssh and
-proxy helpers pinned to `/bin/false`, and an environment stripped of every
-ambient credential -- all restored when the test ends. `ThrowawayHome`,
+One call gives the test a throwaway `HOME` and XDG directory set, a throwaway git
+config with automatic maintenance off and a throwaway identity,
+`GIT_ALLOW_PROTOCOL=file` with git's ssh and proxy helpers pinned to
+`/bin/false`, and an environment stripped of every ambient credential -- all
+restored when the test ends. `ThrowawayHome`,
 `IsolateGitConfig`, `LockdownTransports`, `StripCredentials` and `Chdir` are
 exported individually, and `Preserve(hygiene.GoModCache, ...)` keeps the named
 toolchain caches pointing at the real home. Every helper mutates the environment
